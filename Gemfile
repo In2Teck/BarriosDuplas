@@ -5,8 +5,16 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+gem 'mysql2'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'cancan'
+gem 'rest-client'
+gem 'rest-graph'
+gem 'twitter'
+gem 'open_uri_redirections'
+gem "will_paginate"
 
 # Gems used only for assets and not required
 # in production environments by default.
