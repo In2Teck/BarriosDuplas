@@ -29,6 +29,30 @@ NosotrasCorremos::Application.routes.draw do
 
   resources :users
 
+  match 'admin' => 'display#admin', :as => :admin
+  
+  match 'home' => 'display#home', :as => :home
+  
+  match 'ranking' => 'display#ranking', :as => :ranking
+  
+  match 'terminos' => 'display#terminos', :as => :terminos
+
+  # VISTAS PARCIALES
+
+  match 'nombre_usuario' => 'display#nombre_usuario', :as => :nombre_usuario
+
+  match 'nombre_dupla' => 'display#nombre_dupla', :as => :nombre_dupla
+  
+  match 'invitar_amiga' => 'display#invitar_amiga', :as => :invitar_amiga
+  
+  match 'seleccion_barrio' => 'display#seleccion_barrio', :as => :seleccion_barrio
+  
+  match 'invitacion_aceptada' => 'display#invitacion_aceptada', :as => :invitacion_aceptada
+  
+  match 'run_clubs' => 'display#run_clubs', :as => :run_clubs
+  
+  match 'retos' => 'display#retos', :as => :retos
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
