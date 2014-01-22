@@ -1,4 +1,22 @@
 NosotrasCorremos::Application.routes.draw do
+  resources :participations
+
+
+  resources :challenges
+
+
+  resources :teams
+
+
+  resources :hoods
+
+
+  resources :runs
+
+
+  resources :invites
+
+
   resources :roles
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}

@@ -1,0 +1,33 @@
+<%= form_for(@participation) do |f| %>
+  <% if @participation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participation.errors.count, "error") %> prohibited this participation from being saved:</h2>
+
+      <ul>
+      <% @participation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :team_id %><br />
+    <%= f.number_field :team_id %>
+  </div>
+  <div class="field">
+    <%= f.label :challenge_id %><br />
+    <%= f.number_field :challenge_id %>
+  </div>
+  <div class="field">
+    <%= f.label :register_number %><br />
+    <%= f.number_field :register_number %>
+  </div>
+  <div class="field">
+    <%= f.label :accomplished %><br />
+    <%= f.check_box :accomplished %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

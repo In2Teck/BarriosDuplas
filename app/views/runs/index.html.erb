@@ -1,0 +1,37 @@
+<h1>Listing runs</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Run</th>
+    <th>Run url</th>
+    <th>Kilometers</th>
+    <th>Pace</th>
+    <th>Published date</th>
+    <th>Start date</th>
+    <th>Accounted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runs.each do |run| %>
+  <tr>
+    <td><%= run.user_id %></td>
+    <td><%= run.run_id %></td>
+    <td><%= run.run_url %></td>
+    <td><%= run.kilometers %></td>
+    <td><%= run.pace %></td>
+    <td><%= run.published_date %></td>
+    <td><%= run.start_date %></td>
+    <td><%= run.accounted %></td>
+    <td><%= link_to 'Show', run %></td>
+    <td><%= link_to 'Edit', edit_run_path(run) %></td>
+    <td><%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Run', new_run_path %>

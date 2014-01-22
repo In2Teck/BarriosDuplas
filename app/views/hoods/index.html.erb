@@ -1,0 +1,31 @@
+<h1>Listing hoods</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Picture url thumb</th>
+    <th>Picture url normal</th>
+    <th>Picture url big</th>
+    <th>Picture url fb</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hoods.each do |hood| %>
+  <tr>
+    <td><%= hood.name %></td>
+    <td><%= hood.picture_url_thumb %></td>
+    <td><%= hood.picture_url_normal %></td>
+    <td><%= hood.picture_url_big %></td>
+    <td><%= hood.picture_url_fb %></td>
+    <td><%= link_to 'Show', hood %></td>
+    <td><%= link_to 'Edit', edit_hood_path(hood) %></td>
+    <td><%= link_to 'Destroy', hood, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hood', new_hood_path %>

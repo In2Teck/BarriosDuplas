@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @run.user_id %>
+</p>
+
+<p>
+  <b>Run:</b>
+  <%= @run.run_id %>
+</p>
+
+<p>
+  <b>Run url:</b>
+  <%= @run.run_url %>
+</p>
+
+<p>
+  <b>Kilometers:</b>
+  <%= @run.kilometers %>
+</p>
+
+<p>
+  <b>Pace:</b>
+  <%= @run.pace %>
+</p>
+
+<p>
+  <b>Published date:</b>
+  <%= @run.published_date %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @run.start_date %>
+</p>
+
+<p>
+  <b>Accounted:</b>
+  <%= @run.accounted %>
+</p>
+
+
+<%= link_to 'Edit', edit_run_path(@run) %> |
+<%= link_to 'Back', runs_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  invited_user_id: MyString
+  invited_user_name: MyString
+  accepted: false
+
+two:
+  user_id: 1
+  invited_user_id: MyString
+  invited_user_name: MyString
+  accepted: false

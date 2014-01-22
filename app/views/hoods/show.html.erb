@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @hood.name %>
+</p>
+
+<p>
+  <b>Picture url thumb:</b>
+  <%= @hood.picture_url_thumb %>
+</p>
+
+<p>
+  <b>Picture url normal:</b>
+  <%= @hood.picture_url_normal %>
+</p>
+
+<p>
+  <b>Picture url big:</b>
+  <%= @hood.picture_url_big %>
+</p>
+
+<p>
+  <b>Picture url fb:</b>
+  <%= @hood.picture_url_fb %>
+</p>
+
+
+<%= link_to 'Edit', edit_hood_path(@hood) %> |
+<%= link_to 'Back', hoods_path %>
