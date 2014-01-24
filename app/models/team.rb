@@ -5,4 +5,13 @@ class Team < ActiveRecord::Base
   belongs_to :second_user, class_name: "User", foreign_key: "second_user_id"
   has_many :participations
   has_many :challenges, through: :participations
+
+  def validate_and_update_kilometers km
+    if self.first_user_id and self.second_user_id
+      self.update_attribute(:kilometers, (self.kilometers || 0) + km)
+    else
+      User.log_parse_error "Team #{self.id} is missing one user, #{km} kilometers won't be accounted."
+    end
+  end
+
 end
