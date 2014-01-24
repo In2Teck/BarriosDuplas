@@ -13,7 +13,8 @@ class DisplayController < ApplicationController
   end
 
   def home
-
+    #@invites = Invite.where("invited_user_facebook_id = ?", current_user.facebook_id) unless !current_user
+    @invites = Invite.where("invited_user_facebook_id = ?", "100000389125405").to_json unless !current_user
   end
   
   def ranking 

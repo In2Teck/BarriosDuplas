@@ -4,7 +4,8 @@ class CreateInvites < ActiveRecord::Migration
       t.integer :user_id
       t.string :invited_user_facebook_id
       t.string :invited_user_name
-      t.boolean :accepted, :default => false
+      t.string :request_facebook_id
+      t.boolean :accepted
 
       t.timestamps
     end

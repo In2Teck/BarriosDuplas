@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Nosotras Corremos</title>
-
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Juntas Corremos</title>
+  <meta charset="utf-8" />
+  <%= stylesheet_link_tag "application", "display", :media => "all" %>
   <%= yield :head_style %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "facebook", "main" %>
   <%= yield :head_script %>
   <%= csrf_meta_tags %>
 
@@ -39,5 +39,6 @@
 
 <%= yield %>
 
+<div id="fb-root">
 </body>
 </html>
