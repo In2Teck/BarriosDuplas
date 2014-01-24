@@ -14,4 +14,14 @@ class Team < ActiveRecord::Base
     end
   end
 
+  def self.calculate_total_ranking
+    Team.order("kilometers DESC")
+  end
+
+  def calculate_self_ranking
+    total_ranking = Team.order("kilometers DESC")
+    position = total_ranking.index(self)
+    return {:kilometers => self.kilometers, :position => (position + 1)}
+  end
+
 end
