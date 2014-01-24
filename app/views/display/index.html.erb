@@ -1,2 +1,22 @@
-<%= link_to 'Login con FB', user_omniauth_authorize_path(:facebook), :class => 'btn-facebook' %>
-<%= link_to 'Registro con TW', user_omniauth_authorize_path(:twitter), :class => 'btn-facebook' %>
+<% content_for :head_style do %>
+  <%= stylesheet_link_tag 'display' %>
+  <%= stylesheet_link_tag 'header' %>  
+<% end %>
+
+<div class="container background_juntas">
+  <div class="jumbotron centered">
+    <img src="/assets/escudo1.png" class="logo_home" />
+    <h1 class="rotated_title">JUNTAS CORREMOS.</h1>
+    <p class="lead_text">
+      EN 2014, LA META ES LLEGAR JUNTAS.<br/>
+      ELIGE UNA AMIGA Y COMPROMÉTANSE JUNTAS A SUPERAR AL 2013.<br/>
+      DESCARGA NIKE+ Y COMPARTE LAS CARRERAS EN TUS REDES PARA <br/>
+      SUMAR KILÓMETROS A TU EQUIPO.
+    </p>
+    <%= link_to '', 'https://itunes.apple.com/mx/app/nike+-running/id387771637?mt=8', :class => 'btn-nike', :target => '_blank' %>
+    <p class="lead_text">
+      SI YA TIENES NIKE+ INICIA TU SESIÓN.
+    </p>
+    <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'btn-facebook' %>
+  </div>
+</div>

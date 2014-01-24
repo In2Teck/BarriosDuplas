@@ -2,11 +2,40 @@
 <html>
 <head>
   <title>Nosotras Corremos</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= yield :head_style %>
   <%= javascript_include_tag "application" %>
+  <%= yield :head_script %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+  <div class="header">
+    <div class="headcontainer ">
+      <ul class="nav nav-pills">
+        <li><a class= "menubutton borderbutton" href="/" >NIKE</a></li>
+        <li><a class= "menubutton" href="http://www.nike.com/xl/es_la/c/just-do-it/" target="_blank" >ABOUT</a></li>
+        <li><%= link_to "RANKING", :ranking, :class => "menubutton" %></li>
+        <li><%= link_to "TÉRMINOS", :terminos, :class => "menubutton" %></li>
+      </ul>
+      <ul class="shares">
+        <% if user_signed_in? %>
+          <li class="perfilli"><%= image_tag('avatar.png',:class=>"avatar")%> <%= current_user.first_name %>
+            <ul>
+              <a href="/logout">
+                <li class="subsesion">
+                  Cerrar sesión
+                </li>
+              </a>
+            </ul>
+          </li>
+        <% end %>
+        <li><%= link_to image_tag("/assets/fb.png", :style => "width: 23px; height:22px;"), 'http://www.facebook.com/nikecorre', :target => "_blank" %></li>
+        <li><%= link_to image_tag("/assets/tw.png", :style => "width: 23px; height:22px;"), 'http://twitter.com/nikecorremx', :target => "_blank" %></li>
+      </ul>
+    </div>
+  </div>
 
 <%= yield %>
 

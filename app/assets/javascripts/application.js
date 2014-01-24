@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require prefixfree.min
+//= require modernizr.min 
+//= require bootstrap.min
