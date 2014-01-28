@@ -1,3 +1,17 @@
-<%= submit_tag 'Invitar',  :id => "invitar-btn", :onclick => "invitar()" %>
+<% content_for :head_script do %>
+  <%= javascript_include_tag 'home' %>
+<% end %>
+<% content_for :head_style do %>
+  <%= stylesheet_link_tag 'home' %>
+<% end %>
 
-<div id="ruby-values" data-invites="<%= @invites %>">
+<ul>
+  <li id="perfil">perfil</li>
+  <li><%= submit_tag 'Invitar',  :id => "invitar-btn", :onclick => "invitar()" %></li>
+  <li id="equipo">nombra tu equipo</li>
+  <li id="barrio">elige tu barrio</li>
+  <li id="ranking">ranking</li>
+  <li id="run_clubs">run clubs</li>
+  <li id="retos">retos</li>
+  <li id="amiga">amiga</li>
+</ul>
