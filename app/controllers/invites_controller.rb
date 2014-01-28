@@ -81,4 +81,22 @@ class InvitesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def invited_user
+    @invited_user = []
+    current_user.invites.each do |invite|
+      @invited_user.push(invite.invited_user_facebook_id)
+    end
+    render json: @invited_user, status: 200
+  end
+
+  def accept
+    invite = Invite.find(params[:invite_id])
+    invite.update_attribute(:accepted, true)
+    
+    team = Team.find_by_first_user_id(invite.user_id)
+    team.update_attribute(:second_user_id, current_user.id)
+
+    render json: invite, status: 200
+  end
 end

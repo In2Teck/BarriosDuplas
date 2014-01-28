@@ -41,15 +41,19 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(params[:team])
-
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
-        format.json { render json: @team, status: :created, location: @team }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+    user = User.find(@team.first_user_id)
+    if (!user.first_user_team && !user.second_user_team)
+      respond_to do |format|
+        if @team.save
+          format.html { redirect_to @team, notice: 'Team was successfully created.' }
+          format.json { render json: @team, status: :created, location: @team }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @team.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      render json: {:message => 'has team'}, status: 200
     end
   end
 

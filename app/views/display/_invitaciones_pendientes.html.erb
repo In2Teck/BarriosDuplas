@@ -1,0 +1,10 @@
+<div id="invites" data-invites="<%= @invites %>">
+<h3> INVITACIONES </h3>
+<article> VARIAS AMIGAS QUIEREN CORRER CONTIGO. ELIGE SOLO A UNA DE ELLAS Y COMPROMÉTANSE JUNTAS A VENCER AL 2013 </article>
+<% @invites.each do |invite| %>
+	<div id="invites-detail">
+		<%= image_tag ("http://graph.facebook.com/" + invite.user.facebook_id + "/picture?redirect=1") %>
+		<%= button_tag 'Aceptar', :id => invite.id, :onclick => "aceptarInvitacion(this)" %>
+	</div>
+<% end %>
+</div>

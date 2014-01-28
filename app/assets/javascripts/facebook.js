@@ -13,7 +13,7 @@ function referrerIsFacebookApp() {
 
 function redirectToServer() {
   var querystring = location.search;
-  top.location = 'http://localhost:3000/';
+  top.location = 'http://localhost:3000/';// + querystring;
 }
 
 $(document).on("ready", onReady);
@@ -66,7 +66,7 @@ function loadFB() {
   
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
-        console.log("conectado")
+        console.log("conectado");
       }
       else {
         console.log("error");
