@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag 'home' %>
 <% end %>
 
-<div id="home-values" data-invites="<%= @show_invites %>"></div>
+<div id="home-values" data-user="<%= @user%>" data-team="<%= @team %>" data-partner="<%= @partner %>" data-invited="<%= @invited %>" data-invites="<%= @show_invites %>"></div>
 <ul>
   <li id="perfil">perfil</li>
   <li><%= submit_tag 'Invitar',  :id => "invitar-btn", :onclick => "invitar()" %></li>
