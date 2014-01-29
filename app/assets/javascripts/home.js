@@ -93,12 +93,12 @@ function appendProfilePic(){
 
 function capturaPerfil(){
   var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+  modalDialogue(html);
 }
 
 function capturaEquipo(){
   var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+  modalDialogue(html);
 }
 
 function capturaBarrio(){
@@ -108,7 +108,7 @@ function capturaBarrio(){
 
 function interaccionAmiga(){
   var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+  modalDialogue(html);
 }
 
 function muestraRanking(){
@@ -117,10 +117,10 @@ function muestraRanking(){
 
 function muestraRunClubs(){
   var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+  modalDialogue(html);
 }
 
 function muestraRetos(){
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+  modalDialogue(html);
 }

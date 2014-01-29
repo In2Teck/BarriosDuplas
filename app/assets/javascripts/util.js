@@ -24,19 +24,19 @@ function modalAlert(title, message, options){
   $(".simplemodal-wrap").css("overflow","");
 }
 
-function modalDialogue(html, options){
-  
-  if (options == null) {
-    options = {};    
-  }
-  options["closeClass"] = "closeClass";
+function modalDialogue(html){
+
+  options = {
+    closeClass: 'closeClass',
+    overlayClose: true,
+    modal: false,
+    opacity: 80
+  };    
 
   $("#modal-content").remove();
   $("#modal-alert").append("<div id='modal-content'></div>");
   $("#modal-content").append(html);
   $("#modal-alert").modal(options);
-  $("#modal-alert").mCustomScrollbar();
-  $(".simplemodal-wrap").css("overflow","");
 }
 
 function modalInvites(title, message, usersHash, options){
