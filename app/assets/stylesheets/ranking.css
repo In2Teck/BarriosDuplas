@@ -13,6 +13,14 @@
   background-size: 400px 400px;
 }
 
+.s2x3{
+  display: inline-block;
+  width: 400px;
+  height: 600px;
+  vertical-align: top;
+  background-size: 400px 600px;
+}
+
 .s2x1{
   display: inline-block;
   width: 400px;
@@ -29,33 +37,19 @@
   background-size: 200px 200px;
 }
 
-.perfil{
-  background:url("/assets/bg_gradient_perfil.png");
-}
-
-.amiga{
-  background:url("/assets/bg_escoger.png");
-}
-
-.equipo{
-  background:url("/assets/bg_equipo.png");
-}
-
-.barrio{
-  background:url("/assets/bg_barrio.png");
-}
-
 .ranking{
-  background:url("/assets/bg_ranking_home.png");
-  cursor: pointer;
+  background:url("/assets/bg_ranking.png");
 }
 
-.retos{
-  background:url("/assets/bg_retos.png");
+.escudo{
+  width: 380px;
+  height: auto;
 }
 
-.run_clubs{
-  background:url("/assets/bg_club.png");
+.centra {
+  text-align: center;
+  margin: auto;
+  padding-top: 60px;
 }
 
 @media screen and (max-width: 900px) {
@@ -65,6 +59,15 @@
     height: 600px;
     width: 300px;
   } 
+
+  .s2x3{
+    display: inline-block;
+    width: 300px;
+    height: 450px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 300px 450px;
+  }
 
   .s2x2{
     display: inline-block;
@@ -91,5 +94,10 @@
     vertical-align: top;
     cursor: pointer;
     background-size: 150px 150px;
+  }
+
+  .escudo{
+    width: 270px;
+    height: auto;
   }
 }

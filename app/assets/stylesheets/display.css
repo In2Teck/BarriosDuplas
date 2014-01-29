@@ -203,6 +203,14 @@
 .img_transparent{
   opacity: 0.6;
   width: 400px;
+  height: 400px;
+  display: block;
+  margin: 1px auto auto auto;
+}
+
+.img_transparent_modal{
+  opacity: 0.6;
+  width: 400px;
   height: 410px;
   display: block;
   margin: 1px auto auto auto;
@@ -230,6 +238,11 @@
   }
 
   .img_transparent{
+    width: 200px;
+    height: 200px;
+  }
+
+  .img_transparent_modal{
     width: 200px;
     height: 206px;
   }

@@ -39,6 +39,21 @@ function modalDialogue(html){
   $("#modal-alert").modal(options);
 }
 
+function modalRanking(html){
+
+  options = {
+    closeClass: 'closeClass',
+    overlayClose: true,
+    modal: false,
+    opacity: 80
+  };    
+
+  $("#modal-content").remove();
+  $("#modal-alert").append("<div id='modal-content'></div>");
+  $("#modal-content").append(html);
+  $("#modal-alert").modal(options);
+}
+
 function modalInvites(title, message, usersHash, options){
   
   if (options == null) {

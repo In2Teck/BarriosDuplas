@@ -9,7 +9,9 @@ class DisplayController < ApplicationController
 	end
 
   def index #welcome + signup
-
+    if current_user
+      redirect_to :home
+    end
   end
 
   def home
@@ -51,7 +53,24 @@ class DisplayController < ApplicationController
   end
   
   def ranking 
+    if current_user
+      redirect_to :home_ranking
+    end
+    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 5)
+  end
 
+  def home_ranking
+    @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
+    if (@team.first_user_id == current_user.id)
+      @partner = User.find(@team.second_user_id)
+      @team = @team
+    elsif (@team.second_user_id == current_user.id)
+      @partner = User
+      @team = @team
+    end
+    @challenges = @team.completed_challenges 
+    @self_ranking = @team.calculate_self_ranking
+    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 5)
   end
 
   def terminos

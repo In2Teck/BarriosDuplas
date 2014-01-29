@@ -1,0 +1,24 @@
+<% content_for :head_script do %>
+  <%= javascript_include_tag 'ranking' %>
+<% end %>
+<% content_for :head_style do %>
+  <%= stylesheet_link_tag 'index' %>
+  <%= stylesheet_link_tag 'ranking' %>
+<% end %>
+
+<div class="container background_juntas">
+  <div id="contenedor">
+    <div id="ranking" class="ranking s2x3">
+      <h2>RANKING</h2>
+      <ul id="ranking_lista">
+        <% @total_ranking.each_with_index do |team, i| %>
+          <li><%= i+1+@total_ranking.offset %>. <%= team.name %></li>
+        <% end %>
+      </ul>
+      <%= will_paginate @total_ranking, :page_links => true, :next_label=>'<div class=""></div>', :previous_label=>'<div class=""></div>'%>
+    </div
+    ><div id="contenedor_derecha" class="ranking centra s2x3"
+    ><%= image_tag "escudo_ranking.png", :class => "escudo" %>
+    </div>
+  </div>
+</div>

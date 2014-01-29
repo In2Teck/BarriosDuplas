@@ -37,6 +37,8 @@ NosotrasCorremos::Application.routes.draw do
   
   match 'ranking' => 'display#ranking', :as => :ranking
   
+  match 'home_ranking' => 'display#home_ranking', :as => :home_ranking
+  
   match 'terminos' => 'display#terminos', :as => :terminos
 
   # VISTAS PARCIALES

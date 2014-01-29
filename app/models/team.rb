@@ -24,4 +24,11 @@ class Team < ActiveRecord::Base
     return {:kilometers => self.kilometers, :position => (position + 1)}
   end
 
+  def completed_challenges
+    challenges = {}
+    self.participations.each do |participation|
+      challenges[participation.challenge_id] = Challenge.find(participation.challenge_id)
+    end 
+  end
+
 end

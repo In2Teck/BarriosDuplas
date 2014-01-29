@@ -1,0 +1,41 @@
+<% content_for :head_script do %>
+  <%= javascript_include_tag 'home_ranking' %>
+<% end %>
+<% content_for :head_style do %>
+  <%= stylesheet_link_tag 'home_ranking' %>
+<% end %>
+
+<div id="home-ranking-values" data-user="<%= @user%>" data-team="<%= @team.to_json(:only => [:id, :name]) %>" data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" data-challenges="<%= %>" data-self-ranking="<%= @self_ranking %>" ></div>
+
+<div id="contenedor">
+  <div id="ranking" class="ranking s2x3">
+    <h2>RANKING</h2>
+    <ul id="ranking_lista">
+      <% @total_ranking.each_with_index do |team, i| %>
+        <li><%= i+1+@total_ranking.offset %>. <%= team.name %></li>
+      <% end %>
+    </ul>
+    <%= will_paginate @total_ranking, :page_links => true, :next_label=>'<div class=""></div>', :previous_label=>'<div class=""></div>'%>
+  </div
+  ><div id="contenedor_derecha" class="s2x3"
+    ><div id="contenedor_arriba_derecha" class="s2x1"
+      ><div><div id="participante" class="participante s1x1">
+        <h3><%= current_user.first_name %> <%= current_user.last_name %></h3
+        ></div
+        ><div id="participante_amiga" class="participante s1x1">
+        <h3><%= @partner.first_name %> <%= @partner.last_name %></h3></div
+      ></div
+      ><div id="equipo_stats" class="equipo_stats s2x1">
+        <h3>EQUIPO:</h3>
+        <h2><%= @team.name %></h2>
+        <p><%= @self_ranking[:kilometers] %> KMS</p>
+        <p>POSICION: <%= @self_ranking[:position] %></p>
+    </div
+    ><div id="retos_logrados" class="retos_logrados s2x1">
+        <p>RETOS</p>
+        <p>LOGRADOS</p>
+        <div>
+          <p><%= @challenges.length %>/<%= Challenge.all.count %></p>
+        </div>
+    </div>
+</div>

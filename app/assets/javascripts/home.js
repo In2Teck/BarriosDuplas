@@ -79,7 +79,7 @@ function onReady() {
           $("#simplemodal-container").css(simplemodal_container);
           $("#sub_der").css(sub_der);
           $("#sub_izq").css(sub_izq);
-          $(".img_transparent").css(img_transparent);
+          $(".img_transparent_modal").css(img_transparent);
 
       }, pause);
   });
@@ -92,7 +92,7 @@ function appendProfilePic(){
 }
 
 function capturaPerfil(){
-  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal' /></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
   modalDialogue(html);
 }
 
@@ -112,7 +112,7 @@ function interaccionAmiga(){
 }
 
 function muestraRanking(){
-
+  window.location.href = "/home_ranking"; 
 }
 
 function muestraRunClubs(){
