@@ -71,20 +71,33 @@
   margin-right: 2px;
 }
 
+.perfilli {
+}
+
+.subsesion{
+  position: absolute;
+  top: 40px;
+  margin: 0 0 0 -40px;
+  padding: 1px 0 4px 12px !important;
+  width: 80px;
+  color: black;
+  background-color: #CCCCCC;
+  display: none;
+}
+
 .shares {
   float: right;
   height: 40px;
-  color: white
 }
 
 .shares li{
-    font-family: 'Conv_FuturaStd-MediumCondensed',Sans-Serif;
-    font-smoothing: antialiased;
-    text-decoration: none;
-    float: left;
-    cursor: pointer;
-    padding: 8px 0 0 12px;
-    list-style-type: none;
+  font-family: 'FuturaStd-MediumCondensed',Sans-Serif;
+  font-smoothing: antialiased;
+  text-decoration: none;
+  float: left;
+  cursor: pointer;
+  padding: 8px 0 0 12px;
+  list-style-type: none;
 }
 
 /* for modal */
@@ -128,31 +141,29 @@
 .profile_izq {
   margin: 0 -2px 0 0;
   background:url("/assets/bg_gradient_perfil.png");
-  background-size: 400px 412px;
 }
 
 .equipo_izq {
   background:url("/assets/bg_gradient_equipo.png");
-  background-size: 400px 412px;
 }
 
 .barrio_izq {
   background:url("/assets/bg_gradient_barrio.png");
-  background-size: 400px 412px;
 }
 
 .amiga_izq {
   background:url("/assets/bg_amiga_izq.png");
-  background-size: 400px 412px;
 }
 
 .run_club_izq {
   background:url("/assets/bg_run_club.png");
-  background-size: 400px 412px;
 }
 
 .retos_izq {
   background:url("/assets/bg_retos_der.png");
+}
+
+.responsive_bck {
   background-size: 400px 412px;
 }
 
@@ -165,32 +176,26 @@
 .profile_der{
   background:url("/assets/bg_modal_perfil.png");
   margin: 0 0 0 -2px;
-  background-size: 400px 412px;
 }
 
 .equipo_der{
   background:url("/assets/bg_modal_perfil.png");
-  background-size: 400px 412px;
 }
 
 .barrio_der{
   background:url("/assets/bg_modal_perfil.png");
-  background-size: 400px 412px;
 }
 
 .amiga_der {
   background:url("/assets/bg_amiga_der.png");
-  background-size: 400px 412px;
 }
 
 .run_club_der {
   background:url("/assets/bg_amiga_der.png");
-  background-size: 400px 412px;
 }
 
 .retos_der {
   background:url("/assets/bg_retos_der.png");
-  background-size: 400px 412px;
 }
 
 .img_transparent{
@@ -218,13 +223,7 @@
     height: 206px;
   }
 
-  .profile_izq {
-    margin-bottom:0 0 -2px 0;
-    background-size: 200px 206px;
-  }
-
-  .profile_der{
-    margin-top:-2px 0 0 0;
+  .responsive_bck {
     background-size: 200px 206px;
   }
 

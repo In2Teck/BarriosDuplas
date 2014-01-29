@@ -1,3 +1,14 @@
+$(document).on("ready", init);
+
+function init(){
+
+  $(".shares").mouseenter( function() {
+    $( ".subsesion" ).show();
+  } ).mouseleave(function(){
+    $( ".subsesion" ).hide();
+  });
+}
+
 function modalAlert(title, message, options){
 
   if (options == null) {
