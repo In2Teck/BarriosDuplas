@@ -81,8 +81,12 @@
   padding: 1px 0 4px 12px !important;
   width: 80px;
   color: black;
-  background-color: #CCCCCC;
+  background-color: #DCDCDC;
   display: none;
+}
+
+.subsesion:hover{
+  background-color: #ACACAC;
 }
 
 .shares {
@@ -139,7 +143,6 @@
 }
 
 .profile_izq {
-  margin: 0 -2px 0 0;
   background:url("/assets/bg_gradient_perfil.png");
 }
 
@@ -175,7 +178,6 @@
 
 .profile_der{
   background:url("/assets/bg_modal_perfil.png");
-  margin: 0 0 0 -2px;
 }
 
 .equipo_der{
@@ -199,7 +201,7 @@
 }
 
 .img_transparent{
-  opacity: 0.5;
+  opacity: 0.6;
   width: 400px;
   height: 410px;
   display: block;
@@ -237,6 +239,7 @@
   .shares{
     display: none;
   }
+
   .nav-pills > li + li > a {
     margin-left:0px;
   }

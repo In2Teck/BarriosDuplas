@@ -1,0 +1,97 @@
+#contenedor {
+  margin: 30px auto auto;
+  padding: 0;
+  height: 600px;
+  width: 800px;
+}
+
+.s2x2{
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  vertical-align: top;
+  cursor: pointer;
+  background-size: 400px 400px;
+}
+
+.s2x1{
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  vertical-align: top;
+  cursor: pointer;
+  background-size: 400px 200px;
+}
+
+.s1x1{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  vertical-align: top;
+  cursor: pointer;
+  background-size: 200px 200px;
+}
+
+.perfil{
+  background:url("/assets/bg_gradient_perfil.png");
+}
+
+.amiga{
+  background:url("/assets/bg_escoger.png");
+}
+
+.equipo{
+  background:url("/assets/bg_equipo.png");
+}
+
+.barrio{
+  background:url("/assets/bg_barrio.png");
+}
+
+.ranking{
+  background:url("/assets/bg_ranking_home.png");
+}
+
+.retos{
+  background:url("/assets/bg_retos.png");
+}
+
+.run_clubs{
+  background:url("/assets/bg_club.png");
+}
+
+@media screen and (max-width: 900px) {
+  #contenedor {
+    margin: 30px auto auto;
+    padding: 0;
+    height: 600px;
+    width: 300px;
+  } 
+
+  .s2x2{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 300px 300px;
+  }
+
+  .s2x1{
+    display: inline-block;
+    width: 300px;
+    height: 150px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 300px 150px;
+  }
+
+  .s1x1{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 150px 150px;
+  }
+}

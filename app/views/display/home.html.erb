@@ -6,13 +6,13 @@
 <% end %>
 
 <div id="home-values" data-user="<%= @user%>" data-team="<%= @team %>" data-partner="<%= @partner %>" data-invited="<%= @invited %>" data-invites="<%= @show_invites %>"></div>
-<ul>
-  <li id="perfil">perfil</li>
-  <li><%= submit_tag 'Invitar',  :id => "invitar-btn", :onclick => "invitar()" %></li>
-  <li id="equipo">nombra tu equipo</li>
-  <li id="barrio">elige tu barrio</li>
-  <li id="ranking">ranking</li>
-  <li id="run_clubs">run clubs</li>
-  <li id="retos">retos</li>
-  <li id="amiga">amiga</li>
-</ul>
+
+<div id="contenedor">
+  <div id="perfil" class="perfil s2x2"></div
+  ><div id="contenedor_arriba_derecha" class="s2x2"><div id="amiga" class="amiga s2x1"></div
+  ><div id="equipo" class="equipo s1x1"></div
+  ><div id="barrio" class="barrio s1x1"></div></div
+  ><div id="ranking" class="ranking s2x1"></div
+  ><div id="run_clubs" class="run_clubs s1x1"></div
+  ><div id="retos" class="retos s1x1"></div>
+</div>

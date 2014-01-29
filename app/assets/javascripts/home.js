@@ -36,7 +36,7 @@ function onReady() {
               padding: 0
             }
             img_transparent = {
-              opacity: 0.5,
+              opacity: 0.6,
               width: "200px",
               height: "206px",
               display: "block",
@@ -68,7 +68,7 @@ function onReady() {
               margin: 0
             }
             img_transparent = {
-              opacity: 0.5,
+              opacity: 0.6,
               width: "400px",
               height: "410px",
               display: "block",
@@ -85,25 +85,29 @@ function onReady() {
   });
 
   $(window).resize();
+  appendProfilePic();
+}
+function appendProfilePic(){
+  $("#perfil").append("<img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div>");
 }
 
 function capturaPerfil(){
-  var html = "<div id='sub_izq' class='profile_izq responsive_bck'> <img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/> </div> <div id='sub_der' class='profile_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
 
 function capturaEquipo(){
-  var html = "<div id='sub_izq' class='equipo_izq responsive_bck'> </div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
 
 function capturaBarrio(){
-  var html = "<div id='sub_izq' class='barrio_izq responsive_bck'> </div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
 
 function interaccionAmiga(){
-  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'> </div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
 
@@ -112,11 +116,11 @@ function muestraRanking(){
 }
 
 function muestraRunClubs(){
-  var html = "<div id='sub_izq' class='run_club_izq responsive_bck'> </div><div id='sub_der' class='run_club_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
 
 function muestraRetos(){
-  var html = "<div id='sub_izq' class='retos_izq responsive_bck'> </div><div id='sub_der' class='retos_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck'></div>"; 
   modalDialogue(html, null);
 }
