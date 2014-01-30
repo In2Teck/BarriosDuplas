@@ -6,15 +6,24 @@ var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 function onReady() {
   facebook_id = $("#ruby-values").data("facebook-id");
   if ($("#home-values").data("user").register_complete) {
+    appendProfilePic();
+
+    if(!$("#home-values").data("team")){
+      $("#amiga").addClass("cursor_pointer");
+      $("#amiga").on("click", interaccionAmiga);
+    }
+
     $("#equipo").on("click", capturaEquipo);
     $("#barrio").on("click", capturaBarrio);
     $("#ranking").on("click", muestraRanking);
     $("#run_clubs").on("click", muestraRunClubs);
     $("#retos").on("click", muestraRetos);
-    $("#amiga").on("click", interaccionAmiga);
+
   }
   else {
-    capturaPerfil()
+    resetCssProperty("perfil", "background", "url()");
+    resetCssProperty("perfil", "background-color", "#2A2A2A");
+    capturaPerfil();
   }
   var pause = 50; 
   $(window).resize(function() {
@@ -82,16 +91,17 @@ function onReady() {
           $("#simplemodal-container").css(simplemodal_container);
           $("#sub_der").css(sub_der);
           $("#sub_izq").css(sub_izq);
-          $(".img_transparent").css(img_transparent);
+          $(".img_transparent_modal").css(img_transparent);
 
       }, pause);
   });
 
   $(window).resize();
-  appendProfilePic();
 }
+
 function appendProfilePic(){
   $("#perfil").append("<img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div>");
+  $("#perfil").append("<div id='profile_name'><h2>" + $("#home-values").data("user")["first_name"] + " " + $("#home-values").data("user")["last_name"] + "</h2></div>");
 }
 
 function capturaPerfil() {
@@ -100,8 +110,8 @@ function capturaPerfil() {
     url: "/nombre_usuario",
     data_type: "html",
     success: function(data, textStatus, jqXHR) {
-      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
-      modalDialogue(html);
+      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+      modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
       $("#sub_der").html(data); 
     },
     error: function() {
@@ -151,12 +161,13 @@ function capturaBarrio() {
 }
 
 function interaccionAmiga() {
-  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
-  modalDialogue(html);
+  //var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
+  //modalDialogue(html);
+  invitar();
 }
 
 function muestraRanking() {
-
+  //window.location.href = "/home_ranking"; 
 }
 
 function muestraRunClubs() {
@@ -187,7 +198,10 @@ function registrarNombre() {
       url: "/users/" + $("#home-values").data("user").id + ".json",
       success: function(data, textStatus, jqXHR) {
         $.modal.close();
-        //algo más?
+        // Pone background de perfil
+        resetCssProperty("perfil", "background-color", "");
+        resetCssProperty("perfil", "background", "url('/assets/bg_gradient_perfil.png')");
+        appendProfilePic();
       },
       error: function() {
       } 

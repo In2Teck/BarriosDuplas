@@ -24,19 +24,24 @@ function modalAlert(title, message, options){
   $(".simplemodal-wrap").css("overflow","");
 }
 
-function modalDialogue(html){
+function modalDialogue(html, options){
 
-  options = {
-    closeClass: 'closeClass',
-    overlayClose: true,
-    modal: false,
-    opacity: 80
-  };    
+  if (options == null) {
+    options = {
+      closeClass: 'closeClass',
+      overlayClose: true,
+      modal: false,
+      opacity: 75 
+    };
+  } 
 
   $("#modal-content").remove();
   $("#modal-alert").append("<div id='modal-content'></div>");
   $("#modal-content").append(html);
   $("#modal-alert").modal(options);
+  $(".simplemodal-wrap").css("overflow","hidden");
+  $(".simplemodal-overlay").css("width","100%");
+  $(".simplemodal-overlay").css("height","100%");
 }
 
 function modalRanking(html){
@@ -75,4 +80,8 @@ function modalInvites(title, message, usersHash, options){
   $("#modal-alert").modal(options);
   $("#modal-alert").mCustomScrollbar();
   $(".simplemodal-wrap").css("overflow","");
+}
+
+function resetCssProperty(css_class, property, value) {
+  $("." + css_class).css(property, value);
 }

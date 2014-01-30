@@ -16,5 +16,4 @@
 //= require modernizr.min 
 //= require bootstrap.min
 //= require jquery.simplemodal.min
-//= require jquery.mCustomScrollbar.min
 //= require util

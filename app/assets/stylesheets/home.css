@@ -47,7 +47,6 @@
 
 .ranking{
   background:url("/assets/bg_ranking_home.png");
-  cursor: pointer;
 }
 
 .retos{
@@ -56,6 +55,10 @@
 
 .run_clubs{
   background:url("/assets/bg_club.png");
+}
+
+#profile_name {
+  margin-top: -120px;
 }
 
 @media screen and (max-width: 900px) {
@@ -71,7 +74,6 @@
     width: 300px;
     height: 300px;
     vertical-align: top;
-    cursor: pointer;
     background-size: 300px 300px;
   }
 
@@ -80,7 +82,6 @@
     width: 300px;
     height: 150px;
     vertical-align: top;
-    cursor: pointer;
     background-size: 300px 150px;
   }
 
@@ -89,7 +90,10 @@
     width: 150px;
     height: 150px;
     vertical-align: top;
-    cursor: pointer;
     background-size: 150px 150px;
   }
+}
+
+.modal_input {
+  float: right;
 }
