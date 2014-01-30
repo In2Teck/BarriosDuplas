@@ -5,14 +5,17 @@ var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 
 function onReady() {
   facebook_id = $("#ruby-values").data("facebook-id");
-  $("#perfil").on("click", capturaPerfil);
-  $("#equipo").on("click", capturaEquipo);
-  $("#barrio").on("click", capturaBarrio);
-  $("#ranking").on("click", muestraRanking);
-  $("#run_clubs").on("click", muestraRunClubs);
-  $("#retos").on("click", muestraRetos);
-  $("#amiga").on("click", interaccionAmiga);
-
+  if ($("#home-values").data("user").register_complete) {
+    $("#equipo").on("click", capturaEquipo);
+    $("#barrio").on("click", capturaBarrio);
+    $("#ranking").on("click", muestraRanking);
+    $("#run_clubs").on("click", muestraRunClubs);
+    $("#retos").on("click", muestraRetos);
+    $("#amiga").on("click", interaccionAmiga);
+  }
+  else {
+    capturaPerfil()
+  }
   var pause = 50; 
   $(window).resize(function() {
       setTimeout(function() {
@@ -79,7 +82,7 @@ function onReady() {
           $("#simplemodal-container").css(simplemodal_container);
           $("#sub_der").css(sub_der);
           $("#sub_izq").css(sub_izq);
-          $(".img_transparent_modal").css(img_transparent);
+          $(".img_transparent").css(img_transparent);
 
       }, pause);
   });
@@ -91,36 +94,150 @@ function appendProfilePic(){
   $("#perfil").append("<img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div>");
 }
 
-function capturaPerfil(){
-  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal' /></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
-  modalDialogue(html);
+function capturaPerfil() {
+  $.ajax({
+    type: "GET",
+    url: "/nombre_usuario",
+    data_type: "html",
+    success: function(data, textStatus, jqXHR) {
+      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+      modalDialogue(html);
+      $("#sub_der").html(data); 
+    },
+    error: function() {
+    } 
+  });
 }
 
-function capturaEquipo(){
-  var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
-  modalDialogue(html);
+function capturaEquipo() {
+  var team = $("#home-values").data("team");
+  if (team != "" && team.name == null) {
+    $.ajax({
+      type: "GET",
+      url: "/nombre_dupla",
+      data_type: "html",
+      success: function(data, textStatus, jqXHR) {
+        var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
+        modalDialogue(html);
+        $("#sub_der").html(data); 
+      },
+      error: function() {
+      } 
+    });
+  }
 }
 
-function capturaBarrio(){
-  var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
-  modalDialogue(html, null);
+function capturaBarrio() {
+  if ($("#home-values").data("user").hood == null) {
+    $.ajax({
+      type: "GET",
+      url: "/seleccion_barrio",
+      data_type: "html",
+      success: function(data, textStatus, jqXHR) {
+        var hoods = [];
+        var all = $(data + "#hood-values").data("hoods");
+        for (var index = 0; index < all.length; index++) {
+          hoods.push(all[index].name);
+        }
+        var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
+        modalDialogue(html, null);
+        $("#sub_der").html(data);
+        $("#hood-name-txt").autocomplete({source: hoods});
+      },
+      error: function() {
+      } 
+    });
+  }
 }
 
-function interaccionAmiga(){
+function interaccionAmiga() {
   var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
   modalDialogue(html);
 }
 
-function muestraRanking(){
-  window.location.href = "/home_ranking"; 
+function muestraRanking() {
+
 }
 
-function muestraRunClubs(){
+function muestraRunClubs() {
   var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck'></div>"; 
   modalDialogue(html);
 }
 
-function muestraRetos(){
+function muestraRetos() {
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck'></div>"; 
   modalDialogue(html);
+}
+
+function registrarNombre() {
+  var firstN = $("#first-name-txt").val();
+  var lastN = $("#last-name-txt").val();
+  if (firstN != "" && lastN != "") {
+    var user = {
+      "user": {
+        "first_name": firstN,
+        "last_name": lastN,
+        "register_complete": true
+      }
+    };
+    user.register_complete = true;
+    $.ajax({
+      type: "PUT",
+      data: user,
+      url: "/users/" + $("#home-values").data("user").id + ".json",
+      success: function(data, textStatus, jqXHR) {
+        $.modal.close();
+        //algo más?
+      },
+      error: function() {
+      } 
+    });
+  }
+  else {
+    //no han llenado los valores
+  }
+}
+
+function registrarEquipo() {
+  var equipoN = $("#team-name-txt").val();
+  if (equipoN != "") {
+    var team = {
+      "team": {
+        "name": equipoN
+      }
+    };
+     $.ajax({
+      type: "PUT",
+      data: team,
+      url: "/teams/" + $("#home-values").data("team").id + ".json",
+      success: function(data, textStatus, jqXHR) {
+        $.modal.close();
+        //poner el nombre del equipo sobre el contenedor
+      },
+      error: function() {
+      } 
+    });
+  }
+}
+
+function registrarBarrio() {
+  var barrioN = $("#barrio-name-txt").val();
+  if (barrioN != "") {
+    var user = {
+      "team": {
+        "name": equipoN
+      }
+    };
+     $.ajax({
+      type: "PUT",
+      data: user,
+      url: "/users/" + $("#home-values").data("user").id + ".json",
+      success: function(data, textStatus, jqXHR) {
+        $.modal.close();
+        //poner el barrio en el contenedor
+      },
+      error: function() {
+      } 
+    });
+  }
 }

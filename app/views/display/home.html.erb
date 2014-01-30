@@ -1,8 +1,8 @@
 <% content_for :head_script do %>
-  <%= javascript_include_tag 'home' %>
+  <%= javascript_include_tag 'home', 'jquery-ui' %>
 <% end %>
 <% content_for :head_style do %>
-  <%= stylesheet_link_tag 'home' %>
+  <%= stylesheet_link_tag 'home', 'jquery-ui', :media => "all"%>
 <% end %>
 
 <div id="home-values" data-user="<%= @user%>" data-team="<%= @team %>" data-partner="<%= @partner %>" data-invited="<%= @invited %>" data-invites="<%= @show_invites %>"></div>

@@ -15,7 +15,7 @@ class DisplayController < ApplicationController
   end
 
   def home
-    @user = User.find(current_user.id).to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}})
+    @user = User.find(current_user.id).to_json(:only => [:id, :first_name, :last_name, :register_complete], :include => {:hood => {:only => [:name]}})
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
     @partner = nil
     @invited = nil
@@ -80,11 +80,11 @@ class DisplayController < ApplicationController
   #VISTAS PARCIALES
 
   def nombre_usuario
-
+    render :partial => 'nombre_usuario', :content_type => 'text/html'
   end
 
   def nombre_dupla
-
+    render :partial => 'nombre_dupla', :content_type => 'text/html'
   end
 
   def invitar_amiga
@@ -92,7 +92,8 @@ class DisplayController < ApplicationController
   end
 
   def seleccion_barrio
-
+    @hoods = Hood.all
+    render :partial => 'seleccion_barrio', :content_type => 'text/html'
   end
 
   def invitacion_aceptada

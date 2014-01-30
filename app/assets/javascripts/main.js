@@ -13,7 +13,7 @@ function onReady() {
 	    },
 	    error: function() {
 	    } 
-	  }); 
+	  });
   }
 }
 

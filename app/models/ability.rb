@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
 	  else
 		  can :manage, :display
+      can :update, User
       cannot :admin, :display
       #cannot :csv, :display
       #cannot :print_attendees, :display

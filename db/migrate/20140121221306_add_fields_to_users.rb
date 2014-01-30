@@ -12,5 +12,6 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :users, :age, :integer
     add_column :users, :facebook_hash, :text
     add_column :users, :twitter_hash, :text
+    add_column :users, :register_complete, :boolean, :default => false
   end
 end
