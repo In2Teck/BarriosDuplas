@@ -145,6 +145,7 @@
 
 #sub_izq {
   display: inline-block;
+  vertical-align: top;
   width: 400px;
   height: 412px;
 }
@@ -179,6 +180,7 @@
 
 #sub_der {
   display: inline-block;
+  vertical-align: top;
   width: 400px;
   height: 412px;
 }
