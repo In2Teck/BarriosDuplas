@@ -235,11 +235,14 @@ function registrarEquipo() {
 }
 
 function registrarBarrio() {
-  var barrioN = $("#barrio-name-txt").val();
-  if (barrioN != "") {
+  var all = $("#hood-values").data("hoods");
+  var barrioN = $("#hood-name-txt").val();
+  var result = $.grep(all, function(n,i) {return n.name == barrioN;});
+
+  if (result.length == 1) {
     var user = {
-      "team": {
-        "name": equipoN
+      "user": {
+        "hood_id": result[0].id
       }
     };
      $.ajax({

@@ -1,7 +1,5 @@
-<div id="hood-values" data-hoods="<%= @hoods.to_json %>">
+<div id="hood-values" data-hoods="<%= @hoods.to_json(:only => [:id, :name]) %>">
 	<%= image_tag "escudo1.png" %><br/>
-	<div class="ui-widget">	
-		<input id="hood-name-txt">
-	</div>
-	
+	<%= text_field_tag 'hood-name-txt', nil, placeholder: 'BARRIO' %><br/>
+	<%= button_tag 'Aceptar', :onclick => "registrarBarrio()" %>
 </div>
