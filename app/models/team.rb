@@ -15,13 +15,13 @@ class Team < ActiveRecord::Base
   end
 
   def self.calculate_total_ranking
-    Team.order("kilometers DESC")
+    Team.where("first_user_id is not null and second_user_id is not null").order("kilometers DESC")
   end
 
   def calculate_self_ranking
-    total_ranking = Team.order("kilometers DESC")
+    total_ranking = Team.where("first_user_id is not null and second_user_id is not null").order("kilometers DESC")
     position = total_ranking.index(self)
-    return {:kilometers => self.kilometers, :position => (position + 1)}
+    return {:kilometers => self.kilometers, :position => (position > 0) ? (position + 1) : 0}
   end
 
   def completed_challenges

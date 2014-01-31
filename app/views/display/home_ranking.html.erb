@@ -8,11 +8,20 @@
 <div id="home-ranking-values" data-user="<%= @user%>" data-team="<%= @team.to_json(:only => [:id, :name]) %>" data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" data-challenges="<%= %>" data-self-ranking="<%= @self_ranking %>" ></div>
 
 <div id="contenedor">
-  <div id="ranking" class="ranking s2x3">
+  <div id="ranking" class="ranking rankings2x3">
     <h2>RANKING</h2>
     <ul id="ranking_lista">
       <% @total_ranking.each_with_index do |team, i| %>
-        <li><%= i+1+@total_ranking.offset %>. <%= team.name %></li>
+        <li>
+          <p class='numero'><%= i+1+@total_ranking.offset %></p>
+          <div class="team_pics" >
+          <%= image_tag "http://graph.facebook.com/"+team.first_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb'%><%= image_tag "http://graph.facebook.com/"+team.second_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb' %>
+          </div> 
+          <div class='team_info'>
+            <p class='team_name'><%= team.name.upcase %></p>
+            <p class='team_kilometers'><%= team.kilometers.round(2) %> KM</p>
+          </div>
+        </li>
       <% end %>
     </ul>
     <%= will_paginate @total_ranking, :page_links => true, :next_label=>'<div class=""></div>', :previous_label=>'<div class=""></div>'%>
@@ -23,8 +32,12 @@
         <h3><%= current_user.first_name %> <%= current_user.last_name %></h3
         ></div
         ><div id="participante_amiga" class="participante s1x1">
-        <h3><%= @partner.first_name %> <%= @partner.last_name %></h3></div
-      ></div
+        <% if @partner %>
+          <h3><%= @partner.first_name %> <%= @partner.last_name %></h3></div>
+        <% else %>
+          <h3>Falta amiga</h3></div>
+        <% end %>
+      </div
       ><div id="equipo_stats" class="equipo_stats s2x1">
         <h3>EQUIPO:</h3>
         <h2><%= @team.name %></h2>

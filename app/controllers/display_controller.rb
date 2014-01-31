@@ -61,12 +61,11 @@ class DisplayController < ApplicationController
 
   def home_ranking
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
+    @partner = nil
     if (@team.first_user_id == current_user.id)
-      @partner = User.find(@team.second_user_id)
-      @team = @team
+      @partner = User.find(@team.second_user_id) if @team.second_user_id
     elsif (@team.second_user_id == current_user.id)
-      @partner = User
-      @team = @team
+      @partner = User.find(@team.first_user_id) if @team.first_user_id
     end
     @challenges = @team.completed_challenges 
     @self_ranking = @team.calculate_self_ranking

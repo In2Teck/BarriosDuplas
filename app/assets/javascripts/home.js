@@ -33,11 +33,13 @@ function onReady() {
           if (width <= 900) {
             sub_der = {
               display: "inline-block",
+              "vertical-align": "top",
               width: "200px",
               height: "206px"
             }
             sub_izq = {
               display: "inline-block",
+              "vertical-align": "top",
               width: "200px",
               height: "206px" 
             }
