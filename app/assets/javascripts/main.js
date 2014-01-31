@@ -1,4 +1,4 @@
-var diego;
+/*var diego;
 
 $(document).on("ready", onReady);
 
@@ -91,4 +91,4 @@ function aceptarInvitacion(value) {
     error: function() {
     } 
   });
-}
+}*/

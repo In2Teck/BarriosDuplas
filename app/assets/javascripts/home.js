@@ -5,26 +5,19 @@ var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 
 function onReady() {
   facebook_id = $("#ruby-values").data("facebook-id");
-  if ($("#home-values").data("user").register_complete) {
-    appendProfilePic();
-
-    if(!$("#home-values").data("team")){
-      $("#amiga").addClass("cursor_pointer");
-      $("#amiga").on("click", interaccionAmiga);
-    }
-
-    $("#equipo").on("click", capturaEquipo);
-    $("#barrio").on("click", capturaBarrio);
-    $("#ranking").on("click", muestraRanking);
-    $("#run_clubs").on("click", muestraRunClubs);
-    $("#retos").on("click", muestraRetos);
-
+  if ($("#home-values").data("invites")) {
+    /*$.ajax({
+      type: "GET",
+      url: "/invitaciones_pendientes",
+      data_type: "html",
+      success: function(data, textStatus, jqXHR) {
+        $("#home-values").html(data); 
+      },
+      error: function() {
+      } 
+    });*/
   }
-  else {
-    resetCssProperty("perfil", "background", "url()");
-    resetCssProperty("perfil", "background-color", "#2A2A2A");
-    capturaPerfil();
-  }
+  checkStatus();
   var pause = 50; 
   $(window).resize(function() {
       setTimeout(function() {
@@ -101,9 +94,48 @@ function onReady() {
   $(window).resize();
 }
 
-function appendProfilePic(){
-  $("#perfil").append("<img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent'/></div>");
-  $("#perfil").append("<div id='profile_name'><h2>" + $("#home-values").data("user")["first_name"] + " " + $("#home-values").data("user")["last_name"] + "</h2></div>");
+function checkStatus() {
+  if ($("#home-values").data("user").register_complete) {
+    setProfile();
+
+    //lógica para amiga
+    checkAmiga();
+
+    $("#equipo").on("click", capturaEquipo);
+    $("#barrio").on("click", capturaBarrio);
+    $("#ranking").on("click", muestraRanking);
+    $("#run_clubs").on("click", muestraRunClubs);
+    $("#retos").on("click", muestraRetos);
+
+  }
+  else {
+    resetCssProperty("perfil", "background", "url()");
+    resetCssProperty("perfil", "background-color", "#2A2A2A");
+    capturaPerfil();
+  }
+}
+
+function checkAmiga() {
+  if ($("#home-values").data("team") == null) {
+    $("#amiga").addClass("cursor_pointer");
+    $("#amiga").on("click", muestraInvitacion);
+    $("#amiga_text h2").text("SELECCIONA \ A TU COMPAÑERA")
+  }
+  else if ($("#home-values").data("partner") == null) {
+    $("#amiga").addClass("cursor_pointer");
+    $("#amiga").on("click", muestraInvitacion); 
+    $("#amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
+    $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200");
+    $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
+    //$("#amiga").css("background", "url(http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=400)");
+    //$("#amiga").css("background-size", "100%");
+
+  }
+}
+
+function setProfile() {
+  $("#perfil img").attr("src", "http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
+  $("#profile_name h2").text($("#home-values").data("user").first_name + " " + $("#home-values").data("user").last_name);
 }
 
 function capturaPerfil() {
@@ -123,7 +155,7 @@ function capturaPerfil() {
 
 function capturaEquipo() {
   var team = $("#home-values").data("team");
-  if (team != "" && team.name == null) {
+  if (team != null && team.name == null) {
     $.ajax({
       type: "GET",
       url: "/nombre_dupla",
@@ -162,7 +194,7 @@ function capturaBarrio() {
   }
 }
 
-function interaccionAmiga() {
+function muestraInvitacion() {
   //var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
   //modalDialogue(html);
   invitar();
@@ -203,7 +235,7 @@ function registrarNombre() {
         // Pone background de perfil
         resetCssProperty("perfil", "background-color", "");
         resetCssProperty("perfil", "background", "url('/assets/bg_gradient_perfil.png')");
-        appendProfilePic();
+        reloadInfo();
       },
       error: function() {
       } 
@@ -222,13 +254,14 @@ function registrarEquipo() {
         "name": equipoN
       }
     };
-     $.ajax({
+    $.ajax({
       type: "PUT",
       data: team,
       url: "/teams/" + $("#home-values").data("team").id + ".json",
       success: function(data, textStatus, jqXHR) {
         $.modal.close();
-        //poner el nombre del equipo sobre el contenedor
+        reloadInfo();
+        //poner nombre equipo
       },
       error: function() {
       } 
@@ -247,16 +280,110 @@ function registrarBarrio() {
         "hood_id": result[0].id
       }
     };
-     $.ajax({
+    $.ajax({
       type: "PUT",
       data: user,
       url: "/users/" + $("#home-values").data("user").id + ".json",
       success: function(data, textStatus, jqXHR) {
         $.modal.close();
+        reloadInfo();
         //poner el barrio en el contenedor
       },
       error: function() {
       } 
     });
   }
+}
+
+function reloadInfo() {
+  $.ajax({
+    type: "GET",
+    url: "/home?reload=true",
+    data_type: "html",
+    success: function(data, textStatus, jqXHR) {
+      $.each($(data).prop("attributes"), function() {
+        $("#home-values").attr(this.name, this.value);
+      });
+      $.each($(data).data(), function(name, value) {
+        $("#home-values").data(name, value);
+      });
+      checkStatus();
+    },
+    error: function() {
+    } 
+  });
+}
+
+function invitar() {
+  $.ajax({
+    type: "GET",
+    url: "/invites/invited_user",
+    success: function(data, textStatus, jqXHR) {
+      FB.ui({method: 'apprequests',
+        message: 'Corramos juntas por los barrios del DF',
+        max_recipients: '1',
+        exclude_ids: data
+      }, guardarInvitacion);
+    },
+    error: function() {
+    } 
+  });
+}
+
+function guardarInvitacion(invite_response) {
+  if (invite_response.request != undefined) {
+    FB.api('/' + invite_response.to[0], function(user_response) {
+      var invite = {
+        'invite': {
+          'invited_user_facebook_id': invite_response.to[0],
+          'invited_user_name': user_response.name,
+          'request_facebook_id': invite_response.request 
+        }
+      };
+      $.ajax({
+        type: "POST",
+        url: "/invites.json",
+        data: invite,
+        success: function(data, textStatus, jqXHR) {
+          if(textStatus == "success") {
+            crearEquipo(data.user_id);
+          }
+        },
+        error: function() {
+        } 
+      });
+    });
+  }
+}
+
+function crearEquipo(user_id) {
+  var team = {
+    'team': {
+      'first_user_id': user_id
+    }
+  };
+  $.ajax({
+    type: "POST",
+    data: team,
+    url: "/teams.json",
+    success: function(data, textStatus, jqXHR) {
+      reloadInfo();
+    },
+    error: function() {
+    } 
+  });
+}
+
+function aceptarInvitacion(value) {
+  console.log(value.id);
+  $.ajax({
+    type: "GET",
+    url: "/invites/" + value.id + "/accept",
+    success: function(data, textStatus, jqXHR) {
+      diego = data;
+      console.log(textStatus);
+    },
+    error: function() {
+    } 
+  });
 }

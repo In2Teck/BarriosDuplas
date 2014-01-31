@@ -15,7 +15,7 @@ class DisplayController < ApplicationController
   end
 
   def home
-    @user = User.find(current_user.id).to_json(:only => [:id, :first_name, :last_name, :register_complete], :include => {:hood => {:only => [:name]}})
+    @user = User.find(current_user.id)
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
     @partner = nil
     @invited = nil
@@ -24,32 +24,24 @@ class DisplayController < ApplicationController
     if (@team)
       if (@team.first_user_id == current_user.id)
         if (@team.second_user_id)
-          @partner = User.find(@team.second_user_id).to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}})
-          @team = @team.to_json(:only => [:id, :name])
+          @partner = User.find(@team.second_user_id)
         else
-          @invited = current_user.invites[0] ? current_user.invites[0].to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) : nil
-          @team = @team.to_json(:only => [:id, :name])
+          @invited = current_user.invites[0] ? current_user.invites[0] : nil
         end
       elsif (@team.second_user_id == current_user.id)
         if (@team.first_user_id)
-          @partner = User.find(@team.first_user_id).to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}})
-          @team = @team.to_json(:only => [:id, :name])
+          @partner = User.find(@team.first_user_id)
         else
-          @invited = current_user.invites[0] ? current_user.invites[0].to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) : nil
-          @team = @team.to_json(:only => [:id, :name])
+          @invited = current_user.invites[0] ? current_user.invites[0] : nil
         end
       end
     elsif (Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
       @show_invites = true
     end
 
-    #@show_invites = false
-    
-    #if (!user.first_user_team && !user.second_user_team && Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
-    #  @show_invites = true    
-    ###if !has_team && Invite.where("invited_user_facebook_id = ? and accepted is null", "100000389125405").length > 0      
-      ###@invites = Invite.where("invited_user_facebook_id = ?", "100000389125405").includes(:user).to_json(:include => :user) unless !current_user
-    #end
+    if params[:reload] && params[:reload] == "true"
+      render :partial => 'home_reload', :content_type => 'text/html'
+    end
   end
   
   def ranking 

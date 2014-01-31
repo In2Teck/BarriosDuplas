@@ -1,0 +1,6 @@
+<div
+	data-user="<%= @user.to_json(:only => [:id, :first_name, :last_name, :register_complete], :include => {:hood => {:only => [:name]}})%>" 
+	data-team="<%= @team.to_json(:only => [:id, :name]) %>" 
+	data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" 
+	data-invited="<%= @invited.to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) %>" 
+	data-invites="<%= @show_invites %>"></div>

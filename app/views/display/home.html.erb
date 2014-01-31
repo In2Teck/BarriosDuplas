@@ -5,11 +5,16 @@
   <%= stylesheet_link_tag 'home', 'jquery-ui-custom'%>
 <% end %>
 
-<div id="home-values" data-user="<%= @user%>" data-team="<%= @team %>" data-partner="<%= @partner %>" data-invited="<%= @invited %>" data-invites="<%= @show_invites %>"></div>
+<div id="home-values" 
+	data-user="<%= @user.to_json(:only => [:id, :first_name, :last_name, :register_complete], :include => {:hood => {:only => [:name]}})%>" 
+	data-team="<%= @team.to_json(:only => [:id, :name]) %>" 
+	data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" 
+	data-invited="<%= @invited.to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) %>" 
+	data-invites="<%= @show_invites %>"></div>
 
 <div id="contenedor">
-  <div id="perfil" class="perfil s2x2"></div
-  ><div id="contenedor_arriba_derecha" class="s2x2"><div id="amiga" class="amiga s2x1"></div
+  <div id="perfil" class="perfil s2x2"><img class="img_transparent"/><div id="profile_name"><h2/></div></div
+  ><div id="contenedor_arriba_derecha" class="s2x2"><div id="amiga" class="amiga s2x1"><img class="img_transparent_amiga"/><div id="amiga_text"><h2/></div></div
   ><div id="equipo" class="equipo s1x1"></div
   ><div id="barrio" class="barrio s1x1"></div></div
   ><div id="ranking" class="ranking s2x1"></div

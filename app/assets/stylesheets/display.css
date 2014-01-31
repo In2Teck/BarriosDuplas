@@ -217,6 +217,14 @@
   margin: 1px auto auto auto;
 }
 
+.img_transparent_amiga{
+  opacity: 0.6;
+  width: 400px;
+  height: 200px;
+  display: block;
+  margin: 1px auto auto auto;
+}
+
 .img_transparent_modal{
   opacity: 0.6;
   width: 400px;
