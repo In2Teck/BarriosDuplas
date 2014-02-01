@@ -100,9 +100,10 @@ function checkStatus() {
 
     //lógica para amiga
     checkAmiga();
-
-    $("#equipo").on("click", capturaEquipo);
-    $("#barrio").on("click", capturaBarrio);
+    //lógica para equipo
+    checkEquipo();
+    // lógica para barrio
+    checkBarrio();
     $("#ranking").on("click", muestraRanking);
     $("#run_clubs").on("click", muestraRunClubs);
     $("#retos").on("click", muestraRetos);
@@ -117,12 +118,13 @@ function checkStatus() {
 
 function checkAmiga() {
   if ($("#home-values").data("team") == null) {
-    $("#amiga").addClass("cursor_pointer");
+    //$("#amiga").addClass("cursor_pointer");
+    cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
     $("#amiga_text h2").text("SELECCIONA \ A TU COMPAÑERA")
   }
   else if ($("#home-values").data("partner") == null) {
-    $("#amiga").addClass("cursor_pointer");
+    cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion); 
     $("#amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200");
@@ -130,6 +132,41 @@ function checkAmiga() {
     //$("#amiga").css("background", "url(http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=400)");
     //$("#amiga").css("background-size", "100%");
 
+  }
+  else {
+    cambiaCursor($("#amiga"), false);
+  }
+}
+
+function checkEquipo() {
+  var team = $("#home-values").data("team");
+  if (team) {
+    if (team.name) {
+      cambiaCursor($("#equipo"), false);
+      $("#equipo_text h2").text(team.name);
+    }
+    else {
+      cambiaCursor($("#equipo"), true);
+      $("#equipo_text h2").text("NOMBRA A TU EQUIPO");
+      $("#equipo").on("click", capturaEquipo);
+    }
+  }
+  else {
+    cambiaCursor($("#equipo"), false);
+    $("#equipo_text h2").text("NOMBRA A TU EQUIPO");
+  }
+}
+
+function checkBarrio() {
+  var barrio = $("#home-values").data("user").hood;
+  if (barrio) {
+    cambiaCursor($("#barrio"), false);
+    $("#barrio_text h2").text(barrio.name);
+  }
+  else {
+    cambiaCursor($("#barrio"), true);
+    $("#barrio_text h2").text("ELIGE TU BARRIO");
+    $("#barrio").on("click", capturaBarrio);
   }
 }
 
@@ -261,7 +298,6 @@ function registrarEquipo() {
       success: function(data, textStatus, jqXHR) {
         $.modal.close();
         reloadInfo();
-        //poner nombre equipo
       },
       error: function() {
       } 
@@ -386,4 +422,15 @@ function aceptarInvitacion(value) {
     error: function() {
     } 
   });
+}
+
+function cambiaCursor(element, isClickable) {
+  if (isClickable) {
+    $(element).removeClass("cursor_default");
+    $(element).addClass("cursor_pointer");
+  }
+  else {
+   $(element).removeClass("cursor_pointer");
+    $(element).addClass("cursor_default"); 
+  }
 }
