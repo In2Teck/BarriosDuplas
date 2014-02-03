@@ -5,6 +5,7 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :first_user_id
       t.integer :second_user_id
       t.float :kilometers, :default => 0
+      t.boolean :notify_author, :default => false
 
       t.timestamps
     end

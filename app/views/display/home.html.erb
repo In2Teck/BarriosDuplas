@@ -7,8 +7,8 @@
 
 <div id="home-values" 
 	data-user="<%= @user.to_json(:only => [:id, :first_name, :last_name, :register_complete], :include => {:hood => {:only => [:name]}})%>" 
-	data-team="<%= @team.to_json(:only => [:id, :name]) %>" 
-	data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" 
+	data-team="<%= @team.to_json(:only => [:id, :name, :notify_author, :first_user_id]) %>" 
+	data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name, :facebook_id], :include => {:hood => {:only => [:name]}}) %>" 
 	data-invited="<%= @invited.to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) %>" 
 	data-invites="<%= @show_invites %>"></div>
 
@@ -17,7 +17,7 @@
   ><div id="contenedor_arriba_derecha" class="s2x2"><div id="amiga" class="amiga s2x1"><img class="img_transparent_amiga"/><div id="amiga_text"><h2/></div></div
   ><div id="equipo" class="equipo s1x1"><div id="equipo_text"><h2/></div></div
   ><div id="barrio" class="barrio s1x1"><div id="barrio_text"><h2/></div></div></div
-  ><div id="ranking" class="ranking s2x1"></div
-  ><div id="run_clubs" class="run_clubs s1x1"></div
-  ><div id="retos" class="retos s1x1"></div>
+  ><div id="ranking" class="ranking s2x1 cursor_pointer"></div
+  ><div id="run_clubs" class="run_clubs s1x1 cursor_pointer"></div
+  ><div id="retos" class="retos s1x1 cursor_pointer"></div>
 </div>

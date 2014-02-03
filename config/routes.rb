@@ -5,8 +5,9 @@ NosotrasCorremos::Application.routes.draw do
   resources :challenges
 
 
-  resources :teams
-
+  resources :teams do
+    match 'notified'
+  end
 
   resources :hoods
 
@@ -17,6 +18,7 @@ NosotrasCorremos::Application.routes.draw do
   resources :invites do
     match 'invited_user', :on => :collection
     match 'accept'
+    match 'cancel'
   end
 
   resources :roles
@@ -57,7 +59,7 @@ NosotrasCorremos::Application.routes.draw do
   
   match 'retos' => 'display#retos', :as => :retos
 
-  match 'invitaciones_pendientes' => 'display#invitaciones_pendientes', :as => :invitaciones_pendientes  
+  match 'invitaciones_pendientes' => 'display#invitaciones_pendientes', :as => :invitaciones_pendientes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

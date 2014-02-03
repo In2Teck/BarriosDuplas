@@ -3,20 +3,10 @@ var facebook_id;
 
 var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 
+var just_invited = false;
+
 function onReady() {
   facebook_id = $("#ruby-values").data("facebook-id");
-  if ($("#home-values").data("invites")) {
-    /*$.ajax({
-      type: "GET",
-      url: "/invitaciones_pendientes",
-      data_type: "html",
-      success: function(data, textStatus, jqXHR) {
-        $("#home-values").html(data); 
-      },
-      error: function() {
-      } 
-    });*/
-  }
   checkStatus();
   var pause = 50; 
   $(window).resize(function() {
@@ -96,6 +86,17 @@ function onReady() {
 
 function checkStatus() {
   if ($("#home-values").data("user").register_complete) {
+
+    //if (isTeamComplete()) {}
+    //aqui hay que hacer el cambio completo de layout
+
+    if ($("#home-values").data("invites")) {
+      muestraRequests();
+    }
+    if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
+      muestraConfirmacion();
+    }
+
     setProfile();
 
     //lógica para amiga
@@ -116,22 +117,42 @@ function checkStatus() {
   }
 }
 
+function isTeamComplete() {
+  if ($("#home-values").data("team") && $("#home-values").data("team").name && $("#home-values").data("partner") && $("#home-values").data("user").hood) {
+    return true;
+  }
+  return false;
+}
+
 function checkAmiga() {
+  $("#amiga").off("click");
+  
   if ($("#home-values").data("team") == null) {
-    //$("#amiga").addClass("cursor_pointer");
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $("#amiga_text h2").text("SELECCIONA \ A TU COMPAÑERA")
+    $("#amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+  }
+  else if ($("#home-values").data("invited") == null && $("#home-values").data("partner") == null) {
+    cambiaCursor($("#amiga"), true);
+    $("#amiga").on("click", muestraInvitacion);
+    $("#amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+    $("#amiga img").attr("src", "");
+    $("#amiga").css("background", "url(assets/bg_escoger.png)");
   }
   else if ($("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
-    $("#amiga").on("click", muestraInvitacion); 
+    $("#amiga").on("click", muestraInvitacion);
     $("#amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200");
     $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
     //$("#amiga").css("background", "url(http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=400)");
     //$("#amiga").css("background-size", "100%");
-
+  }
+  else if (!isTeamComplete()) {
+    cambiaCursor($("#amiga"), false);
+    $("#amiga_text h2").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
+    $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200");
+    $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
   }
   else {
     cambiaCursor($("#amiga"), false);
@@ -139,11 +160,12 @@ function checkAmiga() {
 }
 
 function checkEquipo() {
+  $("#equipo").off("click");
   var team = $("#home-values").data("team");
   if (team) {
     if (team.name) {
       cambiaCursor($("#equipo"), false);
-      $("#equipo_text h2").text(team.name);
+      $("#equipo_text h2").text(team.name.toUpperCase());
     }
     else {
       cambiaCursor($("#equipo"), true);
@@ -158,10 +180,11 @@ function checkEquipo() {
 }
 
 function checkBarrio() {
+  $("#barrio").off("click");
   var barrio = $("#home-values").data("user").hood;
   if (barrio) {
     cambiaCursor($("#barrio"), false);
-    $("#barrio_text h2").text(barrio.name);
+    $("#barrio_text h2").text(barrio.name.toUpperCase());
   }
   else {
     cambiaCursor($("#barrio"), true);
@@ -172,7 +195,7 @@ function checkBarrio() {
 
 function setProfile() {
   $("#perfil img").attr("src", "http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#profile_name h2").text($("#home-values").data("user").first_name + " " + $("#home-values").data("user").last_name);
+  $("#profile_name h2").text($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase());
 }
 
 function capturaPerfil() {
@@ -231,10 +254,65 @@ function capturaBarrio() {
   }
 }
 
+function muestraRequests() {
+  $.ajax({
+    type: "GET",
+    url: "/invitaciones_pendientes",
+    data_type: "html",
+    success: function(data, textStatus, jqXHR) {
+      var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
+      modalDialogue(html);
+      $("#sub_der").html(data);
+    },
+    error: function() {
+    } 
+  });
+}
+
+function muestraConfirmacion() {
+  var partner = $("#home-values").data("partner");
+  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><img/><br/><h3/><br/><div id='confirmacion_texto'></div></div>"; 
+  modalDialogue(html);
+  $("#sub_der img").attr("src", "http://graph.facebook.com/"+ partner.facebook_id +"/picture?redirect=1&width=150&height=150");
+  $("#sub_der h3").text(partner.first_name.toUpperCase() + " " + partner.last_name.toUpperCase());
+  $("#sub_der #confirmacion_texto").text("ACEPTÓ TU INVITACIÓN A CORRER JUNTAS ESTE AÑO. DECIDAN CON QUÉ RETO QUIEREN EMPEZAR Y CORRAN HASTA LLEGAR AL PRIMER SITIO DEL RANKING.");
+  $.ajax({
+    type: "GET",
+    url: "/teams/" + $("#home-values").data("team").id + "/notified",
+    success: function(data, textStatus, jqXHR) {
+    },
+    error: function() {
+    } 
+  });
+}
+
 function muestraInvitacion() {
-  //var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
-  //modalDialogue(html);
-  invitar();
+  if ($("#home-values").data("invited") == null) {
+    invitar();  
+  }
+  else {
+    $.ajax({
+      type: "GET",
+      url: "/invitar_amiga",
+      data_type: "html",
+      success: function(data, textStatus, jqXHR) {
+        var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'></div>"; 
+        modalDialogue(html);
+        $("#sub_der").html(data);
+        if (just_invited) {
+          just_invited = false;
+          $("#cancelar-btn").css("display", "none");
+        }
+        else {
+          $("#invitacion_texto").css("display", "none");
+        }
+        $("#sub_der img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=150&height=150");
+        $("#sub_der h3").text($("#home-values").data("invited").invited_user_name);
+      },
+      error: function() {
+      } 
+    });
+  }
 }
 
 function muestraRanking() {
@@ -343,6 +421,9 @@ function reloadInfo() {
       $.each($(data).data(), function(name, value) {
         $("#home-values").data(name, value);
       });
+      if (just_invited) {
+        muestraInvitacion();
+      }
       checkStatus();
     },
     error: function() {
@@ -382,6 +463,7 @@ function guardarInvitacion(invite_response) {
         data: invite,
         success: function(data, textStatus, jqXHR) {
           if(textStatus == "success") {
+            just_invited = true;
             crearEquipo(data.user_id);
           }
         },
@@ -416,12 +498,27 @@ function aceptarInvitacion(value) {
     type: "GET",
     url: "/invites/" + value.id + "/accept",
     success: function(data, textStatus, jqXHR) {
-      diego = data;
-      console.log(textStatus);
+      $.modal.close();
+      reloadInfo();
     },
     error: function() {
     } 
   });
+}
+
+function cancelarInvitacion() {
+  var invite_id = $("#home-values").data("invited").id;
+  $.ajax({
+    type: "GET",
+    url: "/invites/" + invite_id + "/cancel",
+    success: function(data, textStatus, jqXHR) {
+      console.log(textStatus);
+      $.modal.close();
+      reloadInfo();
+    },
+    error: function() {
+    } 
+  }); 
 }
 
 function cambiaCursor(element, isClickable) {

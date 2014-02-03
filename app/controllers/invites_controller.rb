@@ -84,9 +84,10 @@ class InvitesController < ApplicationController
 
   def invited_user
     @invited_user = []
-    current_user.invites.each do |invite|
+    current_user.invites.where("accepted is null").each do |invite|
       @invited_user.push(invite.invited_user_facebook_id)
     end
+    # que otros usuarios excluimos?
     render json: @invited_user, status: 200
   end
 
@@ -96,6 +97,19 @@ class InvitesController < ApplicationController
     
     team = Team.find_by_first_user_id(invite.user_id)
     team.update_attribute(:second_user_id, current_user.id)
+    team.update_attribute(:notify_author, true)
+
+    otherTeam = current_user.first_user_team
+    if otherTeam
+      otherTeam.destroy
+    end
+
+    render json: invite, status: 200
+  end
+
+  def cancel
+    invite = Invite.find(params[:invite_id])
+    invite.update_attribute(:accepted, false)
 
     render json: invite, status: 200
   end

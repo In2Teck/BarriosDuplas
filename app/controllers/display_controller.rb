@@ -26,13 +26,15 @@ class DisplayController < ApplicationController
         if (@team.second_user_id)
           @partner = User.find(@team.second_user_id)
         else
-          @invited = current_user.invites[0] ? current_user.invites[0] : nil
+          invitation = current_user.invites.where("accepted is null")[0] 
+          @invited =  invitation ? invitation : nil
         end
       elsif (@team.second_user_id == current_user.id)
         if (@team.first_user_id)
           @partner = User.find(@team.first_user_id)
         else
-          @invited = current_user.invites[0] ? current_user.invites[0] : nil
+          invitation = current_user.invites.where("accepted is null")[0] 
+          @invited =  invitation ? invitation : nil
         end
       end
     elsif (Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
@@ -79,7 +81,7 @@ class DisplayController < ApplicationController
   end
 
   def invitar_amiga
-
+    render :partial => 'invitar_amiga', :content_type => 'text/html'
   end
 
   def seleccion_barrio

@@ -84,4 +84,10 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def notified
+    team = Team.find(params[:team_id])
+    team.update_attribute(:notify_author, false)
+    render json: team, status: 200
+  end
 end
