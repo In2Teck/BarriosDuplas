@@ -104,6 +104,11 @@ class InvitesController < ApplicationController
       otherTeam.destroy
     end
 
+    otherInvites = Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id)
+    otherInvites.each do | other |
+      other.update_attribute(:accepted, false)
+    end
+
     render json: invite, status: 200
   end
 

@@ -37,8 +37,11 @@ class DisplayController < ApplicationController
           @invited =  invitation ? invitation : nil
         end
       end
-    elsif (Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
-      @show_invites = true
+    end
+    if ( !@team || ( !@partner && !@invited ))
+      if (Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
+        @show_invites = true
+      end
     end
 
     if params[:reload] && params[:reload] == "true"
