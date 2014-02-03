@@ -135,8 +135,8 @@ body {
 
   .btn-descargar{
     background-image: url('/assets/boton_descargar.png');
-    width: 90px;
-    height: 50px;
+    width: 80px;
+    height: 46px;
     background-repeat: no-repeat;
     padding: 4px;
   	display:inline-block;
@@ -144,12 +144,12 @@ body {
   }
   .btn-descargar:hover{
     text-decoration: none !important;
-    background-position: 0 -52px;  
+    background-position: 0 -47px;  
   }
 
   .lead_text {
     font-family:'FuturaStd-MediumCondensed',Sans-Serif;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1 !important;
     color: white;
     margin: 0px 0 20px;
