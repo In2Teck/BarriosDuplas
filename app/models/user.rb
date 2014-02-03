@@ -50,9 +50,9 @@ class User < ActiveRecord::Base
 		if not user
 			# CHECK FOR NEW/CREATE
       gender = auth.extra.raw_info.gender
-      if gender == "male"
-        return nil
-      end
+      #if gender == "male"
+      #  return nil
+      #end
       age = self.calc_age auth.extra.raw_info.birthday
 			user = User.create(first_name:auth.info.first_name, last_name:auth.info.last_name, facebook_id:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20], access_token:auth.credentials.token, facebook_hash:auth, last_facebook_run:Time.now, age:age)
     elsif (not user.access_token) or (user.access_token != auth.credentials.token)
