@@ -4,7 +4,7 @@ def facebook
 		@user = User.find_for_facebook_oauth(auth_hash, current_user)
     if @user == nil
       #redirect_to "/?solo_mujeres=true"
-      redirect_to "/"
+      redirect_to :home
     elsif @user.persisted?
 			flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
 			#sign_in_and_redirect @user, :event => :authentication
