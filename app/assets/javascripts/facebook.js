@@ -53,6 +53,7 @@ function loadFB() {
     // init the FB JS SDK
     FB.init({
       appId      : '564232870327408', // App ID from the App Dashboard
+      channelUrl : 'http://juntascorremos.com/channel.html',
       status     : true, // check the login status upon init?
       cookie     : true, // set sessions cookies to allow your server to access the session?
       xfbml      : true  // parse XFBML tags on this page?
