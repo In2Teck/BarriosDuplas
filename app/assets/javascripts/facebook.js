@@ -13,7 +13,7 @@ function referrerIsFacebookApp() {
 
 function redirectToServer() {
   var querystring = location.search;
-  top.location = 'http://junstascorremos.com/' + querystring;
+  top.location = 'http://juntascorremos.com/' + querystring;
 }
 
 $(document).on("ready", onReady);
