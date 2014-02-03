@@ -63,7 +63,6 @@
 } 
 
 .borderbutton {
-  border-left: 1px solid #BCBCBC;
 }
 
 .avatar {
@@ -151,7 +150,7 @@
 }
 
 .profile_izq {
-  background:url("/assets/bg_gradient_perfil.png");
+  /*background:url("/assets/bg_gradient_perfil.png");*/
 }
 
 .equipo_izq {
@@ -226,7 +225,7 @@
 }
 
 .img_transparent_modal{
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   width: 400px;
   height: 410px;
   display: block;

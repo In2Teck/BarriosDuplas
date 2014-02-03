@@ -6,14 +6,14 @@ body {
 }
 
 .background_juntas {
-    background-image: url('/assets/bg_home.png');
+    background-image: url('/assets/bg_home.jpg');
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .container {
   width: 100%;
-  min-height: 966px;
+  min-height: 940px;
 }
 
 .rotated_title {
@@ -21,7 +21,16 @@ body {
   font-size: 50px !important;
   line-height: 1;
   color: white !important;
-  transform: rotate(-0.5deg); 
+  line-height: 0.5;
+}
+
+.lead {
+  line-height: 0.6 !important;
+  color: white;
+  font-family: 'FuturaStd-CondensedOblique',Sans-Serif;
+  text-transform: uppercase;
+  font-smoothing: antialiased;
+  font-size: 25px;
 }
 
 .lead_text {
@@ -29,7 +38,6 @@ body {
   font-size: 20px;
   line-height: 1.2 !important;
   color: white;
-  transform: rotate(-0.5deg); 
   margin: 0px 0 20px;
 }
 
@@ -43,6 +51,7 @@ body {
 
 .logo_home {
   height: 250px;
+  margin: -10px 0;
 }
 
 .btn-nike{
@@ -61,7 +70,6 @@ body {
   background-position: 0 -41px;  
 }
 
-
 .btn-facebook{
   background-image: url('/assets/boton_facebook_home.png');
   width: 182px;
@@ -73,7 +81,85 @@ body {
   background-size: 100%;  
   margin-top: 25px 0;
 }
+
 .btn-facebook:hover{
   text-decoration: none !important;
   background-position: 0 -41px;
+}
+
+#solo_mujeres_container {
+  width: 472px;
+  height: 488px;
+  background: url('bg_popup_home.png');
+  padding-top: 65%;
+  text-align: center;
+}
+
+#simplemodal-container {height:472px; width:488px; padding: 0; margin: 0;}
+#simplemodal-container a.modalCloseImg {
+  background:url("/assets/boton_cerrar.png") no-repeat; width:49px; height:50px; z-index:3200; position:absolute; top:0px; right:-32px; cursor:pointer; }
+#simplemodal-container a.modalCloseImg:hover {
+  background-position: 0 -68px;
+}
+
+.btn-descargar{
+  background-image: url('/assets/boton_descargar.png');
+  width: 110px;
+  height: 69px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+	display:inline-block;
+  background-size: 100%;
+}
+.btn-descargar:hover{
+  text-decoration: none !important;
+  background-position: 0 -64px;  
+}
+
+@media screen and (max-width: 900px) {
+  #simplemodal-container {
+    height:290px;
+    width:300px;
+    margin: auto;
+  }
+
+  #solo_mujeres_container {
+    width: 290px;
+    height: 300px;
+    background: url('bg_popup_home.png');
+    background-size: 290px 300px;
+    padding-top: 55%;
+    text-align: center;
+  }
+
+  .btn-descargar{
+    background-image: url('/assets/boton_descargar.png');
+    width: 90px;
+    height: 50px;
+    background-repeat: no-repeat;
+    padding: 4px;
+  	display:inline-block;
+    background-size: 100%;
+  }
+  .btn-descargar:hover{
+    text-decoration: none !important;
+    background-position: 0 -52px;  
+  }
+
+  .lead_text {
+    font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+    font-size: 16px;
+    line-height: 1 !important;
+    color: white;
+    margin: 0px 0 20px;
+  }
+
+  #simplemodal-container a.modalCloseImg {
+    background:url("/assets/boton_cerrar.png") no-repeat; width:49px; height:50px; z-index:3200; position:absolute; top:0px; right:-38px; cursor:pointer; }
+  #simplemodal-container a.modalCloseImg:hover {
+    background-position: 0 -68px;
+  }
+
+
 }

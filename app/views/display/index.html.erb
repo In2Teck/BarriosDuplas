@@ -1,3 +1,6 @@
+<% content_for :head_script do %>
+  <%= javascript_include_tag 'index' %>
+<% end %>
 <% content_for :head_style do %>
   <%= stylesheet_link_tag 'index' %>
 <% end %>
@@ -5,7 +8,10 @@
 <div class="container background_juntas">
   <div class="jumbotron centered">
     <img src="/assets/escudo1.png" class="logo_home" />
-    <h1 class="rotated_title">JUNTAS CORREMOS.</h1>
+    <h1 class="rotated_title">JUNTAS</h1>
+    <p class="lead">
+      LLEGAMOS MÁS LEJOS.
+    </p>
     <p class="lead_text">
       EN 2014, LA META ES LLEGAR JUNTAS.<br/>
       ELIGE UNA AMIGA Y COMPROMÉTANSE JUNTAS A SUPERAR AL 2013.<br/>

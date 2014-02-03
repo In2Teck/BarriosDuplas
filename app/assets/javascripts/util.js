@@ -9,19 +9,26 @@ function init(){
   });
 }
 
-function modalAlert(title, message, options){
+function modalAlert(html, options){
 
-  if (options == null) {
-    options = {};    
+ if (options == null) {
+    options = {
+      closeClass: 'closeClass',
+      overlayClose: true,
+      modal: false,
+      opacity: 75 
+    };
   }
+
   options["closeClass"] = "closeClass";
 
-  $("#modal-title")[0].innerHTML = title;
-  $("#modal-content")[0].innerHTML = message;
-  $("#modal-alert").css("height", "160px");
+  $("#modal-content").remove();
+  $("#modal-alert").append("<div id='modal-content'></div>");
+  $("#modal-content").append(html);
   $("#modal-alert").modal(options);
-  $("#modal-alert").mCustomScrollbar();
-  $(".simplemodal-wrap").css("overflow","");
+  $(".simplemodal-wrap").css("overflow","hidden");
+  $(".simplemodal-overlay").css("width","100%");
+  $(".simplemodal-overlay").css("height","100%");
 }
 
 function modalDialogue(html, options){
