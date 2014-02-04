@@ -128,15 +128,17 @@ function isTeamComplete() {
 function cambiaLayout() {
   var uno = $("#home-values").data("user");
   var dos = $("#home-values").data("partner");
+  var equipo = $("#home-values").data("team");
   $("#contenedor_arriba_derecha").remove();
   $("#perfil").removeClass("s2x2");
   $("#perfil").removeClass("perfil");
   $("#perfil").addClass("s4x2");
-  $("#perfil").html("<div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div>");
+  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><h2/></div></div><div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div>");
   $("#perfil_uno img").attr("src", "http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_uno h2").text(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase());
+  $("#perfil_uno h2").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<br/>" + uno.kilometers + "KM <br/>" + uno.hood.name.toUpperCase());
   $("#perfil_dos img").attr("src", "http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_dos h2").text(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase());
+  $("#perfil_dos h2").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<br/>" + dos.kilometers + "KM <br/>" + dos.hood.name.toUpperCase());
+  $("#equipo_datos h2").html("EQUIPO: <br/>" + equipo.name.toUpperCase() + "<br/>" + equipo.kilometers + "KM");
 }
 
 function checkAmiga() {

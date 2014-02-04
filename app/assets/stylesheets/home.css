@@ -7,9 +7,10 @@
 
 .s4x2 {
   display: inline-block;
-  width: 800px;
   height: 400px;
+  position: relative;
   vertical-align: top;
+  width: 800px;
 }
 
 .s2x2{
@@ -71,6 +72,21 @@
 
 .amiga_text {
   margin-top: -150px;
+}
+
+.equipo_div {
+  border: solid;
+  position: absolute;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+#equipo_datos {
+  height: 50%;
+  margin: auto;
+  text-align: center;
+  width: 50%;
 }
 
 @media screen and (max-width: 900px) {
