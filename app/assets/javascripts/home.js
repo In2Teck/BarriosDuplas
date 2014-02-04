@@ -6,6 +6,7 @@ var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 var just_invited = false;
 
 function onReady() {
+
   facebook_id = $("#ruby-values").data("facebook-id");
   checkStatus();
   var pause = 50; 
@@ -33,7 +34,7 @@ function onReady() {
               padding: 0
             }
             img_transparent = {
-              opacity: 0.6,
+              //opacity: 0.6,
               width: "200px",
               height: "206px",
               display: "block",
@@ -65,7 +66,7 @@ function onReady() {
               margin: 0
             }
             img_transparent = {
-              opacity: 0.6,
+              //opacity: 0.6,
               width: "400px",
               height: "410px",
               display: "block",
@@ -109,6 +110,7 @@ function checkStatus() {
       $("#ranking").on("click", muestraRanking);
       $("#run_clubs").on("click", muestraRunClubs);
       $("#retos").on("click", muestraRetos);
+     
     }
   }
   else {

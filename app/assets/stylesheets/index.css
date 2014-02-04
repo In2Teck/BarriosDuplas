@@ -118,7 +118,7 @@ body {
 }
 
 .terms{
-  width: 80%;
+  width: 800px;
   color: black;
   background-color: white;
   font-size: 12px;
@@ -168,6 +168,9 @@ body {
   #simplemodal-container a.modalCloseImg:hover {
     background-position: 0 -55px;
   }
-
+  
+  .terms{
+    width: 80%;
+  }
 
 }

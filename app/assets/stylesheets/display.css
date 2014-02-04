@@ -174,7 +174,7 @@
 }
 
 .responsive_bck {
-  background-size: 400px 412px;
+  background-size: 400px 412px !important;
 }
 
 #sub_der {
@@ -185,7 +185,7 @@
 }
 
 .profile_der{
-  background:url("/assets/bg_modal_perfil.png");
+  background:url("/assets/bg_popup_home.png");
 }
 
 .equipo_der{
@@ -250,7 +250,7 @@
   }
 
   .responsive_bck {
-    background-size: 200px 206px;
+    background-size: 200px 206px !important;
   }
 
   .img_transparent{
@@ -261,6 +261,11 @@
   .img_transparent_modal{
     width: 200px;
     height: 206px;
+  }
+
+  .img_transparent_amiga{
+    width: 300px;
+    height: 150px;
   }
 }
 

@@ -1,6 +1,10 @@
+<script>
+  $("#registraNombre").on('click', registrarNombre);
+</script>
+
 <div class="modal_input">
-	<%= image_tag "escudo1.png" %>
-	<%= text_field_tag 'first-name-txt', nil, placeholder: 'NOMBRE' %><br/>
-	<%= text_field_tag 'last-name-txt', nil, placeholder: 'APELLIDO' %><br/>
-	<%= button_tag 'Enviar', :onclick => "registrarNombre()" %>
+  <p class='lead_text captura_bottom'>CONFIRMA TU NOMBRE PARA <br/> INGRESAR AL RETO.</p>
+  <%= text_field_tag 'first-name-txt', current_user.first_name, placeholder: 'NOMBRE', :class=>'home_text_input' %><br/>
+	<%= text_field_tag 'last-name-txt', current_user.last_name, placeholder: 'APELLIDO', :class=>'home_text_input' %><br/>
+  <%= link_to '', '#', :id=>'registraNombre', :class=> 'btn_enviar' %></br>
 </div>
