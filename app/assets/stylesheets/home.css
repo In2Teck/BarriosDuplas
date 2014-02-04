@@ -5,6 +5,13 @@
   width: 800px;
 }
 
+.s4x2 {
+  display: inline-block;
+  width: 800px;
+  height: 400px;
+  vertical-align: top;
+}
+
 .s2x2{
   display: inline-block;
   width: 400px;
@@ -30,7 +37,8 @@
 }
 
 .perfil{
-  background:url("/assets/bg_gradient_perfil.png");
+  background: url("/assets/bg_gradient_perfil.png");
+  background-size: 100%;
 }
 
 .amiga{
@@ -57,11 +65,11 @@
   background:url("/assets/bg_club.png");
 }
 
-#profile_name {
-  margin-top: -120px;
+.profile_name {
+  margin-top: -150px;
 }
 
-#amiga_text {
+.amiga_text {
   margin-top: -150px;
 }
 

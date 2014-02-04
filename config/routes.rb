@@ -61,6 +61,8 @@ NosotrasCorremos::Application.routes.draw do
 
   match 'invitaciones_pendientes' => 'display#invitaciones_pendientes', :as => :invitaciones_pendientes
 
+  match 'conecta_twitter' => 'display#conecta_twitter', :as => :conecta_twitter
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

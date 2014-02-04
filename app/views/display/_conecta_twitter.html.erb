@@ -1,0 +1,9 @@
+<div class="modal_input">
+	<h2>CONECTA TU CUENTA DE TWITTER</h2><br/>
+	<div> <!-- los iconos de twitter y de la app van aqui --></div><br/>
+	<div> RECUERDA QUE DEBES COMPARTIR TUS CARRERAS PARA QUE TUS KILÓMETROS CUENTEN </div><br/>
+	<%= button_tag 'Cancelar', :onclick => "$.modal.close()" %>
+	<%= link_to (user_omniauth_authorize_path(:twitter)) do%>
+		<%= button_tag 'Aceptar' %>
+	<% end %>
+</div>

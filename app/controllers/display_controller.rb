@@ -104,6 +104,10 @@ class DisplayController < ApplicationController
 
   end
 
+  def conecta_twitter
+    render :partial => 'conecta_twitter', :content_type => 'text/html'
+  end
+
   def invitaciones_pendientes
     @invites = Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).includes(:user)#.to_json(:include => :user) unless !current_user
     render :partial => 'invitaciones_pendientes', :content_type => 'text/html'
