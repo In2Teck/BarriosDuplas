@@ -90,7 +90,7 @@ body {
 #solo_mujeres_container {
   width: 472px;
   height: 488px;
-  background: url('bg_popup_home.png');
+  background: url('/assets/bg_popup_home.png');
   padding-top: 65%;
   text-align: center;
 }
@@ -114,21 +114,21 @@ body {
 }
 .btn-descargar:hover{
   text-decoration: none !important;
-  background-position: 0 -64px;  
+  background-position: 0 -64px;
 }
 
 @media screen and (max-width: 900px) {
   #simplemodal-container {
-    height:290px;
-    width:300px;
+    height:242px;
+    width:250px;
     margin: auto;
   }
 
   #solo_mujeres_container {
-    width: 290px;
-    height: 300px;
-    background: url('bg_popup_home.png');
-    background-size: 290px 300px;
+    width: 242px;
+    height: 250px;
+    background: url('/assets/bg_popup_home.png');
+    background-size: 242px 250px;
     padding-top: 55%;
     text-align: center;
   }
@@ -156,9 +156,9 @@ body {
   }
 
   #simplemodal-container a.modalCloseImg {
-    background:url("/assets/boton_cerrar.png") no-repeat; width:49px; height:50px; z-index:3200; position:absolute; top:0px; right:-38px; cursor:pointer; }
+    background:url("/assets/boton_cerrar.png") no-repeat; width:40px; height:41px; z-index:3200; position:absolute; top:0px; right:-31px; cursor:pointer; background-size: 100%;}
   #simplemodal-container a.modalCloseImg:hover {
-    background-position: 0 -68px;
+    background-position: 0 -55px;
   }
 
 
