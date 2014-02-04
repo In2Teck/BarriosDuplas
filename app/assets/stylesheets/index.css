@@ -117,6 +117,14 @@ body {
   background-position: 0 -64px;
 }
 
+.terms{
+  width: 80%;
+  color: black;
+  background-color: white;
+  font-size: 12px;
+  height: 450px;
+}
+
 @media screen and (max-width: 900px) {
   #simplemodal-container {
     height:242px;
