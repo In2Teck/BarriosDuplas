@@ -107,9 +107,10 @@ function checkStatus() {
       checkEquipo();
       // lógica para barrio
       checkBarrio();
-      $("#ranking").on("click", muestraRanking);
+      // TODO: HABLILITAR CLICK
+      /*$("#ranking").on("click", muestraRanking);
       $("#run_clubs").on("click", muestraRunClubs);
-      $("#retos").on("click", muestraRetos);
+      $("#retos").on("click", muestraRetos);*/
      
     }
   }
@@ -135,11 +136,11 @@ function cambiaLayout() {
   $("#perfil").removeClass("s2x2");
   $("#perfil").removeClass("perfil");
   $("#perfil").addClass("s4x2");
-  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><h2/></div></div><div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div>");
+  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><h2/></div></div><div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div>");
   $("#perfil_uno img").attr("src", "http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_uno h2").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<br/>" + uno.kilometers + "KM <br/>" + uno.hood.name.toUpperCase());
+  $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<br/>" + uno.kilometers + "KM <br/>" + uno.hood.name.toUpperCase());
   $("#perfil_dos img").attr("src", "http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_dos h2").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<br/>" + dos.kilometers + "KM <br/>" + dos.hood.name.toUpperCase());
+  $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<br/>" + dos.kilometers + "KM <br/>" + dos.hood.name.toUpperCase());
   $("#equipo_datos h2").html("EQUIPO: <br/>" + equipo.name.toUpperCase() + "<br/>" + equipo.kilometers + "KM");
 }
 
@@ -149,19 +150,19 @@ function checkAmiga() {
   if ($("#home-values").data("team") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $(".amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+    $("#amiga .status").html("SELECCIONA </br> A TU COMPAÑERA")
   }
   else if ($("#home-values").data("invited") == null && $("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $(".amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+    $("#amiga .status").text("SELECCIONA A TU COMPAÑERA")
     $("#amiga img").attr("src", "");
     $("#amiga").css("background", "url(assets/bg_escoger.png)");
   }
   else if ($("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $(".amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
+    $("#amiga .status").html("ESPERANDO CONFIRMACIÓN <br/> DE TU COMPAÑERA");
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200");
     $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
     //$("#amiga").css("background", "url(http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=400)");
@@ -169,7 +170,7 @@ function checkAmiga() {
   }
   else if (!isTeamComplete()) {
     cambiaCursor($("#amiga"), false);
-    $(".amiga_text h2").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
+    $("#amiga .status").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200");
     $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
   }
@@ -184,17 +185,17 @@ function checkEquipo() {
   if (team) {
     if (team.name) {
       cambiaCursor($("#equipo"), false);
-      $("#equipo_text h2").text(team.name.toUpperCase());
+      $("#equipo_text .status").text(team.name.toUpperCase());
     }
     else {
       cambiaCursor($("#equipo"), true);
-      $("#equipo_text h2").text("NOMBRA A TU EQUIPO");
+      $("#equipo_text .status").html("NOMBRA <br/> TU EQUIPO");
       $("#equipo").on("click", capturaEquipo);
     }
   }
   else {
     cambiaCursor($("#equipo"), false);
-    $("#equipo_text h2").text("NOMBRA A TU EQUIPO");
+    $("#equipo_text .status").html("NOMBRA <br/> TU EQUIPO");
   }
 }
 
@@ -203,18 +204,18 @@ function checkBarrio() {
   var barrio = $("#home-values").data("user").hood;
   if (barrio) {
     cambiaCursor($("#barrio"), false);
-    $("#barrio_text h2").text(barrio.name.toUpperCase());
+    $("#barrio_text .status").text(barrio.name.toUpperCase());
   }
   else {
     cambiaCursor($("#barrio"), true);
-    $("#barrio_text h2").text("ELIGE TU BARRIO");
+    $("#barrio_text .status").html("ELIGE <br/> TU BARRIO");
     $("#barrio").on("click", capturaBarrio);
   }
 }
 
 function setProfile() {
   $("#perfil img").attr("src", "http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $(".profile_name h2").text($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase());
+  $("#perfil .status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<br/>" + $("#home-values").data("user").kilometers + " KM");
 }
 
 function capturaPerfil() {

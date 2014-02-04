@@ -44,6 +44,7 @@
 
 .amiga{
   background:url("/assets/bg_escoger.png");
+  background-size: 100%;
 }
 
 .equipo{
@@ -52,6 +53,7 @@
 
 .barrio{
   background:url("/assets/bg_barrio.png");
+  background-size: 100%;
 }
 
 .ranking{
@@ -66,12 +68,21 @@
   background:url("/assets/bg_club.png");
 }
 
-.profile_name {
-  margin-top: -150px;
+.menu_font{
+  font-family: 'FuturaStd-MediumCondensed', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 35px;
+  text-align: center;
+  line-height: 1;
 }
 
-.amiga_text {
-  margin-top: -150px;
+.menu_text {
+  margin: -30% auto auto;
+}
+
+.menu_small_text {
+  margin: 30% auto auto;
 }
 
 .equipo_div {
@@ -193,4 +204,16 @@
     background-position: 0 -64px;
   }
 
+  .menu_font{
+    font-family: 'FuturaStd-MediumCondensed', Sans-Serif;
+    color: white;
+    font-smoothing: antialiased;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .menu_small_text {
+    margin: 40% auto auto;
+  }
 }

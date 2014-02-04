@@ -209,7 +209,7 @@
 }
 
 .img_transparent{
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   width: 400px;
   height: 400px;
   display: block;
@@ -217,7 +217,7 @@
 }
 
 .img_transparent_amiga{
-  opacity: 0.6;
+  /*opacity: 0.6;*/
   width: 400px;
   height: 200px;
   display: block;
