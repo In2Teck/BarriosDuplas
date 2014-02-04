@@ -87,28 +87,29 @@ function onReady() {
 function checkStatus() {
   if ($("#home-values").data("user").register_complete) {
 
-    //if (isTeamComplete()) {}
-    //aqui hay que hacer el cambio completo de layout
-
-    if ($("#home-values").data("invites")) {
-      muestraRequests();
+    if (isTeamComplete()) {
+      cambiaLayout();
     }
-    if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
-      muestraConfirmacion();
+    else {
+      if ($("#home-values").data("invites")) {
+        muestraRequests();
+      }
+      if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
+        muestraConfirmacion();
+      }
+
+      setProfile();
+
+      //lógica para amiga
+      checkAmiga();
+      //lógica para equipo
+      checkEquipo();
+      // lógica para barrio
+      checkBarrio();
+      $("#ranking").on("click", muestraRanking);
+      $("#run_clubs").on("click", muestraRunClubs);
+      $("#retos").on("click", muestraRetos);
     }
-
-    setProfile();
-
-    //lógica para amiga
-    checkAmiga();
-    //lógica para equipo
-    checkEquipo();
-    // lógica para barrio
-    checkBarrio();
-    $("#ranking").on("click", muestraRanking);
-    $("#run_clubs").on("click", muestraRunClubs);
-    $("#retos").on("click", muestraRetos);
-
   }
   else {
     resetCssProperty("perfil", "background", "url()");
@@ -124,25 +125,39 @@ function isTeamComplete() {
   return false;
 }
 
+function cambiaLayout() {
+  var uno = $("#home-values").data("user");
+  var dos = $("#home-values").data("partner");
+  $("#contenedor_arriba_derecha").remove();
+  $("#perfil").removeClass("s2x2");
+  $("#perfil").removeClass("perfil");
+  $("#perfil").addClass("s4x2");
+  $("#perfil").html("<div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='profile_name'><h2/></div></div>");
+  $("#perfil_uno img").attr("src", "http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
+  $("#perfil_uno h2").text(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase());
+  $("#perfil_dos img").attr("src", "http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
+  $("#perfil_dos h2").text(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase());
+}
+
 function checkAmiga() {
   $("#amiga").off("click");
   
   if ($("#home-values").data("team") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $("#amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+    $(".amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
   }
   else if ($("#home-values").data("invited") == null && $("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $("#amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
+    $(".amiga_text h2").text("SELECCIONA A TU COMPAÑERA")
     $("#amiga img").attr("src", "");
     $("#amiga").css("background", "url(assets/bg_escoger.png)");
   }
   else if ($("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
-    $("#amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
+    $(".amiga_text h2").text("ESPERANDO CONFIRMACIÓN DE TU COMPAÑERA");
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200");
     $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
     //$("#amiga").css("background", "url(http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=400)");
@@ -150,7 +165,7 @@ function checkAmiga() {
   }
   else if (!isTeamComplete()) {
     cambiaCursor($("#amiga"), false);
-    $("#amiga_text h2").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
+    $(".amiga_text h2").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
     $("#amiga img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200");
     $("#amiga").css("background", "url(assets/bg_gradient_perfil.png)");
   }
@@ -195,7 +210,7 @@ function checkBarrio() {
 
 function setProfile() {
   $("#perfil img").attr("src", "http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#profile_name h2").text($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase());
+  $(".profile_name h2").text($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase());
 }
 
 function capturaPerfil() {
@@ -207,6 +222,19 @@ function capturaPerfil() {
       var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal'/></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
       modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
       $("#sub_der").html(data); 
+    },
+    error: function() {
+    } 
+  });
+}
+
+function capturaTwitter() {
+  $.ajax({
+    type: "GET",
+    url: "/conecta_twitter",
+    data_type: "html",
+    success: function(data, textStatus, jqXHR) {
+      $("#sub_der").html(data);
     },
     error: function() {
     } 
@@ -340,13 +368,12 @@ function registrarNombre() {
         "register_complete": true
       }
     };
-    user.register_complete = true;
     $.ajax({
       type: "PUT",
       data: user,
       url: "/users/" + $("#home-values").data("user").id + ".json",
       success: function(data, textStatus, jqXHR) {
-        $.modal.close();
+        capturaTwitter();
         // Pone background de perfil
         resetCssProperty("perfil", "background-color", "");
         resetCssProperty("perfil", "background", "url('/assets/bg_gradient_perfil.png')");
