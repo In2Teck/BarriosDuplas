@@ -20,6 +20,7 @@ class DisplayController < ApplicationController
     @partner = nil
     @invited = nil
     @show_invites = false
+    @show_twitter = @user.twitter_id ? true : false
 
     if (@team)
       if (@team.first_user_id == current_user.id)

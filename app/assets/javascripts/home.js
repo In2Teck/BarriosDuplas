@@ -5,6 +5,7 @@ var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 
 var just_invited = false;
 var registro_inicial = false;
+var show_twitter = true;
 
 function onReady() {
 
@@ -93,10 +94,13 @@ function checkStatus() {
       cambiaLayout();
     }
     else {
-      if ($("#home-values").data("invites") && !registro_inicial) {
+      if (!$("#home-values").data("twitter") && !$("#home-values").data("user").never_twitter && show_twitter) {
+        capturaTwitter(true);
+      }
+      else if ($("#home-values").data("invites") && !registro_inicial) {
         muestraRequests();
       }
-      if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
+      else if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
         muestraConfirmacion();
       }
 
@@ -112,7 +116,6 @@ function checkStatus() {
       /*$("#ranking").on("click", muestraRanking);
       $("#run_clubs").on("click", muestraRunClubs);
       $("#retos").on("click", muestraRetos);*/
-     
     }
   }
   else {
@@ -237,12 +240,17 @@ function capturaPerfil() {
   });
 }
 
-function capturaTwitter() {
+function capturaTwitter(launchModal) {
   $.ajax({
     type: "GET",
     url: "/conecta_twitter",
     data_type: "html",
     success: function(data, textStatus, jqXHR) {
+      if (launchModal) {
+        var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+        modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
+      }
+      $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
       $("#sub_der").html(data);
     },
     error: function() {
@@ -384,7 +392,7 @@ function registrarNombre() {
       data: user,
       url: "/users/" + $("#home-values").data("user").id + ".json",
       success: function(data, textStatus, jqXHR) {
-        capturaTwitter();
+        capturaTwitter(false);
         // Pone background de perfil
         resetCssProperty("perfil", "background-color", "");
         resetCssProperty("perfil", "background-size", "100%");
@@ -572,6 +580,7 @@ function cancelarInvitacion() {
 
 function cancelarTwitter() {
   registro_inicial = false;
+  show_twitter = false;
   checkStatus();
   $.modal.close();
 }

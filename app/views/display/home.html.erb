@@ -6,11 +6,12 @@
 <% end %>
 
 <div id="home-values" 
-	data-user="<%= @user.to_json(:only => [:id, :first_name, :last_name, :register_complete, :facebook_id, :kilometers], :include => {:hood => {:only => [:name]}})%>" 
+	data-user="<%= @user.to_json(:only => [:id, :first_name, :last_name, :register_complete, :facebook_id, :kilometers, :never_twitter], :include => {:hood => {:only => [:name]}})%>" 
 	data-team="<%= @team.to_json(:only => [:id, :name, :notify_author, :first_user_id, :kilometers]) %>" 
 	data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name, :facebook_id, :kilometers], :include => {:hood => {:only => [:name]}}) %>" 
 	data-invited="<%= @invited.to_json(:only => [:id, :invited_user_facebook_id, :invited_user_name]) %>" 
-	data-invites="<%= @show_invites %>"></div>
+	data-invites="<%= @show_invites %>"
+  data-twitter="<%= @show_twitter %>"></div>
 
 <div id="contenedor">
   <div id="perfil" class="perfil s2x2"><div class="menu_text menu_font"><div class="status"></div></div></div
