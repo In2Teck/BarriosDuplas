@@ -1,7 +1,7 @@
 $(document).on("ready", onReady);
 
 var simplemodal, solo_mujeres, btn_descargar, lead_text, closeImg = {};
-closeImg_hover, closeImg_no_hover = "";
+var closeImg_hover, closeImg_no_hover = "";
 
 function onReady(){
   if (getParameterByName("solo_mujeres")) {

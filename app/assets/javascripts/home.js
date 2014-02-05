@@ -167,7 +167,7 @@ function checkAmiga() {
     $("#amiga").on("click", muestraInvitacion);
     $("#amiga .status").html("ESPERANDO CONFIRMACIÓN <br/> DE TU COMPAÑERA");
     $("#amiga").css("background", "url('assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200')");
-    //$("#amiga").css("background-size", "100%");
+    $("#amiga").css("background-size", "100%");
   }
   else if (!isTeamComplete()) {
     cambiaCursor($("#amiga"), false);
@@ -485,7 +485,7 @@ function invitar() {
           excluir.push(response[index].uid);
         }
         FB.ui({method: 'apprequests',
-          message: 'Corramos juntas por los barrios del DF',
+          message: 'Tu amiga ' + $("#home-values").data("user").first_name + ' ' + $("#home-values").data("user").last_name +' te ha seleccionado para que corran en Juntas Corremos de Nike',
           max_recipients: '1',
           //exclude_ids: excluir
         }, guardarInvitacion);
