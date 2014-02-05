@@ -1,10 +1,10 @@
-<div>
+<div class="modal_input">
 <h2> INVITACIONES </h2>
 <div> VARIAS AMIGAS QUIEREN CORRER CONTIGO. ELIGE SOLO A UNA DE ELLAS Y COMPROMÉTANSE JUNTAS A VENCER AL 2013 </div>
 <% @invites.each do |invite| %>
 	<div id="invites-detail">
 		<%= image_tag ("http://graph.facebook.com/" + invite.user.facebook_id + "/picture?redirect=1") %>
-		<%= button_tag 'Aceptar', :id => invite.id, :onclick => "aceptarInvitacion(this)" %>
+		<%= tag ("div"), :id => invite.id, :class =>'btn_aceptar cursor_pointer', :onClick => 'aceptarInvitacion(this)' %>
 	</div>
 <% end %>
 </div>

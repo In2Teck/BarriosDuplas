@@ -100,7 +100,7 @@
 }
 
 .modal_input {
-  padding-top: 56%;
+  padding-top: 5%;
   text-align: center;
 }
 
@@ -121,7 +121,12 @@
   margin: 10px auto auto;
 }
 
-.btn_enviar{
+.escudo {
+  height: 40%;
+  width: 40%;
+}
+
+.btn_enviar {
   background-image: url('/assets/boton_enviar.png');
   width: 106px;
   height: 57px;
@@ -133,7 +138,58 @@
   margin-top: 10px;
 }
 
-.btn_enviar:hover{
+.btn_enviar:hover {
+  text-decoration: none !important;
+  background-position: 0 -64px;
+}
+
+.btn_aceptar {
+  background-image: url('/assets/boton_aceptar.png');
+  width: 106px;
+  height: 57px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 100%;
+  margin-top: 10px;
+}
+
+.btn_aceptar:hover {
+  text-decoration: none !important;
+  background-position: 0 -64px;
+}
+
+.btn_registrar {
+  background-image: url('/assets/boton_registrar.png');
+  width: 106px;
+  height: 57px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 100%;
+  margin-top: 10px;
+}
+
+.btn_registrar:hover {
+  text-decoration: none !important;
+  background-position: 0 -64px;
+}
+
+.btn_cancelar {
+  background-image: url('/assets/boton_cancelar.png');
+  width: 106px;
+  height: 57px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 100%;
+  margin-top: 10px;
+}
+
+.btn_cancelar:hover {
   text-decoration: none !important;
   background-position: 0 -64px;
 }

@@ -1,5 +1,7 @@
-<img/><br/>
-<div>HAS SELECCIONADO A:</div><br/>
-<h3/><br/>
-<div id="invitacion_texto">ESPERA SU CONFIRMACIÓN PARA QUE CORRAN JUNTAS POR SUS PROPÓSITOS DE 2014.<br/>HAZ EQUIPO CON ELLA, SUMEN KILÓMETROS Y SUPEREN JUNTAS AL 2013.</div><br/>
-<%= button_tag 'CANCELAR INVITACIÓN', :id => "cancelar-btn", :onclick => "cancelarInvitacion()" %>
+<div class="modal_input">
+	<img/><br/>
+	<div>HAS SELECCIONADO A:</div><br/>
+	<h3/><br/>
+	<div id="invitacion_texto">ESPERA SU CONFIRMACIÓN PARA QUE CORRAN JUNTAS POR SUS PROPÓSITOS DE 2014.<br/>HAZ EQUIPO CON ELLA, SUMEN KILÓMETROS Y SUPEREN JUNTAS AL 2013.</div><br/>
+	<%= tag ("div"), :id => "cancelar-btn", :class =>'btn_cancelar cursor_pointer', :onClick => 'cancelarInvitacion()' %>
+</div>

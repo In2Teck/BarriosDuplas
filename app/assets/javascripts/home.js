@@ -304,7 +304,7 @@ function muestraRequests() {
 
 function muestraConfirmacion() {
   var partner = $("#home-values").data("partner");
-  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><img/><br/><h3/><br/><div id='confirmacion_texto'></div></div>"; 
+  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><div class='modal_input'><img/><br/><br/><h3/><br/><div id='confirmacion_texto'></div></div></div>"; 
   modalDialogue(html);
   $("#sub_der img").attr("src", "http://graph.facebook.com/"+ partner.facebook_id +"/picture?redirect=1&width=150&height=150");
   $("#sub_der h3").text(partner.first_name.toUpperCase() + " " + partner.last_name.toUpperCase());
