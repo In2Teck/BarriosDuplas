@@ -46,7 +46,7 @@
 }
 
 .ranking{
-  background:url("/assets/bg_ranking.png");
+  background:url("/assets/bg_ranking.jpg");
 }
 
 .participante{
@@ -54,11 +54,11 @@
 }
 
 .equipo_stats{
-  background:url("/assets/bg_equipo_stats.png");
+  background:url("/assets/bg_equipo_stats.jpg");
 }
 
 .retos_logrados{
-  background:url("/assets/bg_retos_logrados.png");
+  background:url("/assets/bg_retos_logrados.jpg");
 }
 
 #ranking { }

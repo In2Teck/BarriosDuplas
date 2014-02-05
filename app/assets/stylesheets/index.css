@@ -90,7 +90,7 @@ body {
 #solo_mujeres_container {
   width: 472px;
   height: 488px;
-  background: url('/assets/bg_popup_home.png');
+  background: url('/assets/bg_popup_home.jpg');
   padding-top: 65%;
   text-align: center;
 }
@@ -135,7 +135,7 @@ body {
   #solo_mujeres_container {
     width: 242px;
     height: 250px;
-    background: url('/assets/bg_popup_home.png');
+    background: url('/assets/bg_popup_home.jpg');
     background-size: 242px 250px;
     padding-top: 55%;
     text-align: center;

@@ -160,7 +160,7 @@ function checkAmiga() {
     cambiaCursor($("#amiga"), true);
     $("#amiga").on("click", muestraInvitacion);
     $("#amiga .status").text("SELECCIONA A TU COMPAÑERA")
-    $("#amiga").css("background", "url(assets/bg_escoger.png)");
+    $("#amiga").css("background", "url(assets/bg_escoger.jpg)");
   }
   else if ($("#home-values").data("partner") == null) {
     cambiaCursor($("#amiga"), true);
@@ -192,7 +192,7 @@ function checkEquipo() {
       cambiaCursor($("#equipo"), true);
       $("#equipo_text .status").html("NOMBRA <br/> TU EQUIPO");
       $("#equipo").on("click", capturaEquipo);
-      $(".equipo").css("background", "url('/assets/bg_equipo_color.png')");
+      $(".equipo").css("background", "url('/assets/bg_equipo_color.jpg')");
     }
   }
   else {
