@@ -251,7 +251,7 @@
 
 .btn_registrar:hover {
   text-decoration: none !important;
-  background-position: 0 -64px;
+  background-position: 0 -62px;
 }
 
 .btn_cancelar_invitacion {
@@ -289,6 +289,44 @@
 .img_modal_amiga {
   width: 40%;
   height: 40%;
+}
+
+.equipo_titulo{
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif;
+  font-size: 40px;
+  line-height: 1 !important;
+  color: white;
+  margin: 20px auto auto;
+}
+
+.km_chico{
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif;
+  font-size: 30px;
+  line-height: 0.8 !important;
+  color: white;
+  margin: 4px 0 0;
+}
+
+.km_grande{
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif;
+  font-size: 45px;
+  line-height: 1 !important;
+  color: white;
+}
+
+.barrio_chico{
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif;
+  font-size: 20px;
+  line-height: 0.8 !important;
+  color: white;
+}
+
+.nombre_grande{
+  font-family:'FuturaStd-CondensedBoldObl',Sans-Serif;
+  font-size: 45px;
+  line-height: 1 !important;
+  color: white;
+  margin: 15px auto;
 }
 
 @media screen and (max-width: 900px) {

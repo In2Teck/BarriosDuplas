@@ -138,12 +138,12 @@ function cambiaLayout() {
   $("#perfil").removeClass("s2x2");
   $("#perfil").removeClass("perfil");
   $("#perfil").addClass("s4x2");
-  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><h2/></div></div><div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div>");
+  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><div class='equipo_titulo'></div></div></div><div id='perfil_uno' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil s2x2'><img class='img_transparent'/><div class='menu_text menu_font'><div class='status'></div></div></div>");
   $("#perfil_uno img").attr("src", "http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<br/>" + uno.kilometers + "KM <br/>" + uno.hood.name.toUpperCase());
+  $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<p class='km_chico'>" + uno.kilometers + " KM <p/><p class='barrio_chico'>" + uno.hood.name.toUpperCase() + "</p>");
   $("#perfil_dos img").attr("src", "http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<br/>" + dos.kilometers + "KM <br/>" + dos.hood.name.toUpperCase());
-  $("#equipo_datos h2").html("EQUIPO: <br/>" + equipo.name.toUpperCase() + "<br/>" + equipo.kilometers + "KM");
+  $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p/><p class='barrio_chico'>" + dos.hood.name.toUpperCase() + "</p>");
+  $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
 }
 
 function checkAmiga() {
@@ -218,7 +218,7 @@ function checkBarrio() {
 
 function setProfile() {
   $("#perfil img").attr("src", "http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300");
-  $("#perfil .status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<br/>" + $("#home-values").data("user").kilometers + " KM");
+  $("#perfil .status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
 }
 
 function capturaPerfil() {
