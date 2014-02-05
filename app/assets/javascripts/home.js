@@ -341,7 +341,7 @@ function muestraInvitacion() {
           $("#invitacion_texto").css("display", "none");
         }
         $("#sub_der img").attr("src", "http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=150&height=150");
-        $("#sub_der h3").text($("#home-values").data("invited").invited_user_name);
+        $("#amiga_invitada").text($("#home-values").data("invited").invited_user_name.toUpperCase());
       },
       error: function() {
       } 

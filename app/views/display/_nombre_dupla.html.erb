@@ -1,5 +1,5 @@
 <div class="modal_input">
-	<%= image_tag "escudo1.png", :class => "escudo" %><br/><br/>
-	<%= text_field_tag 'team-name-txt', nil, placeholder: 'NOMBRE' %><br/>
+	<%= image_tag "escudo1.png", :class => "escudo_no_hide" %>
+  <%= text_field_tag 'team-name-txt', nil, placeholder: 'NOMBRE', :class => "barrio_text_input" %><br/>
 	<%= tag ("div"), :class =>'btn_registrar cursor_pointer', :onClick => 'registrarEquipo()' %>
 </div>

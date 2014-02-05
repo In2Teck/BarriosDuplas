@@ -1,7 +1,7 @@
 <div class="modal_input" id="hood-values" data-hoods="<%= @hoods.to_json(:only => [:id, :name]) %>">
-	<%= image_tag "escudo1.png", :class => "escudo" %><br/><br/>
+	<%= image_tag "escudo1.png", :class => "escudo_no_hide" %>
 	<div class="ui-front">
-		<%= text_field_tag 'hood-name-txt', nil, placeholder: 'BARRIO' %>
+    <%= text_field_tag 'hood-name-txt', nil, placeholder: 'BARRIO', :class => "barrio_text_input" %>
 	</div>
 	<%= tag ("div"), :class =>'btn_aceptar cursor_pointer', :onClick => 'registrarBarrio()' %>
 </div>

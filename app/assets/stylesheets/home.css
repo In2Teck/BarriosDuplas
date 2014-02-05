@@ -125,6 +125,14 @@
   display: block;
 }
 
+.modal_text_no_margin {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+  font-size: 20px;
+  line-height: 1.2 !important;
+  color: white;
+  display: block;
+}
+
 .captura_bottom{
   margin-bottom: 0;
 }
@@ -134,7 +142,18 @@
   margin: 10px auto auto;
 }
 
+.barrio_text_input {
+  width: 70%;
+  margin: 20px auto;
+}
+
 .escudo {
+  height: 40%;
+  width: 40%;
+  display: inline;
+}
+
+.escudo_no_hide {
   height: 40%;
   width: 40%;
   display: inline;
@@ -228,6 +247,22 @@
   background-position: 0 -64px;
 }
 
+.btn_cancelar_invitacion {
+  background-image: url('/assets/boton_cancelar_invitacion.png');
+  width: 161px;
+  height: 55px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 100%;
+}
+
+.btn_cancelar_invitacion:hover {
+  text-decoration: none !important;
+  background-position: 0 -64px;
+}
+
 .btn_cancelar {
   background-image: url('/assets/boton_cancelar.png');
   width: 106px;
@@ -242,6 +277,11 @@
 .btn_cancelar:hover {
   text-decoration: none !important;
   background-position: 0 -62px;
+}
+
+.img_modal_amiga {
+  width: 40%;
+  height: 40%;
 }
 
 @media screen and (max-width: 900px) {
@@ -297,6 +337,11 @@
     margin: 5px auto auto;
   }
 
+  .barrio_text_input {
+    width: 70%;
+    margin: 5px auto;
+  }
+
   .btn_enviar{
     background-image: url('/assets/boton_enviar.png');
     width: 106px;
@@ -334,4 +379,13 @@
   .twitter_share {
     display: none;
   }
+
+  .modal_text_no_margin {
+    font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+    font-size: 12px;
+    line-height: 1 !important;
+    color: white;
+    display: block;
+  }
+
 }

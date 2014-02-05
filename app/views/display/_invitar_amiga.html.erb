@@ -1,7 +1,7 @@
 <div class="modal_input">
-	<img/><br/>
-	<div>HAS SELECCIONADO A:</div><br/>
-	<h3/><br/>
-	<div id="invitacion_texto">ESPERA SU CONFIRMACIÓN PARA QUE CORRAN JUNTAS POR SUS PROPÓSITOS DE 2014.<br/>HAZ EQUIPO CON ELLA, SUMEN KILÓMETROS Y SUPEREN JUNTAS AL 2013.</div><br/>
-	<%= tag ("div"), :id => "cancelar-btn", :class =>'btn_cancelar cursor_pointer', :onClick => 'cancelarInvitacion()' %>
+	<img class="img_modal_amiga"/>
+	<div class="modal_text_no_margin" style="margin: 10px 0;">HAS SELECCIONADO A:</div>
+	<p id="amiga_invitada" class="menu_font"/>
+  <div id="invitacion_texto" class="modal_text_no_margin centered">ESPERA SU CONFIRMACIÓN PARA QUE <br/> CORRAN JUNTAS POR SUS PROPÓSITOS DE 2014.<br/>HAZ EQUIPO CON ELLA, SUMEN KILÓMETROS <br/> Y SUPEREN JUNTAS AL 2013.</div>
+  <%= tag ("div"), :id => "cancelar-btn", :class =>'btn_cancelar_invitacion cursor_pointer', :onClick => 'cancelarInvitacion()' %>
 </div>
