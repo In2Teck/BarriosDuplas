@@ -465,15 +465,27 @@ function reloadInfo() {
 }
 
 function invitar() {
+  var excluir = [];
   $.ajax({
     type: "GET",
     url: "/invites/invited_user",
     success: function(data, textStatus, jqXHR) {
-      FB.ui({method: 'apprequests',
-        message: 'Corramos juntas por los barrios del DF',
-        max_recipients: '1',
-        //exclude_ids: data
-      }, guardarInvitacion);
+      excluir = data;
+      console.log(excluir.length);
+      FB.api({
+        method: 'fql.query',
+        query: 'SELECT uid FROM user WHERE sex = "male" AND uid in (SELECT uid2 FROM friend WHERE uid1 = me())'
+      }, function(response) {
+        for (var index = 0; index < response.length; index++) {
+          excluir.push(response[index].uid);
+        }
+        console.log(excluir.length);
+        FB.ui({method: 'apprequests',
+          message: 'Corramos juntas por los barrios del DF',
+          max_recipients: '1',
+          //exclude_ids: excluir
+        }, guardarInvitacion);
+      });
     },
     error: function() {
     } 
@@ -565,9 +577,7 @@ function cambiaCursor(element, isClickable) {
   }
 }
 
-var diego;
 function muestraNombre(value, element) {
-  diego = element;
   if (value) {
     $($($(element).children()[0]).children()[0]).css("display", "block");
   }
