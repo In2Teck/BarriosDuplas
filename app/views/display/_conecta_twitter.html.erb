@@ -2,7 +2,7 @@
   <p class="menu_font">CONECTA <br/> TU CUENTA DE TWITTER</p>
   <%= image_tag 'twitter_share.png', :class=> "twitter_share" %>
   <div class="modal_text"> RECUERDA QUE DEBES COMPARTIR <br/> TUS CARRERAS PARA QUE <br/> TUS KILÓMETROS CUENTEN </div><br/>
-	<%= tag ("div"), :class =>'btn_cancelar cursor_pointer', :onClick => '$.modal.close()' %>
+	<%= tag ("div"), :class =>'btn_cancelar cursor_pointer', :onClick => 'cancelarTwitter()' %>
 	<%= link_to (user_omniauth_authorize_path(:twitter)) do%>
 		<%= tag ("div"), :class =>'btn_aceptar cursor_pointer' %>
 	<% end %>

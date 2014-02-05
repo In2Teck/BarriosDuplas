@@ -4,6 +4,7 @@ var facebook_id;
 var sub_der, sub_izq, simplemodal_container, img_transparent = {};
 
 var just_invited = false;
+var registro_inicial = false;
 
 function onReady() {
 
@@ -92,7 +93,7 @@ function checkStatus() {
       cambiaLayout();
     }
     else {
-      if ($("#home-values").data("invites")) {
+      if ($("#home-values").data("invites") && !registro_inicial) {
         muestraRequests();
       }
       if ($("#home-values").data("team") && $("#home-values").data("team").notify_author && $("#home-values").data("team").first_user_id == $("#home-values").data("user").id) {
@@ -115,6 +116,7 @@ function checkStatus() {
     }
   }
   else {
+    registro_inicial = true;
     resetCssProperty("perfil", "background", "url()");
     resetCssProperty("perfil", "background-color", "#2A2A2A");
     capturaPerfil();
@@ -471,7 +473,6 @@ function invitar() {
     url: "/invites/invited_user",
     success: function(data, textStatus, jqXHR) {
       excluir = data;
-      console.log(excluir.length);
       FB.api({
         method: 'fql.query',
         query: 'SELECT uid FROM user WHERE sex = "male" AND uid in (SELECT uid2 FROM friend WHERE uid1 = me())'
@@ -479,7 +480,6 @@ function invitar() {
         for (var index = 0; index < response.length; index++) {
           excluir.push(response[index].uid);
         }
-        console.log(excluir.length);
         FB.ui({method: 'apprequests',
           message: 'Corramos juntas por los barrios del DF',
           max_recipients: '1',
@@ -564,6 +564,12 @@ function cancelarInvitacion() {
     error: function() {
     } 
   }); 
+}
+
+function cancelarTwitter() {
+  registro_inicial = false;
+  checkStatus();
+  $.modal.close();
 }
 
 function cambiaCursor(element, isClickable) {
