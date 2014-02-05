@@ -1,5 +1,6 @@
 class DisplayController < ApplicationController
-	
+  
+  before_filter :authenticate_user!, :except => [:index, :terminos, :ranking]
   authorize_resource :class => false
 
   #VISTAS COMPLETAS

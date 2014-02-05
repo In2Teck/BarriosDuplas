@@ -154,23 +154,23 @@
 }
 
 .equipo_izq {
-  background:url("/assets/bg_gradient_equipo.png");
+  background:url("/assets/bg_gradient_equipo.jpg");
 }
 
 .barrio_izq {
-  background:url("/assets/bg_gradient_barrio.png");
+  background:url("/assets/bg_gradient_barrio.jpg");
 }
 
 .amiga_izq {
-  background:url("/assets/bg_amiga_izq.png");
+  background:url("/assets/bg_amiga_izq.jpg");
 }
 
 .run_club_izq {
-  background:url("/assets/bg_run_club.png");
+  background:url("/assets/bg_run_club.jpg");
 }
 
 .retos_izq {
-  background:url("/assets/bg_retos_der.png");
+  background:url("/assets/bg_retos_der.jpg");
 }
 
 .responsive_bck {
@@ -185,27 +185,27 @@
 }
 
 .profile_der{
-  background:url("/assets/bg_popup_home.png");
+  background:url("/assets/bg_popup_home.jpg");
 }
 
 .equipo_der{
-  background:url("/assets/bg_popup_home.png");
+  background:url("/assets/bg_popup_home.jpg");
 }
 
 .barrio_der{
-  background:url("/assets/bg_popup_home.png");
+  background:url("/assets/bg_popup_home.jpg");
 }
 
 .amiga_der {
-  background:url("/assets/bg_amiga_der.png");
+  background:url("/assets/bg_amiga_der.jpg");
 }
 
 .run_club_der {
-  background:url("/assets/bg_amiga_der.png");
+  background:url("/assets/bg_amiga_der.jpg");
 }
 
 .retos_der {
-  background:url("/assets/bg_retos_der.png");
+  background:url("/assets/bg_retos_der.jpg");
 }
 
 .img_transparent{

@@ -48,29 +48,29 @@
 }
 
 .amiga{
-  background:url("/assets/bg_escoger.png");
+  background:url("/assets/bg_escoger.jpg");
   background-size: 100%;
 }
 
 .equipo{
-  background:url("/assets/bg_equipo.png");
+  background:url("/assets/bg_equipo.jpg");
 }
 
 .barrio{
-  background:url("/assets/bg_barrio.png");
+  background:url("/assets/bg_barrio.jpg");
   background-size: 100%;
 }
 
 .ranking{
-  background:url("/assets/bg_ranking_home.png");
+  background:url("/assets/bg_ranking_home.jpg");
 }
 
 .retos{
-  background:url("/assets/bg_retos.png");
+  background:url("/assets/bg_retos.jpg");
 }
 
 .run_clubs{
-  background:url("/assets/bg_club.png");
+  background:url("/assets/bg_club.jpg");
 }
 
 .menu_font{
