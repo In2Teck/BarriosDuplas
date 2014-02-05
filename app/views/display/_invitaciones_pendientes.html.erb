@@ -1,10 +1,17 @@
 <div class="modal_input">
-<h2> INVITACIONES </h2>
-<div> VARIAS AMIGAS QUIEREN CORRER CONTIGO. ELIGE SOLO A UNA DE ELLAS Y COMPROMÉTANSE JUNTAS A VENCER AL 2013 </div>
-<% @invites.each do |invite| %>
-	<div id="invites-detail">
-		<%= image_tag ("http://graph.facebook.com/" + invite.user.facebook_id + "/picture?redirect=1") %>
-		<%= tag ("div"), :id => invite.id, :class =>'btn_aceptar cursor_pointer', :onClick => 'aceptarInvitacion(this)' %>
+	<h2> INVITACIONES </h2>
+	<div> VARIAS AMIGAS QUIEREN CORRER CONTIGO. ELIGE SOLO A UNA DE ELLAS Y COMPROMÉTANSE JUNTAS A VENCER AL 2013 </div><br/>
+	<div class="invites-div">
+		<% @invites.each do |invite| %>
+			<div class="invite-detail">
+				<div class="invite-image-container" onmouseenter="muestraNombre(true, this)" onmouseleave="muestraNombre(false, this)">
+					<div class="invite-name-container">
+						<div class="invite-name"><%= invite.user.first_name.upcase%><br/><%= invite.user.last_name.upcase%></div>
+					</div>
+					<%= image_tag ("http://graph.facebook.com/" + invite.user.facebook_id + "/picture?redirect=1&type=square&height=120&width=120") %>
+				</div>
+				<%= tag ("div"), :id => invite.id, :class =>'btn_aceptar cursor_pointer', :onClick => 'aceptarInvitacion(this)' %>
+			</div>
+		<% end %>
 	</div>
-<% end %>
 </div>

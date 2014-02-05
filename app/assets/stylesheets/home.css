@@ -146,6 +146,38 @@
   display: inline;
 }
 
+.invites-div {
+  height: 100%;
+  margin: auto;
+  width: 80%;
+}
+
+.invite-detail {
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: top;
+}
+
+.invite-image-container {
+  height: 100%;
+  position: relative; 
+  width: 100%;
+}
+
+.invite-name-container {
+  height:100%;
+  position:absolute;
+  width:100%;
+}
+
+.invite-name {
+  display: none;
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+}
+
+
 .btn_enviar {
   background-image: url('/assets/boton_enviar.png');
   width: 106px;

@@ -472,7 +472,7 @@ function invitar() {
       FB.ui({method: 'apprequests',
         message: 'Corramos juntas por los barrios del DF',
         max_recipients: '1',
-        exclude_ids: data
+        //exclude_ids: data
       }, guardarInvitacion);
     },
     error: function() {
@@ -562,5 +562,16 @@ function cambiaCursor(element, isClickable) {
   else {
    $(element).removeClass("cursor_pointer");
     $(element).addClass("cursor_default"); 
+  }
+}
+
+var diego;
+function muestraNombre(value, element) {
+  diego = element;
+  if (value) {
+    $($($(element).children()[0]).children()[0]).css("display", "block");
+  }
+  else {
+    $($($(element).children()[0]).children()[0]).css("display", "none");
   }
 }
