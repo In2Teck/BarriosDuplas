@@ -1,7 +1,7 @@
 <div class="modal_input">
-	<h2>CONECTA TU CUENTA DE TWITTER</h2><br/>
-	<div> <!-- los iconos de twitter y de la app van aqui --></div><br/>
-	<div> RECUERDA QUE DEBES COMPARTIR TUS CARRERAS PARA QUE TUS KILÓMETROS CUENTEN </div><br/>
+  <p class="menu_font">CONECTA <br/> TU CUENTA DE TWITTER</p>
+  <%= image_tag 'twitter_share.png', :class=> "twitter_share" %>
+  <div class="modal_text"> RECUERDA QUE DEBES COMPARTIR <br/> TUS CARRERAS PARA QUE <br/> TUS KILÓMETROS CUENTEN </div><br/>
 	<%= tag ("div"), :class =>'btn_cancelar cursor_pointer', :onClick => '$.modal.close()' %>
 	<%= link_to (user_omniauth_authorize_path(:twitter)) do%>
 		<%= tag ("div"), :class =>'btn_aceptar cursor_pointer' %>

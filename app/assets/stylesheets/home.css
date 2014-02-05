@@ -116,6 +116,15 @@
   margin: 0px 0 20px;
 }
 
+.modal_text {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+  font-size: 20px;
+  line-height: 1.2 !important;
+  color: white;
+  margin: 30px 0 0;
+  display: block;
+}
+
 .captura_bottom{
   margin-bottom: 0;
 }
@@ -128,6 +137,13 @@
 .escudo {
   height: 40%;
   width: 40%;
+  display: inline;
+}
+
+.twitter_share {
+  height: 40%;
+  width: 40%;
+  display: inline;
 }
 
 .btn_enviar {
@@ -156,12 +172,11 @@
   padding: 4px;
   display:inline-block;
   background-size: 100%;
-  margin-top: 10px;
 }
 
 .btn_aceptar:hover {
   text-decoration: none !important;
-  background-position: 0 -64px;
+  background-position: 0 -60px;
 }
 
 .btn_registrar {
@@ -184,18 +199,17 @@
 .btn_cancelar {
   background-image: url('/assets/boton_cancelar.png');
   width: 106px;
-  height: 57px;
+  height: 55px;
   letter-spacing: 82px;
   background-repeat: no-repeat;
   padding: 4px;
   display:inline-block;
   background-size: 100%;
-  margin-top: 10px;
 }
 
 .btn_cancelar:hover {
   text-decoration: none !important;
-  background-position: 0 -64px;
+  background-position: 0 -62px;
 }
 
 @media screen and (max-width: 900px) {
@@ -231,7 +245,11 @@
   }
 
   .modal_input {
-    padding-top: 15%;
+    padding-top: 5%;
+  }
+
+  .escudo {
+    display: none;
   }
 
   .lead_text {
@@ -275,5 +293,13 @@
 
   .menu_small_text {
     margin: 40% auto auto;
+  }
+
+  .modal_text {
+    display: none;
+  }
+
+  .twitter_share {
+    display: none;
   }
 }
