@@ -294,7 +294,7 @@ function muestraRequests() {
     url: "/invitaciones_pendientes",
     data_type: "html",
     success: function(data, textStatus, jqXHR) {
-      var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
+      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal'/></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
       modalDialogue(html);
       $("#sub_der").html(data);
     },
@@ -305,11 +305,11 @@ function muestraRequests() {
 
 function muestraConfirmacion() {
   var partner = $("#home-values").data("partner");
-  var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><div class='modal_input'><img/><br/><br/><h3/><br/><div id='confirmacion_texto'></div></div></div>"; 
+  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><img src='http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300' class='img_transparent_modal'/></div><div id='sub_der' class='amiga_der responsive_bck'><div class='modal_input'><img class='img_modal_amiga'/><div class='modal_text_no_margin' style='margin: 20px 0;'></div><div id='confirmacion_texto' class='modal_text_no_margin centered'></div></div></div>"; 
   modalDialogue(html);
   $("#sub_der img").attr("src", "http://graph.facebook.com/"+ partner.facebook_id +"/picture?redirect=1&width=150&height=150");
-  $("#sub_der h3").text(partner.first_name.toUpperCase() + " " + partner.last_name.toUpperCase());
-  $("#sub_der #confirmacion_texto").text("ACEPTÓ TU INVITACIÓN A CORRER JUNTAS ESTE AÑO. DECIDAN CON QUÉ RETO QUIEREN EMPEZAR Y CORRAN HASTA LLEGAR AL PRIMER SITIO DEL RANKING.");
+  $("#sub_der .modal_text_no_margin").text(partner.first_name.toUpperCase() + " " + partner.last_name.toUpperCase());
+  $("#sub_der #confirmacion_texto").html("ACEPTÓ TU INVITACIÓN A CORRER JUNTAS ESTE AÑO.<br/> DECIDAN CON QUÉ RETO QUIEREN EMPEZAR <br/> Y CORRAN HASTA LLEGAR AL PRIMER SITIO DEL RANKING.");
   $.ajax({
     type: "GET",
     url: "/teams/" + $("#home-values").data("team").id + "/notified",

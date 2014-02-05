@@ -108,6 +108,8 @@
   text-align: center;
 }
 
+#modal-content {overflow-y: hidden;}
+
 .lead_text {
   font-family:'FuturaStd-MediumCondensed',Sans-Serif;
   font-size: 20px;
@@ -166,9 +168,10 @@
 }
 
 .invites-div {
-  height: 100%;
+  height: 250px;
   margin: auto;
   width: 80%;
+  overflow-y: auto;
 }
 
 .invite-detail {
@@ -196,6 +199,10 @@
   padding-top: 40px;
 }
 
+.invite_thumbs{
+  width: 120px;
+  height: 120px;
+}
 
 .btn_enviar {
   background-image: url('/assets/boton_enviar.png');
@@ -386,6 +393,11 @@
     line-height: 1 !important;
     color: white;
     display: block;
+  }
+
+  .invite_thumbs{
+    width: 70px;
+    height: 70px;
   }
 
 }
