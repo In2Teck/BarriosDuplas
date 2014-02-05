@@ -42,6 +42,11 @@
   background-size: 100%;
 }
 
+.perfil_dos{
+  background: url("/assets/bg_gradient_perfil.png");
+  background-size: 100%;
+}
+
 .amiga{
   background:url("/assets/bg_escoger.png");
   background-size: 100%;
@@ -78,6 +83,10 @@
 }
 
 .menu_text {
+  margin: 75% auto auto;
+}
+
+.menu_text_menu {
   margin: -30% auto auto;
 }
 
@@ -97,10 +106,9 @@
 }
 
 #equipo_datos {
-  height: 50%;
   margin: auto;
   text-align: center;
-  width: 50%;
+  padding-top: 0%;
 }
 
 .modal_input {
@@ -287,8 +295,8 @@
 }
 
 .img_modal_amiga {
-  width: 40%;
-  height: 40%;
+  width: 150px;
+  height: 150px;
 }
 
 .equipo_titulo{
@@ -336,6 +344,14 @@
     height: 600px;
     width: 300px;
   } 
+
+  .s4x2 {
+    display: inline-block;
+    height: 600px;
+    position: relative;
+    vertical-align: top;
+    width: 300px;
+  }
 
   .s2x2{
     display: inline-block;
@@ -436,6 +452,31 @@
   .invite_thumbs{
     width: 70px;
     height: 70px;
+  }
+
+  .km_chico{
+    font-size: 20px;
+  }
+
+  .km_grande{
+    font-size: 30px;
+  }
+
+  .equipo_titulo{
+    font-size: 35px;
+  }
+
+  .nombre_grande{
+    font-size: 30px;
+  }
+
+  #equipo_datos {
+    padding-top: 95%;
+  }
+
+  .img_modal_amiga {
+    width: 80px;
+    height: 80px;
   }
 
 }
