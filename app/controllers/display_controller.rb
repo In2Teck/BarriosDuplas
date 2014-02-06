@@ -107,6 +107,7 @@ class DisplayController < ApplicationController
   end
 
   def conecta_twitter
+    @first_time = params[:first_time]
     render :partial => 'conecta_twitter', :content_type => 'text/html'
   end
 

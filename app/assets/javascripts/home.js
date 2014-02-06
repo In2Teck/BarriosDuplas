@@ -93,8 +93,8 @@ function checkStatus() {
       cambiaLayout();
     }
     else {
-      if (!$("#home-values").data("twitter") && !$("#home-values").data("user").never_twitter && show_twitter) {
-        capturaTwitter(true);
+      if (!$("#home-values").data("twitter") && !$("#home-values").data("user").never_twitter && show_twitter && !registro_inicial) {
+        capturaTwitter(false);
       }
       else if ($("#home-values").data("invites") && !registro_inicial) {
         muestraRequests();
@@ -242,18 +242,25 @@ function capturaPerfil() {
   });
 }
 
-function capturaTwitter(launchModal) {
+function capturaTwitter(firstTime) {
   $.ajax({
     type: "GET",
-    url: "/conecta_twitter",
+    url: "/conecta_twitter?first_time=" + firstTime,
     data_type: "html",
     success: function(data, textStatus, jqXHR) {
-      if (launchModal) {
-        var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
-        modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
+      if (firstTime) {
+        $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+        $("#sub_der").html(data);
       }
-      $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-      $("#sub_der").html(data);
+      else {
+        var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+        modalDialogue(html);
+        $("#sub_der").html(data);
+        $("#cancelar-btn").removeClass("btn_cancelar");
+        $("#cancelar-btn").addClass("btn_noconectar");
+        $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+        
+      }
     },
     error: function() {
     } 
@@ -394,7 +401,7 @@ function registrarNombre() {
       data: user,
       url: "/users/" + $("#home-values").data("user").id + ".json",
       success: function(data, textStatus, jqXHR) {
-        capturaTwitter(false);
+        capturaTwitter(true);
         // Pone background de perfil
         resetCssProperty("perfil", "background-color", "");
         resetCssProperty("perfil", "background-size", "100%");
@@ -578,10 +585,28 @@ function cancelarInvitacion() {
   }); 
 }
 
-function cancelarTwitter() {
-  registro_inicial = false;
+function cancelarTwitter(firstTime) {
   show_twitter = false;
-  checkStatus();
+  if (firstTime) {
+    registro_inicial = false;
+    checkStatus();
+  }
+  else {
+    var user = {
+      "user": {
+        "never_twitter": true
+      }
+    };
+    $.ajax({
+      type: "PUT",
+      data: user,
+      url: "/users/" + $("#home-values").data("user").id + ".json",
+      success: function(data, textStatus, jqXHR) {
+      },
+      error: function() {
+      } 
+    });
+  }
   $.modal.close();
 }
 

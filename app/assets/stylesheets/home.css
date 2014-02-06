@@ -294,6 +294,22 @@
   background-position: 0 -62px;
 }
 
+.btn_noconectar {
+  background-image: url('/assets/boton_no_conectar.png');
+  width: 150px;
+  height: 53px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 148px 107px;
+}
+
+.btn_noconectar:hover {
+  text-decoration: none !important;
+  background-position: 0 -60px;
+}
+
 .img_modal_amiga {
   width: 150px;
   height: 150px;
