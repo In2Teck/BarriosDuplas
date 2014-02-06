@@ -115,4 +115,15 @@ class DisplayController < ApplicationController
     render :partial => 'invitaciones_pendientes', :content_type => 'text/html'
   end
 
+  def borrar_requests
+    requests = params[:requests].split(",")
+    invite = Invite.find_by_request_facebook_id(requests[0]);
+    rg = RestGraph.new(:access_token => ENV['APP_TOKEN'])
+    
+    requests.each do | request |
+      rg.delete(request + '_' + invite.invited_user_facebook_id)
+    end
+    render status: 200, json: {:message => 'done'}
+  end
+
 end

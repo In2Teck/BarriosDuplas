@@ -63,6 +63,8 @@ NosotrasCorremos::Application.routes.draw do
 
   match 'conecta_twitter' => 'display#conecta_twitter', :as => :conecta_twitter
 
+  match 'borrar_requests' => 'display#borrar_requests', :as => :borrar_requests
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
