@@ -143,6 +143,14 @@
   display: block;
 }
 
+.margin_top_modal {
+  margin: 15% auto 10%;
+}
+
+.margin_text_modal {
+  margin-top: auto;
+}
+
 .captura_bottom{
   margin-bottom: 0;
 }
@@ -243,6 +251,22 @@
 .btn_aceptar:hover {
   text-decoration: none !important;
   background-position: 0 -60px;
+}
+
+.btn_ingresar {
+  background-image: url('/assets/boton_ingresar.png');
+  width: 161px;
+  height: 62px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 100%;
+}
+
+.btn_ingresar:hover {
+  text-decoration: none !important;
+  background-position: 0 -64px;
 }
 
 .btn_registrar {

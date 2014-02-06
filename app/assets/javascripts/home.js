@@ -110,10 +110,7 @@ function checkStatus() {
       //lógica para equipo
       checkEquipo();
       // lógica para barrio
-      checkBarrio();
-      // TODO: HABLILITAR CLICK
-      /*$("#run_clubs").on("click", muestraRunClubs);
-      $("#retos").on("click", muestraRetos);*/
+      checkBarrio(); 
     }
   }
   else {
@@ -147,7 +144,23 @@ function cambiaLayout() {
   resetCssProperty("perfil_dos", "background-size", "100%");
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p/><p class='barrio_chico'>" + dos.hood.name.toUpperCase() + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
+  
+  habilitaSecciones(); 
+}
+
+function habilitaSecciones(){
+
   // habilita retos
+  $("#retos").on("click", muestraRetos);
+  cambiaCursor($("#retos"), true);
+  $(".retos").css("background", "url('/assets/bg_retos_color.jpg')");
+
+  // habilita run_clubs
+  $("#run_clubs").on("click", muestraRunClubs);
+  cambiaCursor($("#run_clubs"), true);
+  $(".run_clubs").css("background", "url('/assets/bg_club_color.jpg')");
+
+  // habilita ranking
   $("#ranking").on("click", muestraRanking);
   cambiaCursor($("#ranking"), true);
   $(".ranking").css("background", "url('/assets/bg_ranking_home_color.jpg')");
@@ -376,7 +389,7 @@ function muestraRanking() {
 }
 
 function muestraRunClubs() {
-  var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck'></div>"; 
+  var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck centered'><p class='menu_font margin_top_modal'>RUN CLUBS</p><p class='modal_text_no_margin margin_text_modal'>PREPÁRATE MÁS Y MEJOR PARA ESTE <br/> AÑO UNIÉNDOTE AL RUN CLUB <br/> MÁS ADECUADO PARA TI.</p><br/><!--<div class='btn_ingresar cursor_pointer'></div>--></div>"; 
   modalDialogue(html);
 }
 

@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'FuturaStd-CondensedBold';
+  src: url('FuturaStd-CondensedBold.eot');
+  src: local('☺'), url('FuturaStd-CondensedBold.woff') format('woff'), url('FuturaStd-CondensedBold.ttf') format('truetype'), url('FuturaStd-CondensedBold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'FuturaStd-MediumCondensed';
   src: url('FuturaStd-MediumCondensed.eot');
   src: local('☺'), url('FuturaStd-MediumCondensed.woff') format('woff'), url('FuturaStd-MediumCondensed.ttf') format('truetype'), url('FuturaStd-MediumCondensed.svg') format('svg');
@@ -20,6 +28,11 @@
   src: local('☺'), url('FuturaStd-CondensedBoldObl.woff') format('woff'), url('FuturaStd-CondensedBoldObl.ttf') format('truetype'), url('FuturaStd-CondensedBoldObl.svg') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+.centered{
+  margin: auto;
+  text-align: center;
 }
 
 /* Custom page header */
@@ -201,7 +214,7 @@
 }
 
 .run_club_der {
-  background:url("/assets/bg_amiga_der.jpg");
+  background:url("/assets/bg_popup_home.jpg");
 }
 
 .retos_der {
