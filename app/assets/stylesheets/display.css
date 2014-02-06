@@ -232,6 +232,37 @@
   margin: 1px auto auto auto;
 }
 
+.pull_left{
+  background:url("/assets/triangulo_izq.png");
+  width: 18px;
+  height: 25px;
+  background-repeat:no-repeat;
+  background-size: 18px 25px;
+  margin:0 10px 0 -20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pull_right{
+  background:url("/assets/triangulo_der.png");
+  width: 18px;
+  height: 25px;
+  background-repeat:no-repeat;
+  background-size: 18px 25px;
+  margin:0 0 0 10px;
+  display: inline-block;
+}
+
+.pagination{
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+}
+
+.disabled{
+  display: none !important;
+}
+
 @media screen and (max-width: 900px) {
   #simplemodal-container {
     height: 412px;
@@ -266,6 +297,10 @@
   .img_transparent_amiga{
     width: 300px;
     height: 150px;
+  }
+
+  .pagination{
+    margin: 20px 0 0 0;
   }
 }
 

@@ -68,7 +68,7 @@ class DisplayController < ApplicationController
     end
     @challenges = @team.completed_challenges 
     @self_ranking = @team.calculate_self_ranking
-    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 5)
+    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 10)
   end
 
   def terminos

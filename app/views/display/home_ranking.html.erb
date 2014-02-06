@@ -1,54 +1,54 @@
 <% content_for :head_script do %>
-  <%= javascript_include_tag 'home_ranking' %>
+  <%= javascript_include_tag 'jquery.mCustomScrollbar.min', 'home_ranking' %>
 <% end %>
 <% content_for :head_style do %>
-  <%= stylesheet_link_tag 'home_ranking' %>
+  <%= stylesheet_link_tag 'home_ranking', 'jquery.mCustomScrollbar.css' %>
 <% end %>
 
-<div id="home-ranking-values" data-user="<%= @user%>" data-team="<%= @team.to_json(:only => [:id, :name]) %>" data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name], :include => {:hood => {:only => [:name]}}) %>" data-challenges="<%= %>" data-self-ranking="<%= @self_ranking %>" ></div>
+<div id="home-ranking-values" data-user="<%= current_user.to_json(:only =>[:id, :first_name, :last_name, :facebook_id, :kilometers] ) %>" data-team="<%= @team.to_json(:only => [:id, :name]) %>" data-partner="<%= @partner.to_json(:only => [:id, :first_name, :last_name, :facebook_id], :include => {:hood => {:only => [:name]}}) %>" data-challenges="<%= %>" data-self-ranking="<%= @self_ranking %>" ></div>
 
 <div id="contenedor">
   <div id="ranking" class="ranking rankings2x3">
-    <h2>RANKING</h2>
+    <p class="rank_header">RANKING</p>
     <ul id="ranking_lista">
       <% @total_ranking.each_with_index do |team, i| %>
         <li>
           <p class='numero'><%= i+1+@total_ranking.offset %></p>
           <div class="team_pics" >
-          <%= image_tag "http://graph.facebook.com/"+team.first_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb'%><%= image_tag "http://graph.facebook.com/"+team.second_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb' %>
+            <%= image_tag "http://graph.facebook.com/"+team.first_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb'%><%= image_tag "http://graph.facebook.com/"+team.second_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb' %>
           </div> 
           <div class='team_info'>
             <p class='team_name'><%= team.name.upcase %></p>
-            <p class='team_kilometers'><%= team.kilometers.round(2) %> KM</p>
+            <p class='team_kilometers'><%= team.kilometers.round(2).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KM</p>
           </div>
         </li>
       <% end %>
     </ul>
-    <%= will_paginate @total_ranking, :page_links => true, :next_label=>'<div class=""></div>', :previous_label=>'<div class=""></div>'%>
+    <%= will_paginate @total_ranking, :page_links => false, :next_label=>"<div class='pull_right'></div>", :previous_label=>"<div class='pull_left'></div>"%>
   </div
   ><div id="contenedor_derecha" class="s2x3"
     ><div id="contenedor_arriba_derecha" class="s2x1"
       ><div><div id="participante" class="participante s1x1">
-        <h3><%= current_user.first_name %> <%= current_user.last_name %></h3
+        <p class="text_user text_user_margin"><%= current_user.first_name.upcase %> <%= current_user.last_name.upcase %></p
         ></div
-        ><div id="participante_amiga" class="participante s1x1">
+        ><div id="participante_amiga" class="participante_amiga s1x1">
         <% if @partner %>
-          <h3><%= @partner.first_name %> <%= @partner.last_name %></h3></div>
+          <p class="text_user text_user_margin"><%= @partner.first_name.upcase %> <%= @partner.last_name.upcase %></p></div>
         <% else %>
           <h3>Falta amiga</h3></div>
         <% end %>
       </div
       ><div id="equipo_stats" class="equipo_stats s2x1">
-        <h3>EQUIPO:</h3>
-        <h2><%= @team.name %></h2>
-        <p><%= @self_ranking[:kilometers] %> KMS</p>
-        <p>POSICION: <%= @self_ranking[:position] %></p>
+        <p class="equipo_header" style="margin: 15px auto 8px !important;">EQUIPO:</p>
+        <p class="equipo_nombre"><%= @team.name.upcase %></p>
+        <p class="equipo_km"><%= @self_ranking[:kilometers].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KMS</p>
+        <p class="equipo_header">POSICION: <%= @self_ranking[:position] > 0 ? @self_ranking[:position] : "N/A" %></p>
     </div
     ><div id="retos_logrados" class="retos_logrados s2x1">
-        <p>RETOS</p>
-        <p>LOGRADOS</p>
-        <div>
-          <p><%= @challenges.length %>/<%= Challenge.all.count %></p>
+        <p class="equipo_nombre" style="margin: 15px auto auto !important;">RETOS</p>
+        <p class="equipo_km">LOGRADOS</p>
+        <div style="text-align: center;">
+          <p class="equipo_nombre inline"><%= @challenges.length %></p><p class="equipo_km inline">/<%= Challenge.all.count %></p>
         </div>
     </div>
 </div>
