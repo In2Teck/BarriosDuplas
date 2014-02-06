@@ -13,6 +13,5 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :users, :facebook_hash, :text
     add_column :users, :twitter_hash, :text
     add_column :users, :register_complete, :boolean, :default => false
-    add_column :users, :never_twitter, :boolean, :default => false
   end
 end
