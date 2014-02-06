@@ -1,15 +1,14 @@
 <% content_for :head_script do %>
-  <%= javascript_include_tag 'ranking' %>
+  <%= javascript_include_tag 'jquery.mCustomScrollbar.min', 'ranking' %>
 <% end %>
 <% content_for :head_style do %>
-  <%= stylesheet_link_tag 'index' %>
-  <%= stylesheet_link_tag 'ranking' %>
+  <%= stylesheet_link_tag 'index', 'ranking', 'jquery.mCustomScrollbar.css' %>
 <% end %>
 
 <div class="container background_juntas">
   <div id="contenedor">
     <div id="ranking" class="ranking s2x3">
-      <h2>RANKING</h2>
+      <p class="rank_header">RANKING</p>
       <ul id="ranking_lista">
         <% @total_ranking.each_with_index do |team, i| %>
           <li>
@@ -19,15 +18,14 @@
             </div> 
             <div class='team_info'>
               <p class='team_name'><%= team.name.upcase %></p>
-              <p class='team_kilometers'><%= team.kilometers.round(2) %> KM</p>
+              <p class='team_kilometers'><%= team.kilometers.round(2).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KM</p>
             </div>
           </li>
         <% end %>
       </ul>
-      <%= will_paginate @total_ranking, :page_links => true, :next_label=>'<div class=""></div>', :previous_label=>'<div class=""></div>'%>
+      <%= will_paginate @total_ranking, :page_links => false, :next_label=>'<div class="pull_right"></div>', :previous_label=>'<div class="pull_left"></div>'%>
     </div
-    ><div id="contenedor_derecha" class="ranking centra s2x3"
-    ><%= image_tag "escudo_ranking.png", :class => "escudo" %>
-    </div>
+    ><div id="contenedor_derecha" class="ranking_der centra s2x3"
+    ></div>
   </div>
 </div>

@@ -113,8 +113,7 @@ function checkStatus() {
       // lógica para barrio
       checkBarrio();
       // TODO: HABLILITAR CLICK
-      /*$("#ranking").on("click", muestraRanking);
-      $("#run_clubs").on("click", muestraRunClubs);
+      /*$("#run_clubs").on("click", muestraRunClubs);
       $("#retos").on("click", muestraRetos);*/
     }
   }
@@ -149,6 +148,10 @@ function cambiaLayout() {
   resetCssProperty("perfil_dos", "background-size", "100%");
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p/><p class='barrio_chico'>" + dos.hood.name.toUpperCase() + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
+  // habilita retos
+  $("#ranking").on("click", muestraRanking);
+  cambiaCursor($("#ranking"), true);
+  $(".ranking").css("background", "url('/assets/bg_ranking_home_color.jpg')");
 }
 
 function checkAmiga() {
@@ -363,7 +366,7 @@ function muestraInvitacion() {
 }
 
 function muestraRanking() {
-  //window.location.href = "/home_ranking"; 
+  window.location.href = "/home_ranking"; 
 }
 
 function muestraRunClubs() {

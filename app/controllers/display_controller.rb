@@ -55,7 +55,7 @@ class DisplayController < ApplicationController
     if current_user
       redirect_to :home_ranking
     end
-    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 5)
+    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 10)
   end
 
   def home_ranking

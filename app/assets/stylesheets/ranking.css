@@ -39,6 +39,14 @@
 
 .ranking{
   background:url("/assets/bg_ranking.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.ranking_der{
+  background:url("/assets/bg_ranking_der.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .escudo{
@@ -54,18 +62,21 @@
 
 #ranking { }
 
-#ranking h2 {
+.rank_header {
   font-family:'FuturaStd-CondensedBoldObl',Sans-Serif;
   font-size: 46px;
   line-height: 1;
   color: white;
   text-align: center;
+  margin: 30px auto auto;
 }
 
 #ranking_lista {
   list-style: none; 
-  margin: 30px auto auto;
+  margin: 20px auto auto;
   padding: 0;
+  height: 450px;
+  overflow-y: auto;
 }
 
 #ranking_lista li {
@@ -201,5 +212,10 @@
 
   #contenedor_derecha {
     display: none;
+  }
+  
+  .rank_header {
+    font-size: 30px;
+    margin: 20px auto auto;
   }
 }

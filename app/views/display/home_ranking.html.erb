@@ -42,7 +42,7 @@
         <p class="equipo_header" style="margin: 15px auto 8px !important;">EQUIPO:</p>
         <p class="equipo_nombre"><%= @team.name.upcase %></p>
         <p class="equipo_km"><%= @self_ranking[:kilometers].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KMS</p>
-        <p class="equipo_header">POSICION: <%= @self_ranking[:position] > 0 ? @self_ranking[:position] : "N/A" %></p>
+        <p class="equipo_header">POSICION: <%= @self_ranking[:kilometers] > 0 ? @self_ranking[:position] : "N/A" %></p>
     </div
     ><div id="retos_logrados" class="retos_logrados s2x1">
         <p class="equipo_nombre" style="margin: 15px auto auto !important;">RETOS</p>
