@@ -8,7 +8,6 @@ var registro_inicial = false;
 var show_twitter = true;
 
 function onReady() {
-  clearRequest();
   facebook_id = $("#ruby-values").data("facebook-id");
   checkStatus();
   var pause = 50; 
@@ -85,21 +84,6 @@ function onReady() {
   });
 
   $(window).resize();
-}
-
-function clearRequest() {
-  var query = location.search;
-  var request = query.split("request_ids=");
-  if (request.length > 1) {
-    $.ajax({
-      type: "GET",
-      url: "/borrar_requests?requests=" + request[1],
-      success: function(data, textStatus, jqXHR) {
-      },
-      error: function() {
-      } 
-    });
-  }
 }
 
 function checkStatus() {

@@ -1,6 +1,11 @@
 if (referrerIsFacebookApp()) {
   redirectToServer();
 }
+else {
+  clearRequest();
+}
+
+$(document).on("ready", onReady);
 
 function referrerIsFacebookApp() {
   var isInIFrame = (window.location != window.parent.location) ? true : false;
@@ -15,7 +20,20 @@ function redirectToServer() {
   top.location = 'http://juntascorremos.com/' + queryString;
 }
 
-$(document).on("ready", onReady);
+function clearRequest() {
+  var query = location.search;
+  var request = query.split("request_ids=");
+  if (request.length > 1) {
+    $.ajax({
+      type: "GET",
+      url: "/borrar_requests?requests=" + request[1],
+      success: function(data, textStatus, jqXHR) {
+      },
+      error: function() {
+      } 
+    });
+  }
+}
 
 function onReady() {
   if (isIECompatible()) {
