@@ -1,5 +1,4 @@
 if (referrerIsFacebookApp()) {
-  console.log("hola");
   redirectToServer();
 }
 
@@ -12,8 +11,8 @@ function referrerIsFacebookApp() {
 }
 
 function redirectToServer() {
-  var querystring = location.search;
-  top.location = 'http://juntascorremos.com/' + querystring;
+  var queryString = location.search;
+  top.location = 'http://juntascorremos.com/' + queryString;
 }
 
 $(document).on("ready", onReady);

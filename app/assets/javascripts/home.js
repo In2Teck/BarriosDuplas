@@ -8,7 +8,7 @@ var registro_inicial = false;
 var show_twitter = true;
 
 function onReady() {
-
+  clearRequest();
   facebook_id = $("#ruby-values").data("facebook-id");
   checkStatus();
   var pause = 50; 
@@ -85,6 +85,21 @@ function onReady() {
   });
 
   $(window).resize();
+}
+
+function clearRequest() {
+  var query = location.search;
+  var request = query.split("request_ids=");
+  if (request.length > 1) {
+    $.ajax({
+      type: "GET",
+      url: "/borrar_requests?requests=" + request[1],
+      success: function(data, textStatus, jqXHR) {
+      },
+      error: function() {
+      } 
+    });
+  }
 }
 
 function checkStatus() {
@@ -550,7 +565,6 @@ function crearEquipo(user_id) {
 }
 
 function aceptarInvitacion(value) {
-  console.log(value.id);
   $.ajax({
     type: "GET",
     url: "/invites/" + value.id + "/accept",
@@ -569,7 +583,6 @@ function cancelarInvitacion() {
     type: "GET",
     url: "/invites/" + invite_id + "/cancel",
     success: function(data, textStatus, jqXHR) {
-      console.log(textStatus);
       $.modal.close();
       reloadInfo();
     },
