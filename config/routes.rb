@@ -16,7 +16,6 @@ NosotrasCorremos::Application.routes.draw do
 
 
   resources :invites do
-    match 'invited_user', :on => :collection
     match 'accept'
     match 'cancel'
   end
@@ -64,6 +63,8 @@ NosotrasCorremos::Application.routes.draw do
   match 'conecta_twitter' => 'display#conecta_twitter', :as => :conecta_twitter
 
   match 'borrar_requests' => 'display#borrar_requests', :as => :borrar_requests
+
+  match 'exclude_users' => 'display#exclude_users', :as => :exclude_users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

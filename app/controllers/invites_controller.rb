@@ -82,15 +82,6 @@ class InvitesController < ApplicationController
     end
   end
 
-  def invited_user
-    @invited_user = []
-    current_user.invites.where("accepted is null").each do |invite|
-      @invited_user.push(invite.invited_user_facebook_id)
-    end
-    # que otros usuarios excluimos?
-    render json: @invited_user, status: 200
-  end
-
   def accept
     invite = Invite.find(params[:invite_id])
     invite.update_attribute(:accepted, true)

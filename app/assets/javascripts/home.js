@@ -508,7 +508,7 @@ function invitar() {
   var excluir = [];
   $.ajax({
     type: "GET",
-    url: "/invites/invited_user",
+    url: "/exclude_users",
     success: function(data, textStatus, jqXHR) {
       excluir = data;
       FB.api({
@@ -516,12 +516,12 @@ function invitar() {
         query: 'SELECT uid FROM user WHERE sex = "male" AND uid in (SELECT uid2 FROM friend WHERE uid1 = me())'
       }, function(response) {
         for (var index = 0; index < response.length; index++) {
-          excluir.push(response[index].uid);
+          //excluir.push(response[index].uid);
         }
         FB.ui({method: 'apprequests',
           message: 'Tu amiga ' + $("#home-values").data("user").first_name + ' ' + $("#home-values").data("user").last_name +' te ha seleccionado para que corran en Juntas Corremos de Nike',
           max_recipients: '1',
-          //exclude_ids: excluir
+          exclude_ids: excluir
         }, guardarInvitacion);
       });
     },
