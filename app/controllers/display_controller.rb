@@ -139,7 +139,7 @@ class DisplayController < ApplicationController
 
   def exclude_users
     @invited_user = []
-    Team.where("first_user_id is not null and second_user_id not null").includes(:first_user, :second_user).each do |team|
+    Team.where("first_user_id is not null and second_user_id is not null").includes(:first_user, :second_user).each do |team|
       @invited_user.push(team.first_user.facebook_id)
       @invited_user.push(team.second_user.facebook_id)
     end
