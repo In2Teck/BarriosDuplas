@@ -367,7 +367,7 @@ function muestraInvitacion() {
       url: "/invitar_amiga",
       data_type: "html",
       success: function(data, textStatus, jqXHR) {
-        var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='amiga_der responsive_bck'><div class='img_modal_amiga'></div></div>"; 
+        var html = "<div id='sub_izq' class='amiga_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div></div><div id='sub_der' class='amiga_der responsive_bck'><div class='img_modal_amiga'></div></div>"; 
         modalDialogue(html);
         $("#sub_der").html(data);
         if (just_invited) {
