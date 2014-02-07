@@ -15,7 +15,7 @@
   <div class="header">
     <div class="headcontainer ">
       <ul class="nav nav-pills">
-        <li><a class= "menubutton borderbutton" href="/" >HOME</a></li>
+        <li><a class= "borderbutton" href="/" ></a></li>
         <li><a class= "menubutton" href="http://www.nike.com/xl/es_la/c/just-do-it/" target="_blank" >ABOUT</a></li>
         <li><%= link_to "RANKING", :ranking, :class => "menubutton" %></li>
         <li><%= link_to "TÉRMINOS", :terminos, :class => "menubutton" %></li>
@@ -24,11 +24,16 @@
         <% if user_signed_in? %>
           <li class="perfilli"><%= image_tag('avatar.png',:class=>"avatar")%> <%= current_user.first_name %>
             <ul>
-              <a href="/logout">
-                <li class="subsesion">
+              <!--<li class='editar'>
+                <a href="#">
+                  Editar
+                </a>
+              </li>-->
+              <li class="subsesion">
+                <a href="/logout">
                   Cerrar sesión
-                </li>
-              </a>
+                </a>
+              </li>
             </ul>
           </li>
         <% end %>

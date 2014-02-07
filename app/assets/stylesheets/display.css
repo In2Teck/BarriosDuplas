@@ -76,6 +76,19 @@
 } 
 
 .borderbutton {
+  border-radius: 0px !important;
+  border-right: 1px solid #BCBCBC;
+  height: 40px; 
+  width: 70px;
+  padding: 20px auto auto;
+  background-image: url('/assets/home.png');
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px 8px;
+}
+
+.borderbutton:hover {
+  background-position: 10px -20px;  
 }
 
 .avatar {
@@ -86,10 +99,19 @@
 .perfilli {
 }
 
+.perfilli li{
+  display: inline-block;
+}
+
+.perfilli a{
+  text-decoration: none;
+  color: black;
+}
+
 .subsesion{
   position: absolute;
   top: 40px;
-  margin: 0 0 0 -40px;
+  margin: 0 0 0 -8px;
   padding: 1px 0 4px 12px !important;
   width: 80px;
   color: black;
@@ -98,6 +120,21 @@
 }
 
 .subsesion:hover{
+  background-color: #ACACAC;
+}
+
+.editar{
+  position: absolute;
+  top: 40px;
+  margin: 0 0 0 -90px;
+  padding: 1px 0 4px 28px !important;
+  width: 80px;
+  color: black;
+  background-color: #DCDCDC;
+  display: none;
+}
+
+.editar:hover{
   background-color: #ACACAC;
 }
 

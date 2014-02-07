@@ -2,10 +2,15 @@ $(document).on("ready", init);
 
 function init(){
 
+  $( ".subsesion" ).hide();
+  $( ".editar" ).hide();
+
   $(".shares").mouseenter( function() {
     $( ".subsesion" ).show();
+    $( ".editar" ).show();
   } ).mouseleave(function(){
     $( ".subsesion" ).hide();
+    $( ".editar" ).hide();
   });
 }
 
