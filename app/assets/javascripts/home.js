@@ -367,7 +367,7 @@ function muestraInvitacion() {
       url: "/invitar_amiga",
       data_type: "html",
       success: function(data, textStatus, jqXHR) {
-        var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><div class='img_modal_amiga'></div></div>"; 
+        var html = "<div id='sub_izq' class='amiga_izq responsive_bck'></div><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='amiga_der responsive_bck'><div class='img_modal_amiga'></div></div>"; 
         modalDialogue(html);
         $("#sub_der").html(data);
         if (just_invited) {
@@ -377,6 +377,8 @@ function muestraInvitacion() {
         else {
           $("#invitacion_texto").css("display", "none");
         }
+
+        $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
         $(".img_modal_amiga").css({background: "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=150&height=150')", "background-size": "100%", margin: "auto" });
         $("#amiga_invitada").text($("#home-values").data("invited").invited_user_name.toUpperCase());
       },
