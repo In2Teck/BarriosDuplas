@@ -257,6 +257,7 @@ function capturaPerfil() {
 }
 
 function capturaTwitter(firstTime) {
+  show_twitter = false;
   $.ajax({
     type: "GET",
     url: "/conecta_twitter?first_time=" + firstTime,
@@ -600,7 +601,6 @@ function cancelarInvitacion() {
 }
 
 function cancelarTwitter(firstTime) {
-  show_twitter = false;
   if (firstTime) {
     registro_inicial = false;
     checkStatus();
