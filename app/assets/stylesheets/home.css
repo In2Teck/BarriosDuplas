@@ -74,16 +74,16 @@
 }
 
 .menu_font{
-  font-family: 'FuturaStd-MediumCondensed', Sans-Serif;
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
   color: white;
   font-smoothing: antialiased;
-  font-size: 35px;
+  font-size: 32px;
   text-align: center;
   line-height: 1;
 }
 
 .menu_text {
-  margin: 75% auto auto;
+  margin: 78% auto auto;
 }
 
 .menu_text_menu {
@@ -91,11 +91,11 @@
 }
 
 .menu_small_text {
-  margin: 30% auto auto;
+  margin: 35% auto auto;
 }
 
 .menu_medium_text {
-  margin: 15% auto auto;
+  margin: 20% auto auto;
 }
 
 .equipo_div {
@@ -120,10 +120,18 @@
 
 .lead_text {
   font-family:'FuturaStd-MediumCondensed',Sans-Serif;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.2 !important;
   color: white;
   margin: 0px 0 20px;
+}
+
+.mini_text {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+  font-size: 11px;
+  line-height: 1 !important;
+  color: white;
+  margin: 0px 0 10px;
 }
 
 .modal_text {
@@ -160,9 +168,13 @@
   margin: 10px auto auto;
 }
 
+.barrio_text_top_margin{
+  margin: 10px auto 10px; 
+}
+
 .barrio_text_input {
   width: 70%;
-  margin: 20px auto;
+  margin: 5px auto;
 }
 
 .escudo {
@@ -352,7 +364,7 @@
   font-size: 30px;
   line-height: 0.8 !important;
   color: white;
-  margin: 4px 0 0;
+  margin: 2px 0 0;
 }
 
 .km_grande{
@@ -367,6 +379,7 @@
   font-size: 20px;
   line-height: 0.8 !important;
   color: white;
+  margin: 6px 0 0;
 }
 
 .nombre_grande{
@@ -377,11 +390,20 @@
   margin: 15px auto;
 }
 
+#pleca_bottom{
+  width: 800px;
+  height: 10px;
+  background-image: url('/assets/separador_bg.png');
+  background-size: 800px 10px;
+  background-repeat: no-repeat;
+  margin: 30px auto 15px;
+}
+
 @media screen and (max-width: 900px) {
   #contenedor {
     margin: 30px auto auto;
     padding: 0;
-    height: 600px;
+    height: 900px;
     width: 300px;
   } 
 
@@ -427,10 +449,14 @@
 
   .lead_text {
     font-family:'FuturaStd-MediumCondensed',Sans-Serif;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1 !important;
     color: white;
     margin: 0px 0 5px;
+  }
+
+  .mini_text {
+    font-size: 10px;
   }
 
   .home_text_input {
@@ -461,10 +487,10 @@
   }
 
   .menu_font{
-    font-family: 'FuturaStd-MediumCondensed', Sans-Serif;
+    font-family: 'FuturaStd-CondensedBold', Sans-Serif;
     color: white;
     font-smoothing: antialiased;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     line-height: 1;
   }
@@ -519,4 +545,21 @@
     height: 80px;
   }
 
+  .barrio_text_top_margin {
+    height: 15px;
+    margin: 0 auto 0;
+  }
+
+  #pleca_bottom{
+    width: 300px;
+    height: 10px;
+    background-image: url('/assets/separador_bg.png');
+    background-size: 300px 10px;
+    background-repeat: no-repeat;
+    margin: 30px auto 15px;
+  }
+
+  .barrio_chico{
+    font-size: 12px;
+  }
 }

@@ -107,6 +107,7 @@
 }
 
 #ranking_lista li .team_name {
+  font-family: 'FuturaStd-CondensedBold',Sans-Serif;
   line-height: 0.8;
   margin: 10px auto auto;
 }

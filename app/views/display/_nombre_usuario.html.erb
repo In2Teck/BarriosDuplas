@@ -1,6 +1,7 @@
 <div class="modal_input">
 	<%= image_tag "escudo1.png", :class => "escudo" %><br/>
-  <p class='lead_text captura_bottom'>CONFIRMA TU NOMBRE PARA <br/> INGRESAR AL RETO.</p>
+  <p class='lead_text captura_bottom'>CONFIRMA TU NOMBRE PARA INGRESAR AL RETO.*</p>
+  <p class='mini_text'>*COMO APARECE EN UN DOCUMENTO OFICIAL.</p>
   <%= text_field_tag 'first-name-txt', current_user.first_name, placeholder: 'NOMBRE', :class=>'home_text_input' %><br/>
 	<%= text_field_tag 'last-name-txt', current_user.last_name, placeholder: 'APELLIDO', :class=>'home_text_input' %><br/>
 	<%= tag ("div"), :class =>'btn_enviar cursor_pointer', :onClick => 'registrarNombre()' %>

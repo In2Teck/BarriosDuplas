@@ -1,5 +1,6 @@
 <div class="modal_input" id="hood-values" data-hoods="<%= @hoods.to_json(:only => [:id, :name]) %>">
 	<%= image_tag "escudo1.png", :class => "escudo_no_hide" %>
+  <p class='mini_text barrio_text_top_margin'>*NO IMPORTA SI TU AMIGA ES DE OTRO BARRIO, <br/> ELLA TAMBIÉN PODRÁ ELEGIR EL SUYO <br/> Y SUMAR SUS KILÓMETROS.</p>
 	<div class="ui-front">
     <%= text_field_tag 'hood-name-txt', nil, placeholder: 'BARRIO', :class => "barrio_text_input" %>
 	</div>

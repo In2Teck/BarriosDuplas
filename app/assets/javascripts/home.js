@@ -139,10 +139,10 @@ function cambiaLayout() {
   $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><div class='equipo_titulo'></div></div></div><div id='perfil_uno' class='perfil s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil_dos s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div>");
   $(".perfil").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
   resetCssProperty("perfil", "background-size", "100%");
-  $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<p class='km_chico'>" + uno.kilometers + " KM <p/><p class='barrio_chico'>" + uno.hood.name.toUpperCase() + "</p>");
+  $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<p class='km_chico'>" + uno.kilometers + " KM <p class='barrio_chico'>" + (typeof uno.hood != 'undefined' ? uno.hood.name.toUpperCase() : ""  ) + "</p>");
   $(".perfil_dos").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
   resetCssProperty("perfil_dos", "background-size", "100%");
-  $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p/><p class='barrio_chico'>" + dos.hood.name.toUpperCase() + "</p>");
+  $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p class='barrio_chico'>" + (typeof dos.hood != 'undefined' ? dos.hood.name.toUpperCase() : ""  ) + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
   
   habilitaSecciones(); 
@@ -151,9 +151,9 @@ function cambiaLayout() {
 function habilitaSecciones(){
 
   // habilita retos
-  $("#retos").on("click", muestraRetos);
-  cambiaCursor($("#retos"), true);
-  $(".retos").css("background", "url('/assets/bg_retos_color.jpg')");
+  //$("#retos").on("click", muestraRetos);
+  //cambiaCursor($("#retos"), true);
+  //$(".retos").css("background", "url('/assets/bg_retos_color.jpg')");
 
   // habilita run_clubs
   $("#run_clubs").on("click", muestraRunClubs);
@@ -245,9 +245,10 @@ function capturaPerfil() {
     url: "/nombre_usuario",
     data_type: "html",
     success: function(data, textStatus, jqXHR) {
-      var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
       modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
       $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+      $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
       $("#sub_der").html(data); 
     },
     error: function() {
@@ -266,13 +267,13 @@ function capturaTwitter(firstTime) {
         $("#sub_der").html(data);
       }
       else {
-        var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
+        var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
         modalDialogue(html);
         $("#sub_der").html(data);
         $("#cancelar-btn").removeClass("btn_cancelar");
         $("#cancelar-btn").addClass("btn_noconectar");
         $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-        
+        $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");        
       }
     },
     error: function() {
@@ -394,8 +395,8 @@ function muestraRunClubs() {
 }
 
 function muestraRetos() {
-  var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck'></div>"; 
-  modalDialogue(html);
+  var html = "<div id='retos_container'><p class='lead_text'>ESTE DESAFÍO ES SÓLO PARA MUJERES. <br/> PERO AÚN PUEDES PONERTE A PRUEBA <br/> CON LOS RETOS DE NIKE+.</p><a href='https://itunes.apple.com/mx/app/nike+-running/id387771637?mt=8'' class='btn-descargar' target='_blank'></a></div>"; 
+  modalAlert(html, null);
 }
 
 function registrarNombre() {

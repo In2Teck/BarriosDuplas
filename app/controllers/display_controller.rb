@@ -52,14 +52,22 @@ class DisplayController < ApplicationController
   end
   
   def ranking 
-    if current_user
-      redirect_to :home_ranking
+    if current_user 
+      if current_user.first_user_team and current_user.first_user_team.first_user_id and current_user.first_user_team.second_user_id
+        redirect_to :home_ranking
+      end
+      if current_user.second_user_team and current_user.second_user_team.first_user_id and current_user.second_user_team.second_user_id
+        redirect_to :home_ranking
+      end
     end
     @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 10)
   end
 
   def home_ranking
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
+    if not (@team and @team.first_user_id and @team.second_user_id)
+      redirect_to :ranking
+    end
     @partner = nil
     if (@team.first_user_id == current_user.id)
       @partner = User.find(@team.second_user_id) if @team.second_user_id

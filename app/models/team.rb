@@ -31,4 +31,14 @@ class Team < ActiveRecord::Base
     end 
   end
 
+  def self.validate_all_challenges
+    Team.all.each do |team|
+      team.validate_challenges
+    end
+  end
+
+  def validate_challenges
+    Challenge.validate_all self
+  end
+
 end

@@ -13,7 +13,7 @@ body {
 
 .container {
   width: 100%;
-  min-height: 940px;
+  min-height: 960px;
 }
 
 .rotated_title {
@@ -30,11 +30,11 @@ body {
   font-family: 'FuturaStd-CondensedOblique',Sans-Serif;
   text-transform: uppercase;
   font-smoothing: antialiased;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .lead_text {
-  font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+  font-family:'FuturaStd-CondensedBold',Sans-Serif !important;
   font-size: 20px;
   line-height: 1.2 !important;
   color: white;
@@ -56,8 +56,8 @@ body {
 
 .btn-nike{
   background-image: url('/assets/boton_nike_home.png');
-  width: 182px;
-  height: 41px;
+  width: 250px;
+  height: 48px;
   letter-spacing: 82px;
   background-repeat: no-repeat;
   padding: 4px;
@@ -67,13 +67,13 @@ body {
 }
 .btn-nike:hover{
   text-decoration: none !important;
-  background-position: 0 -41px;  
+  background-position: 0 -57px;  
 }
 
 .btn-facebook{
   background-image: url('/assets/boton_facebook_home.png');
-  width: 182px;
-  height: 41px;
+  width: 250px;
+  height: 48px;
   letter-spacing: 82px;
   background-repeat: no-repeat;
   padding: 4px;
@@ -84,7 +84,7 @@ body {
 
 .btn-facebook:hover{
   text-decoration: none !important;
-  background-position: 0 -41px;
+  background-position: 0 -57px;
 }
 
 #solo_mujeres_container {
@@ -123,6 +123,11 @@ body {
   background-color: white;
   font-size: 12px;
   height: 450px;
+}
+
+.just_do_it {
+  height: 45px;
+  width: 100px;
 }
 
 @media screen and (max-width: 900px) {
@@ -170,7 +175,11 @@ body {
   }
   
   .terms{
-    width: 80%;
+    width: 90%;
+  }
+
+  .lead{
+    font-size: 25px;
   }
 
 }
