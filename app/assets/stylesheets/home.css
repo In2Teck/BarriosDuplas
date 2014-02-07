@@ -94,6 +94,10 @@
   margin: 35% auto auto;
 }
 
+.menu_small_text_2 {
+  margin: 40% auto auto;
+}
+
 .menu_medium_text {
   margin: 20% auto auto;
 }
@@ -496,6 +500,10 @@
 
   .menu_small_text {
     margin: 40% auto auto;
+  }
+  
+  .menu_small_text_2 {
+    margin: 45% auto auto;
   }
 
   .modal_text {
