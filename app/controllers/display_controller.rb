@@ -65,18 +65,20 @@ class DisplayController < ApplicationController
 
   def home_ranking
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
-    if not (@team and @team.first_user_id and @team.second_user_id)
+    if (@team and @team.first_user_id and @team.second_user_id)
+      
+      @partner = nil
+      if (@team.first_user_id == current_user.id)
+        @partner = User.find(@team.second_user_id) if @team.second_user_id
+      elsif (@team.second_user_id == current_user.id)
+        @partner = User.find(@team.first_user_id) if @team.first_user_id
+      end
+      @challenges = @team.completed_challenges 
+      @self_ranking = @team.calculate_self_ranking
+      @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 10)
+    else
       redirect_to :ranking
     end
-    @partner = nil
-    if (@team.first_user_id == current_user.id)
-      @partner = User.find(@team.second_user_id) if @team.second_user_id
-    elsif (@team.second_user_id == current_user.id)
-      @partner = User.find(@team.first_user_id) if @team.first_user_id
-    end
-    @challenges = @team.completed_challenges 
-    @self_ranking = @team.calculate_self_ranking
-    @total_ranking = Team.calculate_total_ranking.paginate(:page => params[:page], :per_page => 10)
   end
 
   def terminos

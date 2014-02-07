@@ -111,7 +111,8 @@ function checkStatus() {
       checkEquipo();
       // lógica para barrio
       checkBarrio(); 
-    }
+    } 
+    habilitaSecciones(); 
   }
   else {
     registro_inicial = true;
@@ -145,15 +146,14 @@ function cambiaLayout() {
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p class='barrio_chico'>" + (typeof dos.hood != 'undefined' ? dos.hood.name.toUpperCase() : ""  ) + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
   
-  habilitaSecciones(); 
 }
 
 function habilitaSecciones(){
 
   // habilita retos
-  //$("#retos").on("click", muestraRetos);
-  //cambiaCursor($("#retos"), true);
-  //$(".retos").css("background", "url('/assets/bg_retos_color.jpg')");
+  $("#retos").on("click", muestraRetos);
+  cambiaCursor($("#retos"), true);
+  $(".retos").css("background", "url('/assets/bg_retos_color.jpg')");
 
   // habilita run_clubs
   $("#run_clubs").on("click", muestraRunClubs);
@@ -164,6 +164,7 @@ function habilitaSecciones(){
   $("#ranking").on("click", muestraRanking);
   cambiaCursor($("#ranking"), true);
   $(".ranking").css("background", "url('/assets/bg_ranking_home_color.jpg')");
+
 }
 
 function checkAmiga() {
@@ -398,8 +399,8 @@ function muestraRunClubs() {
 }
 
 function muestraRetos() {
-  var html = "<div id='retos_container'><p class='lead_text'>ESTE DESAFÍO ES SÓLO PARA MUJERES. <br/> PERO AÚN PUEDES PONERTE A PRUEBA <br/> CON LOS RETOS DE NIKE+.</p><a href='https://itunes.apple.com/mx/app/nike+-running/id387771637?mt=8'' class='btn-descargar' target='_blank'></a></div>"; 
-  modalAlert(html, null);
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck centered'><p class='menu_font margin_top_modal_retos'>PRONTO CONOCERÁS <br/> LOS RETOS A VENCER <br/> PARA CONQUISTAR EL RANKING.</p><br/></div>"; 
+  modalDialogue(html);
 }
 
 function registrarNombre() {
