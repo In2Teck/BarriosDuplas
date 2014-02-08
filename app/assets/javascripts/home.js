@@ -206,6 +206,7 @@ function checkEquipo() {
     if (team.name) {
       cambiaCursor($("#equipo"), false);
       $("#equipo_text .status").text(team.name.toUpperCase());
+      $(".equipo").css("background", "url('/assets/bg_equipo_color.jpg')");
     }
     else {
       cambiaCursor($("#equipo"), true);
