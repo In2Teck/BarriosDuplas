@@ -66,6 +66,8 @@ NosotrasCorremos::Application.routes.draw do
 
   match 'exclude_users' => 'display#exclude_users', :as => :exclude_users
 
+  match 'editar_registro' => 'display#editar_registro', :as => :editar_registro
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

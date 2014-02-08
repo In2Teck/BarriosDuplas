@@ -146,4 +146,8 @@ class DisplayController < ApplicationController
     render json: @invited_user, status: 200
   end
 
+  def editar_registro
+    render :partial => 'editar_registro', :content_type => 'text/html'
+  end
+
 end

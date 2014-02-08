@@ -283,16 +283,22 @@ function capturaTwitter(firstTime) {
   });
 }
 
-function capturaEquipo() {
+function capturaEquipo(esEdicion) {
+  esEdicion = typeof esEdicion !== 'undefined' ? esEdicion : false;
   var team = $("#home-values").data("team");
-  if (team != null && team.name == null) {
+  if ((team != null && team.name == null) || esEdicion) {
     $.ajax({
       type: "GET",
       url: "/nombre_dupla",
       data_type: "html",
       success: function(data, textStatus, jqXHR) {
-        var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
-        modalDialogue(html);
+        if (!esEdicion) {
+          var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
+          modalDialogue(html);
+        }
+        else {
+          $("#sub_der").addClass("equipo_der");
+        }
         $("#sub_der").html(data); 
       },
       error: function() {
@@ -301,8 +307,9 @@ function capturaEquipo() {
   }
 }
 
-function capturaBarrio() {
-  if ($("#home-values").data("user").hood == null) {
+function capturaBarrio(esEdicion) {
+  esEdicion = typeof esEdicion !== 'undefined' ? esEdicion : false;
+  if ($("#home-values").data("user").hood == null || esEdicion) {
     $.ajax({
       type: "GET",
       url: "/seleccion_barrio",
@@ -313,8 +320,13 @@ function capturaBarrio() {
         for (var index = 0; index < all.length; index++) {
           hoods.push(all[index].name);
         }
-        var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
-        modalDialogue(html, null);
+        if (!esEdicion) {
+          var html = "<div id='sub_izq' class='barrio_izq responsive_bck'></div><div id='sub_der' class='barrio_der responsive_bck'></div>"; 
+          modalDialogue(html, null);
+        }
+        else {
+          $("#sub_der").addClass("barrio_der");
+        }
         $("#sub_der").html(data);
         $("#hood-name-txt").autocomplete({source: hoods});
       },
@@ -645,4 +657,40 @@ function muestraNombre(value, element) {
   else {
     $($($(element).children()[0]).children()[0]).css("display", "none");
   }
+}
+
+function editarRegistro() {
+  $.ajax({
+    type: "GET",
+    url: "/editar_registro",
+    data_type: "html",
+    success: function(data, textStatus, jqXHR) {
+      var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='responsive_bck'></div>";
+      modalDialogue(html);
+      $("#sub_der").html(data);
+
+      $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+      $("#sub_izq #status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
+
+      if ($("#home-values").data("partner")) {
+        $("#sub_der #amiga .status").html("TU COMPAÑERA ES: <br/> " + $("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
+        $("#sub_der .amiga").css("background", "url('assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200')");
+        $("#sub_der .amiga").css("background-size", "100%");
+      }
+
+      if ($("#home-values").data("team") && $("#home-values").data("team").name) {
+        $("#sub_der #equipo_text .status").html($("#home-values").data("team").name.toUpperCase() + "<br/><br/><div class='cursor_pointer btn_cambiar_nombre' onclick='capturaEquipo(true)'></div>");
+      }
+      
+      if ($("#home-values").data("user").hood) {
+        $("#sub_der #barrio_text .status").html($("#home-values").data("user").hood.name.toUpperCase() + "<br/><br/><div class='cursor_pointer btn_cambiar_barrio' onclick='capturaBarrio(true)'></div>");
+      }
+      else {
+
+      }
+
+    },
+    error: function() {
+    } 
+  });
 }

@@ -353,6 +353,38 @@
   background-position: 0 -60px;
 }
 
+.btn_cambiar_nombre {
+  background-image: url('/assets/boton_cambiar_nombre.png');
+  width: 150px;
+  height: 53px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 148px 107px;
+}
+
+.btn_cambiar_nombre:hover {
+  text-decoration: none !important;
+  background-position: 0 -60px;
+}
+
+.btn_cambiar_barrio{
+  background-image: url('/assets/boton_cambiar_barrio.png');
+  width: 150px;
+  height: 53px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+  display:inline-block;
+  background-size: 148px 107px;
+}
+
+.btn_cambiar_barrio:hover {
+  text-decoration: none !important;
+  background-position: 0 -60px;
+}
+
 .img_modal_amiga {
   width: 150px;
   height: 150px;
