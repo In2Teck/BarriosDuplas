@@ -408,8 +408,7 @@ function muestraRanking() {
 }
 
 function muestraRunClubs() {
-  var html = "<div id='sub_izq' class='run_club_izq responsive_bck'></div><div id='sub_der' class='run_club_der responsive_bck centered'><p class='menu_font margin_top_modal'>RUN CLUBS</p><p class='modal_text_no_margin margin_text_modal'>PREPÁRATE MÁS Y MEJOR PARA ESTE <br/> AÑO UNIÉNDOTE AL RUN CLUB <br/> MÁS ADECUADO PARA TI.</p><br/><!--<div class='btn_ingresar cursor_pointer'></div>--></div>"; 
-  modalDialogue(html);
+  window.location.href = "/run_clubs"; 
 }
 
 function muestraRetos() {
@@ -639,17 +638,6 @@ function cancelarTwitter(firstTime) {
     });
   }
   $.modal.close();
-}
-
-function cambiaCursor(element, isClickable) {
-  if (isClickable) {
-    $(element).removeClass("cursor_default");
-    $(element).addClass("cursor_pointer");
-  }
-  else {
-   $(element).removeClass("cursor_pointer");
-    $(element).addClass("cursor_default"); 
-  }
 }
 
 function muestraNombre(value, element) {

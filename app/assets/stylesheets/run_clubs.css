@@ -1,0 +1,136 @@
+#contenedor {
+  margin: 30px auto auto;
+  padding: 0;
+  height: 600px;
+  width: 800px;
+}
+
+.s2x2{
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  vertical-align: top;
+  background-size: 400px 300px;
+}
+
+#pleca_bottom{
+  width: 800px;
+  height: 10px;
+  background-image: url('/assets/separador_bg.png');
+  background-size: 800px 10px;
+  background-repeat: no-repeat;
+  margin: 30px auto 15px;
+}
+
+.df{
+  background: url("/assets/bg_df.jpg");
+  background-size: 100%;
+}
+
+.df_pop{
+  background: url("/assets/bg_popup_df.jpg");
+  background-size: 100%;
+}
+
+.puebla{
+  background: url("/assets/bg_pue.jpg");
+  background-size: 100%;
+}
+
+.pue_pop{
+  background: url("/assets/bg_popup_puebla.jpg");
+  background-size: 100%;
+}
+
+.gdl{
+  background: url("/assets/bg_gdl.jpg");
+  background-size: 100%;
+}
+
+.gdl_pop{
+  background: url("/assets/bg_popup_gdl.jpg");
+  background-size: 100%;
+}
+
+.mty{
+  background: url("/assets/bg_mty.jpg");
+  background-size: 100%;
+}
+
+.mty_pop{
+  background: url("/assets/bg_popup_mty.jpg");
+  background-size: 100%;
+}
+
+.text {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
+  font-size: 18px;
+  line-height: 1.2 !important;
+  color: white;
+  margin: 0px 0 20px;
+}
+
+#simplemodal-container {height:472px; width:488px; padding: 0; margin: 0;}
+#simplemodal-container a.modalCloseImg {
+  background:url("/assets/boton_cerrar.png") no-repeat; width:49px; height:50px; z-index:3200; position:absolute; top:0px; right:-32px; cursor:pointer; }
+#simplemodal-container a.modalCloseImg:hover {
+  background-position: 0 -68px;
+}
+
+#runs_container {
+  width: 472px;
+  height: 488px;
+  padding: 8%;
+}
+
+@media screen and (max-width: 900px) {
+  #simplemodal-container {
+    height:242px;
+    width:250px;
+    margin: auto;
+  }
+
+  #runs_container {
+    width: 242px;
+    height: 250px;
+    padding: 1%;
+  }
+
+  #simplemodal-container a.modalCloseImg {
+    background:url("/assets/boton_cerrar.png") no-repeat; width:40px; height:41px; z-index:3200; position:absolute; top:0px; right:-31px; cursor:pointer; background-size: 100%;}
+  #simplemodal-container a.modalCloseImg:hover {
+    background-position: 0 -55px;
+  }
+
+  #contenedor {
+    margin: 30px auto auto;
+    padding: 0;
+    height: 900px;
+    width: 300px;
+  }
+
+  .s2x2{
+    display: inline-block;
+    width: 300px;
+    height: 220px;
+    vertical-align: top;
+    background-size: 300px 220px;
+  }
+
+  #pleca_bottom{
+    width: 300px;
+    height: 10px;
+    background-image: url('/assets/separador_bg.png');
+    background-size: 300px 10px;
+    background-repeat: no-repeat;
+    margin: 30px auto 15px;
+  }
+
+  .text {
+    font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+    font-size: 13px;
+    line-height: 1 !important;
+    color: white;
+    margin: 0px 0 20px;
+  }
+}

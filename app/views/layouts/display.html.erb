@@ -24,16 +24,16 @@
         <% if user_signed_in? %>
           <li class="perfilli"><%= image_tag('avatar.png',:class=>"avatar")%> <%= current_user.first_name %>
             <ul>
-              <!--<li class='editar'>
-                <a href="#" onclick="editarRegistro()">
+              <!--<a id="#editar" href="#" onclick="editarRegistro()">
+                <li class='editar'>
                   Editar
-                </a>
-              </li>-->
-              <li class="subsesion">
-                <a href="/logout">
+                </li>
+              </a>-->
+              <a href="/logout">
+                <li class="subsesion">
                   Cerrar sesión
-                </a>
-              </li>
+                </li>
+              </a>
             </ul>
           </li>
         <% end %>

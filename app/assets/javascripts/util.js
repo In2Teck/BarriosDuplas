@@ -56,6 +56,26 @@ function modalDialogue(html, options){
   $(".simplemodal-overlay").css("height","100%");
 }
 
+function modalRun(html, options){
+
+  if (options == null) {
+    options = {
+      closeClass: 'closeClass',
+      overlayClose: true,
+      modal: false,
+      opacity: 75 
+    };
+  } 
+
+  $("#modal-content").remove();
+  $("#modal-alert").append("<div id='modal-content'></div>");
+  $("#modal-content").append(html);
+  $("#modal-alert").modal(options);
+  $(".simplemodal-wrap").css("overflow","hidden");
+  $(".simplemodal-overlay").css("width","100%");
+  $(".simplemodal-overlay").css("height","100%");
+}
+
 function modalRanking(html){
 
   options = {
@@ -96,4 +116,15 @@ function modalInvites(html, options){
 
 function resetCssProperty(css_class, property, value) {
   $("." + css_class).css(property, value);
+}
+
+function cambiaCursor(element, isClickable) {
+  if (isClickable) {
+    $(element).removeClass("cursor_default");
+    $(element).addClass("cursor_pointer");
+  }
+  else {
+   $(element).removeClass("cursor_pointer");
+    $(element).addClass("cursor_default"); 
+  }
 }

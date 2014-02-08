@@ -15,6 +15,10 @@ class DisplayController < ApplicationController
     end
   end
 
+  def run_clubs
+
+  end
+
   def home
     @user = User.find(current_user.id)
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
@@ -105,10 +109,6 @@ class DisplayController < ApplicationController
   end
 
   def invitacion_aceptada
-
-  end
-  
-  def run_clubs
 
   end
 
