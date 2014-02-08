@@ -284,7 +284,7 @@ function capturaTwitter(firstTime) {
 }
 
 function capturaEquipo(esEdicion) {
-  esEdicion = typeof esEdicion !== 'undefined' ? esEdicion : false;
+  esEdicion = typeof esEdicion !== 'undefined' && esEdicion == true ? esEdicion : false;
   var team = $("#home-values").data("team");
   if ((team != null && team.name == null) || esEdicion) {
     $.ajax({
@@ -292,6 +292,7 @@ function capturaEquipo(esEdicion) {
       url: "/nombre_dupla",
       data_type: "html",
       success: function(data, textStatus, jqXHR) {
+        console.log(esEdicion);
         if (!esEdicion) {
           var html = "<div id='sub_izq' class='equipo_izq responsive_bck'></div><div id='sub_der' class='equipo_der responsive_bck'></div>"; 
           modalDialogue(html);
@@ -308,7 +309,7 @@ function capturaEquipo(esEdicion) {
 }
 
 function capturaBarrio(esEdicion) {
-  esEdicion = typeof esEdicion !== 'undefined' ? esEdicion : false;
+  esEdicion = typeof esEdicion !== 'undefined' && esEdicion == true ? esEdicion : false;
   if ($("#home-values").data("user").hood == null || esEdicion) {
     $.ajax({
       type: "GET",
