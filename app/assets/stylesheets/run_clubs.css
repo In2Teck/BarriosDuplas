@@ -70,6 +70,15 @@
   margin: 0px 0 20px;
 }
 
+.city_text{
+  font-family:'FuturaStd-CondensedBold',Sans-Serif !important;
+  font-size: 45px;
+  line-height: 1.2 !important;
+  color: white;
+  margin: 32% auto auto;
+  text-align: center;
+}
+
 #simplemodal-container {height:472px; width:488px; padding: 0; margin: 0;}
 #simplemodal-container a.modalCloseImg {
   background:url("/assets/boton_cerrar.png") no-repeat; width:49px; height:50px; z-index:3200; position:absolute; top:0px; right:-32px; cursor:pointer; }
@@ -132,5 +141,14 @@
     line-height: 1 !important;
     color: white;
     margin: 0px 0 20px;
+  }
+
+  .city_text{
+    font-family:'FuturaStd-CondensedBold',Sans-Serif !important;
+    font-size: 30px;
+    line-height: 1.2 !important;
+    color: white;
+    margin: 32% auto auto;
+    text-align: center;
   }
 }
