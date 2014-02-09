@@ -15,7 +15,7 @@ class Team < ActiveRecord::Base
   end
 
   def self.calculate_total_ranking
-    Team.where("first_user_id is not null and second_user_id is not null").order("kilometers DESC")
+    Team.where("first_user_id is not null and second_user_id is not null and name is not null").order("kilometers DESC")
   end
 
   def calculate_self_ranking
