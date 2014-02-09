@@ -93,29 +93,29 @@
 
 .equipo_header {
   font-family:'FuturaStd-CondensedBoldObl',Sans-Serif;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1;
   color: white;
   text-align: center;
-  margin: 10px auto;
+  margin: 8px auto;
 }
 
 .equipo_nombre {
   font-family:'FuturaStd-CondensedBoldObl',Sans-Serif;
-  font-size: 36px;
+  font-size: 34px;
   line-height: 1;
   color: white;
   text-align: center;
-  margin: 10px auto;
+  margin: 8px auto;
 }
 
 .equipo_km {
   font-family:'FuturaStd-CondensedOblique',Sans-Serif;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 1;
   color: white;
   text-align: center;
-  margin: 10px auto;
+  margin: 8px auto;
 }
 
 #ranking_lista {
@@ -266,18 +266,18 @@
   }
 
   .equipo_header {
-    font-size: 20px;
-    margin: 8px auto;
+    font-size: 18px;
+    margin: 6px auto;
   }
 
   .equipo_nombre {
-    font-size: 26px;
-    margin: 8px auto;
+    font-size: 24px;
+    margin: 6px auto;
   }
 
   .equipo_km {
-    font-size: 26px;
-    margin: 8px auto;
+    font-size: 24px;
+    margin: 6px auto;
   }
 
 }
