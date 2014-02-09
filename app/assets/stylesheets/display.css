@@ -123,6 +123,10 @@
   background-color: #ACACAC;
 }
 
+#editar{
+  display: none;
+}
+
 .editar{
   position: absolute;
   top: 40px;

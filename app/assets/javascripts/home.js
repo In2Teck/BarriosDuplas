@@ -145,6 +145,7 @@ function cambiaLayout() {
   resetCssProperty("perfil_dos", "background-size", "100%");
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p class='barrio_chico'>" + (typeof dos.hood != 'undefined' ? dos.hood.name.toUpperCase() : ""  ) + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
+  $("#editar").css("display", "inline");
   
 }
 
@@ -530,7 +531,7 @@ function invitar() {
         query: 'SELECT uid FROM user WHERE sex = "male" AND uid in (SELECT uid2 FROM friend WHERE uid1 = me())'
       }, function(response) {
         for (var index = 0; index < response.length; index++) {
-          //excluir.push(response[index].uid);
+          excluir.push(response[index].uid);
         }
         FB.ui({method: 'apprequests',
           message: 'Tu amiga ' + $("#home-values").data("user").first_name + ' ' + $("#home-values").data("user").last_name +' te ha seleccionado para que corran en Juntas Corremos de Nike',
@@ -669,11 +670,14 @@ function editarRegistro() {
       }
 
       if ($("#home-values").data("team") && $("#home-values").data("team").name) {
-        $("#sub_der #equipo_text .status").html($("#home-values").data("team").name.toUpperCase() + "<br/><br/><div class='cursor_pointer btn_cambiar_nombre' onclick='capturaEquipo(true)'></div>");
+        $("#sub_der #equipo_text .boton_mod_der").html("<div class='cursor_pointer btn_cambiar_nombre' onclick='capturaEquipo(true)'></div>");
+        $("#sub_der #equipo_text .status").html($("#home-values").data("team").name.toUpperCase());
+        $(".equipo").css("background", "url('/assets/bg_equipo_color.jpg')");
       }
       
       if ($("#home-values").data("user").hood) {
-        $("#sub_der #barrio_text .status").html($("#home-values").data("user").hood.name.toUpperCase() + "<br/><br/><div class='cursor_pointer btn_cambiar_barrio' onclick='capturaBarrio(true)'></div>");
+        $("#sub_der #barrio_text .boton_mod_izq").html("<div class='cursor_pointer btn_cambiar_barrio' onclick='capturaBarrio(true)'></div>");
+        $("#sub_der #barrio_text .status").html($("#home-values").data("user").hood.name.toUpperCase());
       }
       else {
 

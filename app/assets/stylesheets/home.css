@@ -37,6 +37,53 @@
   background-size: 200px 200px;
 }
 
+.modal2x2{
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  vertical-align: top;
+  background-size: 400px 400px;
+}
+
+.modal2x1
+{
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  vertical-align: top;
+  background-size: 400px 200px;
+}
+
+.modal1x1{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  vertical-align: top;
+  background-size: 200px 200px;
+}
+
+#barrio_text{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#equipo_text{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.boton_mod_izq {
+  position: absolute;
+  margin: 38% auto auto 14%
+}
+
+.boton_mod_der {
+  position: absolute;
+  margin: 38% auto auto 14%
+}
+
 .perfil{
   background: url("/assets/bg_gradient_perfil.png");
   background-size: 100%;
@@ -91,6 +138,10 @@
 }
 
 .menu_small_text {
+  margin: 35% auto auto;
+}
+
+.menu_modal_text {
   margin: 35% auto auto;
 }
 
@@ -462,6 +513,26 @@
     background-size: 300px 300px;
   }
 
+  .modal2x2{
+    width: 200px;
+    height: 206px;
+    display: inline-block;
+    vertical-align: top;
+    background-size: 200px 206px;
+  }
+
+  .modal2x1{
+    display: none;
+  }
+
+  .modal1x1{
+    width: 200px;
+    height: 103px;
+    display: inline-block;
+    vertical-align: top;
+    background-size: 200px 103px;
+  }
+
   .s2x1{
     display: inline-block;
     width: 300px;
@@ -537,6 +608,10 @@
   .menu_small_text {
     margin: 40% auto auto;
   }
+
+  .menu_modal_text {
+    margin: 10% auto auto;
+  }
   
   .menu_small_text_2 {
     margin: 45% auto auto;
@@ -544,6 +619,16 @@
 
   .modal_text {
     display: none;
+  }
+
+  .boton_mod_izq {
+    position: absolute;
+    margin: 38% auto auto 14%
+  }
+
+  .boton_mod_der {
+    position: absolute;
+    margin: 38% auto auto 14%
   }
 
   .twitter_share {
@@ -608,5 +693,15 @@
 
  .invites-div{
     height: 100px;
+  }
+
+  .boton_mod_izq {
+    position: absolute;
+    margin: 16% auto auto 14%
+  }
+
+  .boton_mod_der {
+    position: absolute;
+    margin: 15% auto auto 14%
   }
 }
