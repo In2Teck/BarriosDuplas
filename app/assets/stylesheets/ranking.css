@@ -104,7 +104,7 @@
   display: inline-block;
   vertical-align: top;
   margin: auto auto auto 10px;
-  width: 30%;
+  width: 40%;
 }
 
 #ranking_lista li .team_name {
@@ -199,7 +199,7 @@
     display: inline-block;
     vertical-align: top;
     margin: auto auto auto 7px;
-    width: 40%;
+    width: 30%;
   }
 
   #ranking_lista li .team_name {
