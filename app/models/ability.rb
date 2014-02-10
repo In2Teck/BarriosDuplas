@@ -9,6 +9,8 @@ class Ability
 		  can :manage, :display
       can :update, User
       cannot :admin, :display
+      can [:create, :update, :notified], Team
+      can [:create, :update, :accept, :cancel], Invite
       #cannot :csv, :display
       #cannot :print_attendees, :display
       #can :update_hood, User 

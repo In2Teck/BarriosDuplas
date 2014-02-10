@@ -1,4 +1,7 @@
 class HoodsController < ApplicationController
+
+  load_and_authorize_resource
+
   # GET /hoods
   # GET /hoods.json
   def index

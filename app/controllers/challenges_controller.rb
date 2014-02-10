@@ -1,4 +1,7 @@
 class ChallengesController < ApplicationController
+
+  load_and_authorize_resource
+
   # GET /challenges
   # GET /challenges.json
   def index

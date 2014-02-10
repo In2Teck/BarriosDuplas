@@ -1,4 +1,7 @@
 class InvitesController < ApplicationController
+
+  load_and_authorize_resource :except => [:create, :new, :accept, :cancel]
+
   # GET /invites
   # GET /invites.json
   def index
