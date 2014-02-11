@@ -163,6 +163,10 @@ body{
   text-shadow: none;
 }
 
+.overflow_hidden{
+  overflow: hidden;
+}
+
 /* for modal */
 #modal-alert {
   display: none;

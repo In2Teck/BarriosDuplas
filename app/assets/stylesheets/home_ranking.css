@@ -151,13 +151,16 @@
   display: inline-block;
   vertical-align: top;
   margin: auto auto auto 10px;
-  width: 40%;
+  width: 45%;
+  height: 100%;
 }
 
 #ranking_lista li .team_name {
   font-family: 'FuturaStd-CondensedBold',Sans-Serif;
-  line-height: 0.8;
-  margin: 10px auto auto;
+  line-height: 1;
+  margin: -1px auto auto;
+  height: 38px;
+  overflow: hidden;
 }
 
 #ranking_lista li .team_kilometers{
@@ -246,12 +249,14 @@
     display: inline-block;
     vertical-align: top;
     margin: auto auto auto 7px;
-    width: 30%;
+    width: 35%;
   }
 
   #ranking_lista li .team_name {
-    line-height: 0.8;
-    margin: 10px auto auto;
+    line-height: 1;
+    margin: -5px auto auto;
+    height: 30px;
+    overflow: hidden;
   }
 
   #ranking_lista li .team_kilometers{

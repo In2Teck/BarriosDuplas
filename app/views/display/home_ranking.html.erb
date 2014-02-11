@@ -18,7 +18,7 @@
             <%= image_tag "http://graph.facebook.com/"+team.first_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb'%><%= image_tag "http://graph.facebook.com/"+team.second_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb' %>
           </div> 
           <div class='team_info'>
-            <p class='team_name'><%= team.name.upcase[0..16] %></p>
+            <p class='team_name'><%= team.name.upcase %></p>
             <p class='team_kilometers'><%= team.kilometers.round(2).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KM</p>
           </div>
         </li>
@@ -40,7 +40,7 @@
       </div
       ><div id="equipo_stats" class="equipo_stats s2x1">
         <p class="equipo_header" style="margin: 15px auto 8px !important;">EQUIPO:</p>
-        <p class="equipo_nombre"><%= @team.name.upcase[0..16] %></p>
+        <p class="equipo_nombre"><%= @team.name.upcase %></p>
         <p class="equipo_km"><%= @self_ranking[:kilometers].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KMS</p>
         <p class="equipo_header">POSICION: <%= @self_ranking[:kilometers] > 0 ? @self_ranking[:position] : "N/A" %></p>
     </div
