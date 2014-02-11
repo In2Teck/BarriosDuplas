@@ -139,10 +139,10 @@ function cambiaLayout() {
   $("#perfil").addClass("s4x2");
   $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><div class='equipo_titulo'></div></div></div><div id='perfil_uno' class='perfil s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil_dos s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div>");
   $(".perfil").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-  resetCssProperty("perfil", "background-size", "100%");
+  resetCssProperty("perfil", "background-size", "101%, 100%");
   $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<p class='km_chico'>" + uno.kilometers + " KM <p class='barrio_chico'>" + (typeof uno.hood != 'undefined' ? uno.hood.name.toUpperCase() : ""  ) + "</p>");
   $(".perfil_dos").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-  resetCssProperty("perfil_dos", "background-size", "100%");
+  resetCssProperty("perfil_dos", "background-size", "101%, 100%");
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p class='barrio_chico'>" + (typeof dos.hood != 'undefined' ? dos.hood.name.toUpperCase() : ""  ) + "</p>");
   $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
   $("#editar").css("display", "inline");
@@ -187,13 +187,13 @@ function checkAmiga() {
     $("#amiga").on("click", muestraInvitacion);
     $("#amiga .status").html("ESPERANDO CONFIRMACIÓN <br/> DE TU COMPAÑERA");
     $("#amiga").css("background", "url('assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=400&height=200')");
-    $("#amiga").css("background-size", "100%");
+    $("#amiga").css("background-size", "101%, 100%");
   }
   else if (!isTeamComplete()) {
     cambiaCursor($("#amiga"), false);
     $("#amiga .status").text($("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
     $(".amiga").css("background", "url('assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200')");
-    $(".amiga").css("background-size", "100%");
+    $(".amiga").css("background-size", "101%, 100%");
   }
   else {
     cambiaCursor($("#amiga"), false);
@@ -238,7 +238,7 @@ function checkBarrio() {
 
 function setProfile() {
   $(".perfil").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-  resetCssProperty("perfil", "background-size", "100%");
+  resetCssProperty("perfil", "background-size", "101%, 100%");
   $("#perfil .status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
 }
 
@@ -251,6 +251,7 @@ function capturaPerfil() {
       var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
       modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
       $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+      resetCssProperty("profile_izq", "background-size", "101%, 100%");
       $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
       $("#sub_der").html(data); 
     },
@@ -268,6 +269,7 @@ function capturaTwitter(firstTime) {
     success: function(data, textStatus, jqXHR) {
       if (firstTime) {
         $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+        resetCssProperty("profile_izq", "background-size", "101%, 100%");
         $("#sub_der").html(data);
       }
       else {
@@ -277,6 +279,7 @@ function capturaTwitter(firstTime) {
         $("#cancelar-btn").removeClass("btn_cancelar");
         $("#cancelar-btn").addClass("btn_noconectar");
         $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+        resetCssProperty("profile_izq", "background-size", "101%, 100%");
         $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");        
       }
     },
@@ -349,6 +352,7 @@ function muestraRequests() {
       modalInvites(html);
       $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
       $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+      resetCssProperty("profile_izq", "background-size", "101%, 100%");
       $("#sub_der").html(data);
     },
     error: function() {
@@ -361,7 +365,8 @@ function muestraConfirmacion() {
   var html = "<div id='sub_izq' class='profile_izq responsive_bck'></div><div id='sub_der' class='amiga_der responsive_bck'><div class='modal_input'><div class='img_modal_amiga'></div><div class='modal_text_no_margin' style='margin: 20px 0;'></div><div id='confirmacion_texto' class='modal_text_no_margin centered'></div></div></div>"; 
   modalDialogue(html);
   $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
-  $(".img_modal_amiga").css({background: "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+  partner.facebook_id +"/picture?redirect=1&width=150&height=150')", "background-size": "100%", margin: "auto" });
+  resetCssProperty("profile_izq", "background-size", "101%, 100%");
+  $(".img_modal_amiga").css({background: "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+  partner.facebook_id +"/picture?redirect=1&width=150&height=150')", "background-size": "101%, 100%", margin: "auto" });
   $("#sub_der .modal_text_no_margin").text(partner.first_name.toUpperCase() + " " + partner.last_name.toUpperCase());
   $("#sub_der #confirmacion_texto").html("ACEPTÓ TU INVITACIÓN A CORRER JUNTAS ESTE AÑO.<br/> DECIDAN CON QUÉ RETO QUIEREN EMPEZAR <br/> Y CORRAN HASTA LLEGAR AL PRIMER SITIO DEL RANKING.");
   $.ajax({
@@ -395,7 +400,7 @@ function muestraInvitacion() {
           $("#invitacion_texto").css("display", "none");
         }
 
-        $(".img_modal_amiga").css({background: "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=150&height=150')", "background-size": "100%", margin: "auto" });
+        $(".img_modal_amiga").css({background: "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("invited").invited_user_facebook_id +"/picture?redirect=1&width=150&height=150')", "background-size": "101%, 100%", margin: "auto" });
         $("#amiga_invitada").text($("#home-values").data("invited").invited_user_name.toUpperCase().substr(0,18));
       },
       error: function() {
@@ -437,8 +442,8 @@ function registrarNombre() {
         capturaTwitter(true);
         // Pone background de perfil
         resetCssProperty("perfil", "background-color", "");
-        resetCssProperty("perfil", "background-size", "100%");
         resetCssProperty("perfil", "background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+        resetCssProperty("perfil", "background-size", "101%, 100%");
         reloadInfo();
       },
       error: function() {
@@ -662,12 +667,13 @@ function editarRegistro() {
       $("#sub_der").html(data);
 
       $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+      resetCssProperty("profile_izq", "background-size", "101%, 100%");
       $("#sub_izq #status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
 
       if ($("#home-values").data("partner")) {
         $("#sub_der #amiga .status").html("TU COMPAÑERA ES: <br/> " + $("#home-values").data("partner").first_name.toUpperCase() + " " + $("#home-values").data("partner").last_name.toUpperCase());
         $("#sub_der .amiga").css("background", "url('assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ $("#home-values").data("partner").facebook_id +"/picture?redirect=1&width=400&height=200')");
-        $("#sub_der .amiga").css("background-size", "100%");
+        $("#sub_der .amiga").css("background-size", "101%, 100%");
       }
 
       if ($("#home-values").data("team") && $("#home-values").data("team").name) {
