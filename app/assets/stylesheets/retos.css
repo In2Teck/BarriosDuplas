@@ -1,0 +1,200 @@
+#contenedor {
+  margin: 30px auto auto;
+  padding: 0;
+  height: 600px;
+  width: 800px;
+}
+
+.s2x4{
+  display: inline-block;
+  width: 400px;
+  height: 600px;
+  vertical-align: top;
+  background-size: 400px 600px;
+}
+
+.retos_fondo_izq{
+  background-image: url('/assets/bg_retos_1.jpg');
+  background-size: 100%;
+}
+
+.retos_fondo_der{
+  background-image: url('/assets/bg_retos_2.jpg');
+  background-size: 100%;
+}
+
+#pleca_bottom{
+  width: 800px;
+  height: 10px;
+  background-image: url('/assets/separador_bg.png');
+  background-size: 800px 10px;
+  background-repeat: no-repeat;
+  margin: 30px auto 15px;
+}
+
+.retos_header {
+  font-family:'FuturaStd-CondensedBoldObl',Sans-Serif;
+  font-size: 46px;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  margin: 30px auto auto;
+}
+
+.retos_sub_header{
+  font-family: 'FuturaStd-MediumCondensed', Sans-Serif;
+  font-size: 30px;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  margin: auto auto;
+}
+
+.social_run{
+  background-image: url('/assets/reto1.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 102px;
+  background-size: 102px 178px;
+  margin: 25px auto 15px;
+}
+
+.marathon{
+  background-image: url('/assets/reto2.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 147px;
+  background-size: 147px 178px;
+  margin: 20px auto;
+  opacity: 0.4;
+}
+
+.d10k{
+  background-image: url('/assets/reto5.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 123px;
+  background-size: 123px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
+.fast_track{
+  background-image: url('/assets/reto3.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 220px;
+  background-size: 220px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
+.wake_up{
+  background-image: url('/assets/reto4.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 150px;
+  background-size: 150px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
+.menu_font{
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1;
+}
+
+.margin_top_modal_retos {
+  margin: 30% auto auto;
+}
+
+.modal_reto{
+  height: 85%;
+  margin: 8%;
+}
+
+@media screen and (max-width: 900px) { 
+
+   .menu_font{
+      font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+      color: white;
+      font-smoothing: antialiased;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1;
+    }
+
+   #contenedor {
+    margin: 30px auto auto;
+    padding: 0;
+    height: 880px;
+    width: 300px;
+  }
+
+  #pleca_bottom{
+    width: 300px;
+    height: 10px;
+    background-image: url('/assets/separador_bg.png');
+    background-size: 300px 10px;
+    background-repeat: no-repeat;
+    margin: 30px auto 15px;
+  }
+
+  .s2x4{
+    display: inline-block;
+    width: 300px;
+    height: 440px;
+    vertical-align: top;
+    background-size: 300px 440px;
+  }
+
+  .retos_header {
+    font-size: 30px;
+    margin: 20px auto auto;
+  }
+
+  .retos_sub_header{
+    font-size: 20px;
+    margin: auto auto;
+  }
+
+  .marathon{
+    height: 130px;
+    width: 107px;
+    background-size: 107px 130px;
+    margin: 15px auto;
+  }
+
+  .social_run{
+    height: 130px;
+    width: 75px;
+    background-size: 75px 130px;
+    margin: 20px auto 15px;
+  }
+
+  .d10k{
+    height: 130px;
+    width: 90px;
+    background-size: 90px 130px;
+    margin: 10px auto;
+  }
+
+  .fast_track{
+    height: 130px;
+    width: 161px;
+    background-size: 161px 131px;
+    margin: 10px auto;
+  }
+
+  .wake_up{
+    height: 130px;
+    width: 110px;
+    background-size: 110px 130px;
+    margin: 10px auto;
+  }
+
+}

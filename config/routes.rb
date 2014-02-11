@@ -42,6 +42,8 @@ NosotrasCorremos::Application.routes.draw do
   
   match 'terminos' => 'display#terminos', :as => :terminos
 
+  match 'retos' => 'display#retos', :as => :retos
+
   # VISTAS PARCIALES
 
   match 'nombre_usuario' => 'display#nombre_usuario', :as => :nombre_usuario
@@ -56,8 +58,6 @@ NosotrasCorremos::Application.routes.draw do
   
   match 'run_clubs' => 'display#run_clubs', :as => :run_clubs
   
-  match 'retos' => 'display#retos', :as => :retos
-
   match 'invitaciones_pendientes' => 'display#invitaciones_pendientes', :as => :invitaciones_pendientes
 
   match 'conecta_twitter' => 'display#conecta_twitter', :as => :conecta_twitter

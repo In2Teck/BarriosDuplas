@@ -413,8 +413,7 @@ function muestraRunClubs() {
 }
 
 function muestraRetos() {
-  var html = "<div id='sub_izq' class='retos_izq responsive_bck'></div><div id='sub_der' class='retos_der responsive_bck centered'><p class='menu_font margin_top_modal_retos'>PRONTO CONOCERÁS <br/> LOS RETOS A VENCER <br/> PARA CONQUISTAR EL RANKING.</p><br/></div>"; 
-  modalDialogue(html);
+  window.location.href = "/retos"; 
 }
 
 function registrarNombre() {
