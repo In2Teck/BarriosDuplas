@@ -18,7 +18,7 @@
             <%= image_tag "http://graph.facebook.com/"+team.first_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb'%><%= image_tag "http://graph.facebook.com/"+team.second_user.facebook_id+"/picture?redirect=1&type=square&width=30&height=30", :class=>'profile_pic_bg profile_pic_thumb' %>
           </div> 
           <div class='team_info'>
-            <p class='team_name'><%= team.name.upcase. %></p>
+            <p class='team_name'><%= team.name.upcase[0..16] %></p>
             <p class='team_kilometers'><%= team.kilometers.round(2).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %> KM</p>
           </div>
         </li>
