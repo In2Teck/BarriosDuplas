@@ -32,7 +32,8 @@ class Team < ActiveRecord::Base
   end
 
   def self.validate_all_challenges
-    Team.all.each do |team|
+    teams = Team.where("first_user_id is not null and second_user_id is not null")
+    teams.all.each do |team|
       team.validate_challenges
     end
   end

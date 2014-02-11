@@ -99,6 +99,7 @@ class User < ActiveRecord::Base
       end
       user.save_total_kilometers
     end
+    Team.validate_all_challenges
   end
 
   def query_fb_runs

@@ -97,3 +97,5 @@ Hood.create(name: 'Hermosillo')
 Hood.create(name: 'Monterrey')
 Hood.create(name: 'Ecatepec')
 Hood.create(name: 'Nezahualcoyotl')
+#Retos
+Challenge.create({:name=> "Social Run", :description=>"Vale más una carrera entre amigas que un café por la tarde. Corran juntas 6km entre 6 y 8 PM.", :start_date => DateTime.new(2014, 2, 11, 6, 0, 1)})
