@@ -1,10 +1,13 @@
-<h1>Listing teams</h1>
+<h2>Listing teams</h2>
+<br/>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>First user</th>
-    <th>Second user</th>
+    <th>Nombre</th>
+    <th>Usuario 1</th>
+    <th>Usuario 1 FB</th>
+    <th>Usuario 2</th>
+    <th>Usuario 2 FB</th>
     <th>Kilometers</th>
     <th></th>
     <th></th>
@@ -14,16 +17,19 @@
 <% @teams.each do |team| %>
   <tr>
     <td><%= team.name %></td>
-    <td><%= team.first_user_id %></td>
-    <td><%= team.second_user_id %></td>
+    <td><%= User.find(team.first_user_id).first_name + " " + User.find(team.first_user_id).last_name if team.first_user_id %></td>
+    <td><%= User.find(team.first_user_id).facebook_id if team.first_user_id %></td>
+    <td><%= User.find(team.second_user_id).first_name + " " + User.find(team.second_user_id).last_name if team.second_user_id %></td>
+    <td><%= User.find(team.second_user_id).facebook_id if team.second_user_id %></td>
     <td><%= team.kilometers %></td>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
+<br/>
+<%= will_paginate @teams%>
 <br />
 
 <%= link_to 'New Team', new_team_path %>

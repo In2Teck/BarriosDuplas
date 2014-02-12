@@ -2,7 +2,7 @@
 
 <p>
   <b>External ID:</b>
-  <%= @user.uid %>
+  <%= @user.facebook_id %>
 </p>
 
 <p>
@@ -13,6 +13,16 @@
 <p>
   <b>Last name:</b>
   <%= @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Kilometers:</b>
+  <%= @user.kilometers %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

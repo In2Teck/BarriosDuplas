@@ -3,13 +3,20 @@
 <head>
   <title>Nosotras Corremos - Admin</title>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "admin", :media => "all" %>
   <%= javascript_include_tag "admin" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <header>
+    <%= link_to "logout", "/logout", :class => "link-to-button" %>
+    <%= link_to "home", "/admin", :class => "link-to-button" %>
+    <h2> Nosotras Corremos - Admin </h2>
+  </header>
+  <div class="content_admin">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

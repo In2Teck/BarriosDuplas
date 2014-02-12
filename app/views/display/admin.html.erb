@@ -1,0 +1,16 @@
+  <h3>Resumen</h3>
+  <br/>
+  <%= link_to 'Usuarios', :users %>
+  <ul>
+    <li>Usuarios totales: <%= @users_count %></li>  
+    <li>Usuarios con km: <%= @users_with_km_count %></li>  
+    <li>Usuarios con problemas de FB: <%= @users_with_fb_problems %> </li>  
+    <li>Usuarios sin TW: <%= @users_with_tw_problems %></li>  
+  </ul>
+  <br/>
+  <%= link_to 'Equipos', :teams %>
+  <ul>
+    <li>Equipos totales: <%= @team_count%></li>  
+    <li>Equipos completos: <%= @complete_teams%></li>
+    <li>Equipos con km: <%= @complete_teams_with_km%></li>
+  </ul>

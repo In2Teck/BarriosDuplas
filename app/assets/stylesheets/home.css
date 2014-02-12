@@ -138,11 +138,11 @@
 }
 
 .menu_small_text {
-  margin: 35% auto auto;
+  padding: 35% 0 0;
 }
 
 .menu_modal_text {
-  margin: 35% auto auto;
+  padding: 35% 0 0;
 }
 
 .menu_small_text_2 {
@@ -169,6 +169,12 @@
 .modal_input {
   padding-top: 5%;
   text-align: center;
+}
+
+.overflow_modal{
+  overflow: hidden;
+  height: 65px;
+  width: 100%;
 }
 
 #modal-content {overflow-y: hidden;}
@@ -606,11 +612,11 @@
   }
 
   .menu_small_text {
-    margin: 40% auto auto;
+    padding: 40% 0 0;
   }
 
   .menu_modal_text {
-    margin: 10% auto auto;
+    padding: 10% 0 0;
   }
   
   .menu_small_text_2 {
@@ -703,5 +709,9 @@
   .boton_mod_der {
     position: absolute;
     margin: 15% auto auto 14%
+  }
+
+  .overflow_modal{
+    height: 15px;
   }
 }

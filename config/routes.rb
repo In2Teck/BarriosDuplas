@@ -22,7 +22,7 @@ NosotrasCorremos::Application.routes.draw do
 
   resources :roles
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations"}
 
   devise_scope :user do
 	  get 'logout', :to => "devise/sessions#destroy"
@@ -33,6 +33,10 @@ NosotrasCorremos::Application.routes.draw do
   resources :users
 
   match 'admin' => 'display#admin', :as => :admin
+  
+  match 'admin_users' => 'display#admin_users', :as => :admin_users
+  
+  match 'admin_teams' => 'display#admin_teams', :as => :admin_teams
   
   match 'home' => 'display#home', :as => :home
   

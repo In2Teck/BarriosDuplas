@@ -1,11 +1,13 @@
 class TeamsController < ApplicationController
 
+  layout "admin"
+
   load_and_authorize_resource :except => [:update, :create, :new, :notified]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.order("kilometers DESC").paginate(:per_page => 100, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

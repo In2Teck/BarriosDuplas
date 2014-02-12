@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 
+  layout "admin"
+
   load_and_authorize_resource
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order("kilometers DESC").paginate(:per_page => 100, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,8 +45,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
-
+    
+    @user = Run.new(params[:user])
+   
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
