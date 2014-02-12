@@ -8,7 +8,7 @@ class Ability
 	  else
 		  can :manage, :display
       can :update, User
-      cannot :admin, :display
+      cannot [:admin, :xls_all_users, :xls_all_teams], :display
       can [:create, :update, :notified], Team
       can [:create, :update, :accept, :cancel], Invite
       #cannot :csv, :display

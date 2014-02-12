@@ -4,6 +4,20 @@ class DisplayController < ApplicationController
   authorize_resource :class => false
 
   #VISTAS COMPLETAS
+  
+  def xls_all_users
+    @users = User.includes(:hood).order("kilometers DESC")
+    respond_to do |format|
+      format.xls
+    end
+  end
+
+  def xls_all_teams
+    @teams = Team.includes(:first_user, :second_user).order("kilometers DESC")
+    respond_to do |format|
+      format.xls
+    end
+  end
 
 	def admin
 

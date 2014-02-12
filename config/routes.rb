@@ -48,6 +48,10 @@ NosotrasCorremos::Application.routes.draw do
 
   match 'retos' => 'display#retos', :as => :retos
 
+  match 'xls_all_users' => 'display#xls_all_users', :as => :xls_all_users
+  
+  match 'xls_all_teams' => 'display#xls_all_teams', :as => :xls_all_teams
+
   # VISTAS PARCIALES
 
   match 'nombre_usuario' => 'display#nombre_usuario', :as => :nombre_usuario
