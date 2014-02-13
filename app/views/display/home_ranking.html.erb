@@ -48,7 +48,7 @@
         <p class="equipo_nombre" style="margin: 15px auto auto !important;">RETOS</p>
         <p class="equipo_km">LOGRADOS</p>
         <div style="text-align: center;">
-        <p class="equipo_nombre inline"><%= @challenges.length %></p><p class="equipo_km inline">/<%= Challenge.where("start_date > ?", Time.now).count %></p>
+        <p class="equipo_nombre inline"><%= @challenges.length %></p><p class="equipo_km inline">/<%= Challenge.where("start_date < ?", Time.now).count %></p>
         </div>
     </div>
 </div>
