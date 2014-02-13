@@ -6,6 +6,7 @@
     <li>Usuarios con km: <%= @users_with_km_count %></li>  
     <li>Usuarios con problemas de FB: <%= @users_with_fb_problems %> </li>  
     <li>Usuarios sin TW: <%= @users_with_tw_problems %></li>  
+    <li>Kilómetros personales totales: <%= @users_kilometers %></li>  
     <li><%= link_to "Todos los usuarios en XLS", "/xls_all_users.xls", :target=>'_blank' %></li>
   </ul>
   <br/>
@@ -14,5 +15,6 @@
     <li>Equipos totales: <%= @team_count%></li>  
     <li>Equipos completos: <%= @complete_teams%></li>
     <li>Equipos con km: <%= @complete_teams_with_km%></li>
+    <li>Kilómetros en equipo totales: <%= @teams_kilometers %></li>
     <li><%= link_to "Todos los equipos en XLS", "/xls_all_teams.xls", :target=>'_blank' %></li>
   </ul>

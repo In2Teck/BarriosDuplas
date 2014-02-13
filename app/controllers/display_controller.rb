@@ -26,10 +26,12 @@ class DisplayController < ApplicationController
     @users_with_km_count = User.where("kilometers > 0").count
     @users_with_fb_problems = User.where("access_token is null").count
     @users_with_tw_problems = User.where("oauth_token is null and oauth_token_secret is null").count
+    @users_kilometers = User.sum(:kilometers, :conditions => "kilometers > 0")
 
     @team_count = Team.all.count 
     @complete_teams = Team.where("first_user_id is not null and second_user_id is not null").count
     @complete_teams_with_km = Team.where("first_user_id is not null and second_user_id is not null and kilometers > 0").count
+    @teams_kilometers = Team.sum(:kilometers, :conditionz => "kilometers > 0")
 
     render :layout => "admin"    
 	end
