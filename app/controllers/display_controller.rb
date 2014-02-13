@@ -71,7 +71,8 @@ class DisplayController < ApplicationController
         end
       end
     end
-    if ( !@team || ( !@partner && !@invited ))
+    #if ( !@team || ( !@partner && !@invited ))
+    if (!@partner)
       if (Invite.where("invited_user_facebook_id = ? and accepted is null", current_user.facebook_id).length > 0)
         @show_invites = true
       end
