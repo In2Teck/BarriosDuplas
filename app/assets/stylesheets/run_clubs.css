@@ -92,6 +92,20 @@
   padding: 8%;
 }
 
+#leyenda{
+  position: absolute;
+  width: 100%;
+  top: 325px;
+  font-family:'FuturaStd-CondensedBold',Sans-Serif !important;
+  font-size: 25px;
+  line-height: 1 !important;
+  color: white;
+  margin: auto auto;
+  text-align: center;
+  user-select: none;
+  cursor: default;
+}
+
 @media screen and (max-width: 900px) {
   #simplemodal-container {
     height:242px;
@@ -150,5 +164,10 @@
     color: white;
     margin: 32% auto auto;
     text-align: center;
+  }
+
+  #leyenda{
+    top: 270px;
+    font-size: 15px;
   }
 }
