@@ -93,7 +93,7 @@ function checkStatus() {
       cambiaLayout();
     }
     else {
-      if (!$("#home-values").data("twitter") && !$("#home-values").data("user").never_twitter && show_twitter && !registro_inicial) {
+      if (!$("#home-values").data("twitter") && !$("#home-values").data("user").never_twitter && show_twitter && !registro_inicial && show_twitter) {
         capturaTwitter(false);
       }
       else if ($("#home-values").data("invites") && !registro_inicial) {
@@ -274,7 +274,7 @@ function capturaTwitter(firstTime) {
       }
       else {
         var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='profile_der responsive_bck'></div>"; 
-        modalDialogue(html);
+        modalDialogue(html, {closeClass: 'dialogueClass', overlayClose: true, modal: false, opacity: 75, onClose: function(dialog){$.modal.close();checkStatus();} });
         $("#sub_der").html(data);
         $("#cancelar-btn").removeClass("btn_cancelar");
         $("#cancelar-btn").addClass("btn_noconectar");
