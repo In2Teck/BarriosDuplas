@@ -31,7 +31,7 @@ class DisplayController < ApplicationController
     @team_count = Team.all.count 
     @complete_teams = Team.where("first_user_id is not null and second_user_id is not null").count
     @complete_teams_with_km = Team.where("first_user_id is not null and second_user_id is not null and kilometers > 0").count
-    @teams_kilometers = Team.sum(:kilometers, :conditionz => "kilometers > 0")
+    @teams_kilometers = Team.sum(:kilometers, :conditions => "kilometers > 0")
 
     render :layout => "admin"    
 	end
