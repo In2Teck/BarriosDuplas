@@ -32,8 +32,8 @@ class Challenge < ActiveRecord::Base
     #social run
     #Vale más una carrera entre amigas que un café por la tarde. Corran juntas 6km entre 6 y 8 PM.
 
-    r1 = u1.runs ? u1.runs.where("published_date > ? or start_date > ?", self.start_date, self.start_date) : []
-    r2 = u2.runs ? u2.runs.where("published_date > ? or start_date > ?", self.start_date, self.start_date) : []
+    r1 = u1.runs.where("published_date > ? or start_date > ?", self.start_date, self.start_date)
+    r2 = u2.runs.where("published_date > ? or start_date > ?", self.start_date, self.start_date)
 
     if (r1.length > 0 and r2.length > 0)
       #Primero validamos por fecha publicada
@@ -54,10 +54,27 @@ class Challenge < ActiveRecord::Base
 
   def validate_2 t_id, u1, u2 
     #fast track
-    #Superen los entrenamientos anteriores y rompan su mejor tiempo.
-    r1 = u1.runs.where("published_date < ? or start_date < ?", self.start_date, self.start_date)
-    r2 = u2.runs.where("published_date < ? or start_date < ?", self.start_date, self.start_date)
-    puts 'validate 2'
+    #Superen los entrenamientos anteriores.
+
+    #MAX kilometros, después de la fecha de inicio del reto
+    u1_for_max = Run.where("user_id = ? and (published_date > ? or start_date > ?)", u1.id, self.start_date, self.start_date).maximum(:kilometers)
+    u2_for_max = Run.where("user_id = ? and (published_date > ? or start_date > ?)", u2.id, self.start_date, self.start_date).maximum(:kilometers)
+    if u1_for_max and u2_for_max
+      u1_max = Run.where("user_id = ? and ROUND(kilometers, 2) = ? and (published_date > ? or start_date > ?)", u1.id, u1_for_max.round(2), self.start_date, self.start_date).first
+      u2_max = Run.where("user_id = ? and ROUND(kilometers, 2) = ? and (published_date > ? or start_date > ?)", u2.id, u2_for_max.round(2), self.start_date, self.start_date).first
+
+      #MIN kilómetros totales anteriores al máximo
+      u1_max_date = u1_max.start_date ? u1_max.start_date : u1_max.published_date
+      u2_max_date = u2_max.start_date ? u2_max.start_date : u2_max.published_date
+
+      u1_min = Run.where("user_id = ? and ROUND(kilometers, 2) = ? and (published_date > ? or start_date > ?)", u1.id, Run.where("user_id = ?  and (published_date > ? or start_date > ?)", u1.id, u1_max_date, u1_max_date).minimum(:kilometers).round(2), u1_max_date, u1_max_date).first
+      u2_min = Run.where("user_id = ? and ROUND(kilometers, 2) = ? and (published_date > ? or start_date > ?)", u2.id, Run.where("user_id = ?  and (published_date > ? or start_date > ?)", u2.id, u2_max_date, u2_max_date).minimum(:kilometers).round(2), u2_max_date, u2_max_date).first
+
+      #Si hay máximos más grandes que los mínimos
+      if (u1_max.kilometers > u1_min.kilometers and u2_max.kilometers > u2_min.kilometers)
+        return Participation.create({:team_id => t_id, :challenge_id => 2, :accomplished => true})
+      end
+    end
   end
 
   def validate_3 t_id, u1, u2 

@@ -59,8 +59,27 @@
   margin: 25px auto 15px;
 }
 
+.social_run_completed{
+  background-image: url('/assets/reto1_completed.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 102px;
+  background-size: 102px 178px;
+  margin: 25px auto 15px;
+}
+
 .marathon{
   background-image: url('/assets/reto2.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 147px;
+  background-size: 147px 178px;
+  margin: 20px auto;
+  opacity: 0.4;
+}
+
+.marathon_completed{
+  background-image: url('/assets/reto2_completed.png');
   background-repeat: no-repeat;
   height: 178px;
   width: 147px;
@@ -79,6 +98,16 @@
   opacity: 0.4;
 }
 
+.d10k_completed{
+  background-image: url('/assets/reto5_completed.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 123px;
+  background-size: 123px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
 .fast_track{
   background-image: url('/assets/reto3.png');
   background-repeat: no-repeat;
@@ -89,8 +118,28 @@
   opacity: 0.4;
 }
 
+.fast_track_completed{
+  background-image: url('/assets/reto3_completed.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 220px;
+  background-size: 220px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
 .wake_up{
   background-image: url('/assets/reto4.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 150px;
+  background-size: 150px 178px;
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
+.wake_up_completed{
+  background-image: url('/assets/reto4_completed.png');
   background-repeat: no-repeat;
   height: 178px;
   width: 150px;
