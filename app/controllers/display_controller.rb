@@ -143,11 +143,15 @@ class DisplayController < ApplicationController
   def retos
     @team = current_user.first_user_team ? current_user.first_user_team : current_user.second_user_team
 
-    @social_run = Participation.where("team_id = ? and challenge_id = 1", @team.id).length > 0 ? "_completed" : "" 
-    @marathon = Participation.where("team_id = ? and challenge_id = 5", @team.id).length > 0 ? "_completed" : ""
-    @fast_track = Participation.where("team_id = ? and challenge_id = 2", @team.id).length > 0 ? "_completed" : ""
-    @wake_up = Participation.where("team_id = ? and challenge_id = 3", @team.id).length > 0 ? "_completed" : ""
-    @d10k = Participation.where("team_id = ? and challenge_id = 4", @team.id).length > 0 ? "_completed" : ""
+    if @team
+
+      @social_run = Participation.where("team_id = ? and challenge_id = 1", @team.id).length > 0 ? "_completed" : "" 
+      @marathon = Participation.where("team_id = ? and challenge_id = 5", @team.id).length > 0 ? "_completed" : ""
+      @fast_track = Participation.where("team_id = ? and challenge_id = 2", @team.id).length > 0 ? "_completed" : ""
+      @wake_up = Participation.where("team_id = ? and challenge_id = 3", @team.id).length > 0 ? "_completed" : ""
+      @d10k = Participation.where("team_id = ? and challenge_id = 4", @team.id).length > 0 ? "_completed" : ""
+
+    end
   end
 
   def conecta_twitter
