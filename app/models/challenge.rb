@@ -60,7 +60,7 @@ class Challenge < ActiveRecord::Base
 
   def validate_2 t_id, u1, u2 
     #fast track
-    #Superen los entrenamientos anteriores.
+    #Superen los entrenamientos anteriores y juntas lleguen más lejos.
 
     #MAX kilometros, después de la fecha de inicio del reto
     u1_for_max = Run.where("user_id = ? and (published_date > ? or start_date > ?)", u1.id, self.start_date, self.start_date).maximum(:kilometers)
@@ -74,9 +74,9 @@ class Challenge < ActiveRecord::Base
       u1_max_date = u1_max.start_date ? u1_max.start_date : u1_max.published_date
       u2_max_date = u2_max.start_date ? u2_max.start_date : u2_max.published_date
 
-      #MIN kilómetros totales anteriores al máximo
-      u1_for_min = Run.where("user_id = ?  and (published_date < ? or start_date < ?)", u1.id, u1_max_date, u1_max_date).minimum(:kilometers) 
-      u2_for_min = Run.where("user_id = ?  and (published_date < ? or start_date < ?)", u2.id, u2_max_date, u2_max_date).minimum(:kilometers) 
+      #MAX kilómetros totales anteriores al máximo después de la fecha de inicio
+      u1_for_min = Run.where("user_id = ?  and (published_date < ? or start_date < ?)", u1.id, u1_max_date, u1_max_date).maximum(:kilometers) 
+      u2_for_min = Run.where("user_id = ?  and (published_date < ? or start_date < ?)", u2.id, u2_max_date, u2_max_date).maximum(:kilometers) 
 
       if u1_for_min and u2_for_min
         u1_min = Run.where("user_id = ? and ROUND(kilometers, 2) = ? and (published_date < ? or start_date < ?)", u1.id, u1_for_min.round(2), u1_max_date, u1_max_date).first
