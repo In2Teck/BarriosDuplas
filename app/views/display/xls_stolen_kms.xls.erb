@@ -9,6 +9,7 @@
       <Row>
         <Cell><Data ss:Type="String">Facebook ID</Data></Cell>
         <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
         <Cell><Data ss:Type="String">Team</Data></Cell>
         <Cell><Data ss:Type="String">Kilometers</Data></Cell>
         <Cell><Data ss:Type="String">Start Date</Data></Cell>
@@ -18,6 +19,7 @@
       <Row>
         <Cell><Data ss:Type="String"><%= run.user.facebook_id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= "#{run.user.first_name} #{run.user.last_name}" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= run.user.email %></Data></Cell>
         <Cell><Data ss:Type="String"><%= run.user.first_user_team ? run.user.first_user_team.name : (run.user.second_user_team ? run.user.second_user_team.name : nil) %></Data></Cell>
         <Cell><Data ss:Type="String"><%= run.kilometers %></Data></Cell>
         <Cell><Data ss:Type="String"><%= run.start_date.in_time_zone('Mexico City') %></Data></Cell>
