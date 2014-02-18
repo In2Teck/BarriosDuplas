@@ -19,6 +19,13 @@ class DisplayController < ApplicationController
     end
   end
 
+  def xls_stolen_kms
+    @runs = Run.where("start_date is not null and start_date < ?", DateTime.new(2014, 2, 04, 6, 0, 1))
+    respond_to do |format|
+      format.xls
+    end
+  end
+
 	def admin
 
     #Users
@@ -33,7 +40,7 @@ class DisplayController < ApplicationController
     @complete_teams_with_km = Team.where("first_user_id is not null and second_user_id is not null and kilometers > 0").count
     @teams_kilometers = Team.sum(:kilometers, :conditions => "kilometers > 0").round(2)
 
-    render :layout => "admin"    
+    render :layout => "admin"
 	end
 
   def index #welcome + signup

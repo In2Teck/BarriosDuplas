@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Facebook ID</Data></Cell>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Team</Data></Cell>
+        <Cell><Data ss:Type="String">Kilometers</Data></Cell>
+        <Cell><Data ss:Type="String">Start Date</Data></Cell>
+        <Cell><Data ss:Type="String">Published Date</Data></Cell>
+      </Row>
+    <% @runs.each do |run| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= run.user.facebook_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= "#{run.user.first_name} #{run.user.last_name}" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= run.user.first_user_team ? run.user.first_user_team.name : run.user.second_user_team.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= run.kilometers %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= run.start_date.in_time_zone('Mexico City') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= run.published_date.in_time_zone('Mexico City') %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

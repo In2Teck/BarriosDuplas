@@ -52,6 +52,8 @@ NosotrasCorremos::Application.routes.draw do
   
   match 'xls_all_teams' => 'display#xls_all_teams', :as => :xls_all_teams
 
+  match 'xls_stolen_kms' => 'display#xls_stolen_kms', :as => :xls_stolen_kms
+
   # VISTAS PARCIALES
 
   match 'nombre_usuario' => 'display#nombre_usuario', :as => :nombre_usuario
