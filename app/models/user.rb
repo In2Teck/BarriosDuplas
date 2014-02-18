@@ -127,6 +127,8 @@ class User < ActiveRecord::Base
             fb_run = Run.new(:user_id => self.id, :run_url => run["data"]["course"]["url"], :run_id => URI.parse(run["data"]["course"]["url"]).path.split("/").last, :kilometers => distance_in_km_for_fb(run["data"]["course"]["title"]), :published_date => run["publish_time"], :start_date =>run["start_time"], :accounted => false)
             if fb_run.start_date and fb_run.start_date > DateTime.new(2014, 2, 04, 6, 0, 1)
               fb_run.save!
+            else
+              User.log_parse_error "Usuario #{self.id} intentando subir una carrera pasada run: #{fb_run.start_date.in_time_zone('Mexico City')}" if fb_run.start_date
             end
           rescue
             User.log_user_run self, run
