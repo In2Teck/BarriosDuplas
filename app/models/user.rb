@@ -125,7 +125,9 @@ class User < ActiveRecord::Base
         if not Run.find_by_run_id(URI.parse(run["data"]["course"]["url"]).path.split("/").last) and user_last_run < run["publish_time"] 
           begin
             fb_run = Run.new(:user_id => self.id, :run_url => run["data"]["course"]["url"], :run_id => URI.parse(run["data"]["course"]["url"]).path.split("/").last, :kilometers => distance_in_km_for_fb(run["data"]["course"]["title"]), :published_date => run["publish_time"], :start_date =>run["start_time"], :accounted => false)
-            fb_run.save!
+            if fb_run.start_date and fb_run.start_date > DateTime.new(2014, 2, 04, 6, 0, 1)
+              fb_run.save!
+            end
           rescue
             User.log_user_run self, run
           end
