@@ -12,6 +12,13 @@ function init(){
     $( ".subsesion" ).hide();
     $( ".editar" ).hide();
   });
+
+  $("#mission").on("click", muestraMission);
+}
+
+function muestraMission(){
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='mission_header mission_margin'>¡SU MOVIMIENTO<br/> TIENE RECOMPENSA!</p><br/><p class='mission_font'>SUMEN LA MAYOR CANTIDAD DE KM<br/>Y SEAN PARTE DE LA PRIMERA MISIÓN<br/>DE #JUNTASCORREMOS.<br/>LAS PRIMERAS 200 DUPLAS EN EL<br/>RANKING SERÁN LAS GANADORAS.</p><br/><p class='mission_footer mission_margin_footer'>*EL CONTEO DE KMS SE CERRARÁ MIÉRCOLES 26.02.14 A LAS 11:59PM.<br/>LA MISIÓN SE LLEVARÁ A CABO EN LA CIUDAD DE MÉXICO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/mission.png' class='modal_reto' /></div>";
+  modalDialogue(html);
 }
 
 function modalAlert(html, options){

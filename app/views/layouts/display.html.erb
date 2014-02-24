@@ -28,6 +28,9 @@
         <li><%= link_to "INICIO", :root, :class => "menubutton" %></li>
         <li><%= link_to "RANKING", :ranking, :class => "menubutton" %></li>
         <li><%= link_to "TÉRMINOS", :terminos, :class => "menubutton" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "MISSION", "#", :class => "menubutton blue_gradient", :id => "mission" %></li>
+        <% end %>
       </ul>
       <ul class="shares">
         <% if user_signed_in? %>

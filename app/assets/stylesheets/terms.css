@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  min-height: 960px;
+}
+
+.background_juntas {
+    background-image: url('/assets/bg_home.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.centered {
+  text-align: center;
+}
+
+.jumbotron {
+  padding: 20px !important;
+}
+
+
+.rotated_title {
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif;
+  font-size: 50px !important;
+  line-height: 1;
+  color: white !important;
+  line-height: 0.5;
+}
+
+.terms{
+  width: 800px;
+  color: black;
+  background-color: white;
+  font-size: 12px;
+  height: 450px;
+}
+
+@media screen and (max-width: 900px) {
+  
+  .terms{
+    width: 90%;
+  }
+
+}

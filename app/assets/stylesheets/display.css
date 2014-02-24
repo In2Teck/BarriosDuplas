@@ -191,6 +191,28 @@ body{
   cursor: default;
 }
 
+.blue_gradient {
+  background: -moz-linear-gradient(top,  rgba(249,249,249,1) 0%, rgba(249,249,249,0.96) 8%, rgba(80,204,206,0.76) 49%, rgba(11,82,137,0.57) 87%, rgba(7,43,99,0.5) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,249,249,1)), color-stop(8%,rgba(249,249,249,0.96)), color-stop(49%,rgba(80,204,206,0.76)), color-stop(87%,rgba(11,82,137,0.57)), color-stop(100%,rgba(7,43,99,0.5))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(249,249,249,0.96) 8%,rgba(80,204,206,0.76) 49%,rgba(11,82,137,0.57) 87%,rgba(7,43,99,0.5) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(249,249,249,0.96) 8%,rgba(80,204,206,0.76) 49%,rgba(11,82,137,0.57) 87%,rgba(7,43,99,0.5) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(249,249,249,1) 0%,rgba(249,249,249,0.96) 8%,rgba(80,204,206,0.76) 49%,rgba(11,82,137,0.57) 87%,rgba(7,43,99,0.5) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(249,249,249,1) 0%,rgba(249,249,249,0.96) 8%,rgba(80,204,206,0.76) 49%,rgba(11,82,137,0.57) 87%,rgba(7,43,99,0.5) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#80072b63',GradientType=0 ); /* IE6-9 */ 
+}
+
+.blue_gradient:hover {
+  background: rgb(249,249,249) !important; /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(249,249,249,1) 8%, rgba(80,204,206,1) 49%, rgba(11,82,137,1) 87%, rgba(11,82,137,1) 87%, rgba(7,43,99,1) 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(8%,rgba(249,249,249,1)), color-stop(49%,rgba(80,204,206,1)), color-stop(87%,rgba(11,82,137,1)), color-stop(87%,rgba(11,82,137,1)), color-stop(100%,rgba(7,43,99,1))) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(249,249,249,1) 8%,rgba(80,204,206,1) 49%,rgba(11,82,137,1) 87%,rgba(11,82,137,1) 87%,rgba(7,43,99,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(249,249,249,1) 8%,rgba(80,204,206,1) 49%,rgba(11,82,137,1) 87%,rgba(11,82,137,1) 87%,rgba(7,43,99,1) 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(249,249,249,1) 8%,rgba(80,204,206,1) 49%,rgba(11,82,137,1) 87%,rgba(11,82,137,1) 87%,rgba(7,43,99,1) 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(249,249,249,1) 8%,rgba(80,204,206,1) 49%,rgba(11,82,137,1) 87%,rgba(11,82,137,1) 87%,rgba(7,43,99,1) 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#072b63',GradientType=0 ) !important; /* IE6-9 */  
+  color: black !important;
+}
+
 #simplemodal-container {height:412px; width:800px; padding: 0; margin: 0;}
 #simplemodal-container .simplemodal-data {padding: 0; margin: 0;}
 #simplemodal-container code {}
@@ -327,6 +349,46 @@ body{
   display: none !important;
 }
 
+.mission_font{
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 26px;
+  text-align: center;
+  line-height: 1;
+}
+
+.mission_header{
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1;
+}
+
+.mission_footer{
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1;
+}
+
+.mission_margin {
+  margin: 10% auto auto;
+}
+
+.mission_margin_footer {
+  margin: 20% auto auto;
+}
+
+.modal_reto{
+  height: 85%;
+  margin: 8%;
+}
+
 @media screen and (max-width: 900px) {
   #simplemodal-container {
     height: 412px;
@@ -365,6 +427,36 @@ body{
 
   .pagination{
     margin: 20px 0 0 0;
+  }
+
+  .nav-pills li a.menubutton {
+	  padding: 12px 8px 0;
+  }
+
+
+  .borderbutton {
+    width: 55px;
+    background-position: 2px 8px;
+  }
+
+  .borderbutton:hover {
+    background-position: 2px -20px;  
+  }
+
+  .mission_header{
+    font-size: 20px !important;
+  }
+
+  .mission_font{
+    font-size: 12px !important;
+  }
+
+  .mission_footer{
+    font-size: 8px !important;
+  }
+
+  .mission_margin_footer {
+    margin: 4% auto auto;
   }
 }
 
