@@ -56,7 +56,20 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px auto 15px;
+  margin: 25px 35px 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.city_truck{
+  background-image: url('/assets/reto_truck.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 102px;
+  background-size: 102px 178px;
+  margin: 25px 35px 15px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .social_run_completed{
@@ -166,6 +179,33 @@
   margin: 8%;
 }
 
+.text {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
+  font-size: 15px;
+  line-height: 1 !important;
+  color: white;
+  margin: 0px 0 20px;
+}
+
+.sub_head {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
+  font-size: 24px;
+  line-height: 1 !important;
+  color: white;
+  margin: 0px 0px 20px;
+  display: block;
+}
+
+#runs_container {
+  width: 472px;
+  height: 488px;
+  padding: 8%;
+}
+
+.entre{
+  margin: 0px 0px 10px;
+}
+
 @media screen and (max-width: 900px) { 
 
    .menu_font{
@@ -222,7 +262,14 @@
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
-    margin: 20px auto 15px;
+    margin: 20px 15px 15px;
+  }
+
+  .city_truck{
+    height: 130px;
+    width: 75px;
+    background-size: 75px 130px;
+    margin: 20px 15px 15px;
   }
 
   .d10k{
@@ -246,4 +293,25 @@
     margin: 10px auto;
   }
 
+  #runs_container {
+    width: 242px;
+    height: 250px;
+    padding: 1%;
+  }
+
+  .text {
+    font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+    font-size: 10px;
+    line-height: 1 !important;
+    color: white;
+    margin: 0px 0px;
+  }
+
+  .sub_head {
+    display: none; 
+  }
+
+  .entre {
+    margin: 0px 0px 5px;
+  }
 }

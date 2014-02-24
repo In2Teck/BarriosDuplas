@@ -6,6 +6,8 @@ function onReady() {
   // Habilita social run
   cambiaCursor($("#social_run"), true);
   $("#social_run").on("click", muestraSocialRun);
+  cambiaCursor($("#city_truck"), true);
+  $("#city_truck").on("click", muestraCityTruck);
 
   var pause = 50; 
   $(window).resize(function() {
@@ -68,5 +70,29 @@ function onReady() {
 function muestraSocialRun(){
   var img =  $(".social_run").length > 0 ? '/assets/reto1.png' : '/assets/reto1_completed.png';
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>VALE MÁS UNA CARRERA <br/> ENTRE AMIGAS QUE UN <br/> CAFÉ POR LA TARDE. <br/> CORRAN JUNTAS 6KM <br/> ENTRE 6 Y 8 PM.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
+  modalDialogue(html);
+}
+
+function muestraCityTruck(){
+  var html_izq = "<div id='runs_container'><div class='sub_head'>CALENDARIO</div>"+
+  "<div class='text'>"+
+  "<p class='entre'>DOMINGO 23 DE FEBRERO<br/>"+
+  "PARQUE MÉXICO - DE 8:00AM A 2:00PM.</p>"+
+  "<p class='entre'>MARTES 25 DE FEBRERO<br/>"+
+  "ESIME CULHUACÁN Y PERICOAPA - DE 11:00AM A 6:00PM.</p>"+
+  "<p class='entre'>VIERNES 28 DE FEBRERO<br/>"+
+  "PARQUE MÉXICO - DE 11:00AM A 6:00PM.</p>"+
+  "<p class='entre'>SÁBADO 1 DE MARZO<br/>"+
+  "CERRO DE LA ESTRELLA - DE 8:00AM A 2:00PM.</p>"+
+  "<p class='entre'>DOMINGO 2 DE MARZO<br/>"+
+  "PARQUE LIRA - DE 8:00AM A 2:00PM.</p>"+
+  "<p class='entre'>MARTES 4 DE MARZO<br/>"+
+  "UNITEC ERMITA Y ENAP XOCHIMILCO - DE 11:00AM A 6:00PM</p>"+
+  "<p class='entre'>JUEVES 6 DE MARZO<br/>"+
+  "CERRO DE LA ESTRELLA Y PREPA DON BOSCO - DE 11:00AM A 6:00PM.</p>"+
+  "<p class='entre'>VIERNES 7 DE MARZO<br/>"+
+  "TOUR CONDESA - DE 3:00PM A 9:00PM.</p>"+
+  "</div></div>"; 
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/reto_truck.png' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
