@@ -87,12 +87,12 @@ function muestraCityTruck(){
   "<p class='entre'>DOMINGO 2 DE MARZO<br/>"+
   "PARQUE LIRA - DE 8:00AM A 2:00PM.</p>"+
   "<p class='entre'>MARTES 4 DE MARZO<br/>"+
-  "UNITEC ERMITA Y ENAP XOCHIMILCO - DE 11:00AM A 6:00PM</p>"+
+  "UNITEC ERMITA Y ENAP XOCHIMILCO - DE 11:00AM A 6:00PM.</p>"+
   "<p class='entre'>JUEVES 6 DE MARZO<br/>"+
   "CERRO DE LA ESTRELLA Y PREPA DON BOSCO - DE 11:00AM A 6:00PM.</p>"+
   "<p class='entre'>VIERNES 7 DE MARZO<br/>"+
   "TOUR CONDESA - DE 3:00PM A 9:00PM.</p>"+
   "</div></div>"; 
-  var html = "<div id='sub_izq' class='retos_izq responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/reto_truck.png' class='modal_reto' /></div>"; 
+  var html = "<div id='sub_izq' class='retos_der responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/reto_truck.png' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
