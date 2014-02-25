@@ -1,5 +1,11 @@
 <h2>Listing users</h2>
-<br/>
+
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar por email", :name => nil %>
+  </p>
+<% end %>
 
 <table>
   <tr>

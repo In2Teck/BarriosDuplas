@@ -25,5 +25,14 @@
   <%= @user.kilometers %>
 </p>
 
+<p>
+  <b>Carreras:</b>
+  <ul>
+    <% @user.runs.each do |run|%>
+      <li><%= "km: #{run.kilometers.round(2)} publicada: #{run.published_date.in_time_zone('Mexico City').to_formatted_s(:short)} registrada: #{run.start_date ? run.start_date.in_time_zone('Mexico City').to_formatted_s(:short) : 'por twitter' } contabilizada: #{run.accounted ? 'sí' : 'no'}" %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

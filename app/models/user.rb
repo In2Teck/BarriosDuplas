@@ -45,6 +45,14 @@ class User < ActiveRecord::Base
     false
   end
 
+  def self.search(search)
+    if search
+      where('email LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
 		user = User.where(:email => auth.info.email).first
 		if not user
