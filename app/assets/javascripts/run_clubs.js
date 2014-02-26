@@ -1,6 +1,6 @@
 $(document).on("ready", onReady);
 
-var simplemodal, runs_container, closeImg, text = {};
+var sub_der, sub_izq, simplemodal, simplemodalrc, runs_container, closeImg, text = {};
 var closeImg_hover, closeImg_no_hover = "";
 
 function onReady(){
@@ -22,30 +22,75 @@ function onReady(){
           var width = $(window).width();
           
           if (width <= 900) {
-            simplemodal = { height: "242px", width: "250px", margin: "auto" };  
+            simplemodalrc = { height: "242px", width: "250px", margin: "auto" };  
             runs_container = { width: "242px", height: "250px", padding: "1%" };
             closeImg = {background:"url('/assets/boton_cerrar.png') no-repeat", width: "40px", height: "41px", "z-index": 3200, position: "absolute", "top": "0px", "right": "-31px", cursor: "pointer", "background-position": "-5px -2px"};
             closeImg_hover = "-5px -70px";
             closeImg_no_hover = "-5px -2px";
             text = { "font-family":"'FuturaStd-MediumCondensed',Sans-Serif", "font-size": "13px", "line-height": "1 !important", color: "white", margin: "0px 0 20px"};
+            simplemodal = {
+              height: "412px",
+              width: "400px",
+              margin: "200px auto auto",
+              padding: 0
+            }
+            sub_der = {
+              display: "inline-block",
+              "vertical-align": "top",
+              width: "200px",
+              height: "206px"
+            }
+            sub_izq = {
+              display: "inline-block",
+              "vertical-align": "top",
+              width: "200px",
+              height: "206px" 
+            }
+            if( width <= 480 ) {
+              simplemodal = {
+                height: "412px",
+                width: "200px",
+                padding: 0,
+                margin: "40px auto auto auto"
+              }
+            }
 
           } else {
-            simplemodal = { height: "472px", width: "488px", margin: 0 };  
+            simplemodalrc = { height: "472px", width: "488px", margin: 0 };  
             runs_container = { width: "472px", height: "488px", padding: "8%" };
             closeImg = {background:"url('/assets/boton_cerrar.png') no-repeat", width: "49px", height: "50px", "z-index": 3200, position: "absolute", "top": "0px", "right": "-32px", cursor: "pointer", "background-position": "0% 0%"};
             closeImg_hover = "0px -68px";
             closeImg_no_hover = "0px 0px";
             text = { "font-family":"'FuturaStd-MediumCondensed',Sans-Serif", "font-size": "18px", "line-height": "1.2 !important", color: "white", margin: "0px 0 20px"};
+            simplemodal = {
+              height: "412px",
+              width:"800px",
+              padding: 0,
+              margin: 0
+            }
+            sub_der = {
+              display: "inline-block",
+              width: "400px",
+              height: "412px"
+            }
+            sub_izq = {
+              display: "inline-block",
+              width: "400px",
+              height: "412px"
+            }
           }
-          $("#simplemodal-container").css(simplemodal);
+          $("#simplemodalrc-container").css(simplemodalrc);
           $("#runs_container").css(runs_container);
-          $("#simplemodal-container a.modalCloseImg").css(closeImg);
-          $("#simplemodal-container a.modalCloseImg").hover(function(){
-            $("#simplemodal-container a.modalCloseImg").css("background-position", closeImg_hover);
+          $("#simplemodalrc-container a.modalCloseImg").css(closeImg);
+          $("#simplemodalrc-container a.modalCloseImg").hover(function(){
+            $("#simplemodalrc-container a.modalCloseImg").css("background-position", closeImg_hover);
           }, function(){
-            $("#simplemodal-container a.modalCloseImg").css("background-position", closeImg_no_hover);
+            $("#simplemodalrc-container a.modalCloseImg").css("background-position", closeImg_no_hover);
           });
           $(".text").css(text);
+          $("#simplemodal-container").css(simplemodal);
+          $("#sub_der").css(sub_der);
+          $("#sub_izq").css(sub_izq);
 
       }, pause);
 

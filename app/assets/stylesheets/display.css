@@ -381,7 +381,7 @@ body{
 }
 
 .mission_margin_footer {
-  margin: 20% auto auto;
+  margin: 15% auto auto;
 }
 
 .modal_reto{
@@ -449,6 +449,7 @@ body{
 
   .mission_font{
     font-size: 12px !important;
+    margin: -5% auto auto;
   }
 
   .mission_footer{
@@ -456,8 +457,9 @@ body{
   }
 
   .mission_margin_footer {
-    margin: 4% auto auto;
+    margin: 8% auto auto;
   }
+
 }
 
 @media screen and (max-width: 480px) {
