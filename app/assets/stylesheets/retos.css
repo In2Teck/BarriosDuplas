@@ -189,15 +189,16 @@
 
 .sub_head {
   font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1 !important;
   color: white;
   margin: 0px 0px 20px;
   display: block;
+  text-align: center;
 }
 
 #runs_container {
-  width: 472px;
+  width: 400px;
   height: 488px;
   padding: 8%;
 }

@@ -74,7 +74,7 @@ function muestraSocialRun(){
 }
 
 function muestraCityTruck(){
-  var html_izq = "<div id='runs_container' style='height: 100%;'><div class='sub_head'>CALENDARIO</div>"+
+  var html_izq = "<div id='runs_container' style='height: 100%;'><div class='sub_head'>SUMA TUS KILÓMETROS DE UNA MANERA DISTINTA.<br/>SÚBETE AL NIKE CITY TRUCK.</div>"+
   "<div class='text'>"+
   "<p class='entre'>DOMINGO 23 DE FEBRERO<br/>"+
   "PARQUE MÉXICO - DE 8:00AM A 2:00PM.</p>"+
