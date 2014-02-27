@@ -140,6 +140,7 @@ class User < ActiveRecord::Base
             end
           rescue
             User.log_user_run self, run
+            save_runs_error self.id, run.to_json, false
           end
         end
       end
@@ -180,11 +181,21 @@ class User < ActiveRecord::Base
             end
           end
         rescue
-          User.log_user_run self, twitt.to_yaml      
+          User.log_user_run self, twitt.to_yaml
+          save_runs_error self.id, twitt.to_json, true
         end
       end
     end
     self.update_attribute(:last_twitt_id, twitts[0].id) if (twitts and not twitts.empty?)
+  end
+
+  def save_runs_error self_id, json, twitter
+    begin
+      run = RunsError.new(:user_id => self_id, :json => json, :twitter => twitter )
+      run.save!
+    rescue
+      User.log_parse_error "Couldn't save errored run for user #{self_id}, twitter #{twitter}"
+    end
   end
 
   def distance_in_km_for_fb distance_string

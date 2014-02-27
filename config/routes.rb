@@ -1,4 +1,7 @@
 NosotrasCorremos::Application.routes.draw do
+  resources :runs_errors
+
+
   resources :participations
 
 

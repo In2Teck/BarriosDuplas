@@ -1,0 +1,37 @@
+<h1>Listing runs_errors</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Run</th>
+    <th>Run url</th>
+    <th>Kilometers</th>
+    <th>Pace</th>
+    <th>Published date</th>
+    <th>Start date</th>
+    <th>Accounted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runs_errors.each do |runs_error| %>
+  <tr>
+    <td><%= runs_error.user_id %></td>
+    <td><%= runs_error.run_id %></td>
+    <td><%= runs_error.run_url %></td>
+    <td><%= runs_error.kilometers %></td>
+    <td><%= runs_error.pace %></td>
+    <td><%= runs_error.published_date %></td>
+    <td><%= runs_error.start_date %></td>
+    <td><%= runs_error.accounted %></td>
+    <td><%= link_to 'Show', runs_error %></td>
+    <td><%= link_to 'Edit', edit_runs_error_path(runs_error) %></td>
+    <td><%= link_to 'Destroy', runs_error, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Runs error', new_runs_error_path %>
