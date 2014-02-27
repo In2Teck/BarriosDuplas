@@ -19,6 +19,13 @@ class DisplayController < ApplicationController
     end
   end
 
+  def xls_all_teams_csv
+    @teams = Team.includes(:first_user, :second_user).order("kilometers DESC")
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def xls_stolen_kms
     @runs = Run.where("start_date is not null and start_date < ?", DateTime.new(2014, 2, 04, 6, 0, 1))
     respond_to do |format|
