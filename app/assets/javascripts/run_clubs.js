@@ -100,7 +100,7 @@ function onReady(){
 }
 
 function muestraGdl(){
-  var html = "<div id='runs_container' class='df_pop'><p class='text'>"+
+  var html = "<div id='runs_container' class='gdl_pop'><p class='text'>"+
     "<u>LOMAS DE PROVIDENCIA</u> <br/>"+
     "Días: Miércoles<br/>"+
     "Horario: 19:00 - 21:00 hrs<br/>"+
@@ -138,7 +138,7 @@ function muestraDf(){
 }
 
 function muestraMty(){
-  var html = "<div id='runs_container' class='df_pop'><p class='text'>"+
+  var html = "<div id='runs_container' class='mty_pop'><p class='text'>"+
     "<u>PARQUE FUNDIDORA</u> <br/>"+
     "Días: Martes<br/>"+
     "Horario: 19:00 - 21:00 hrs<br/>"+
@@ -154,7 +154,7 @@ function muestraMty(){
 }
 
 function muestraPuebla(){
-  var html = "<div id='runs_container' class='df_pop'><p class='text'>"+
+  var html = "<div id='runs_container' class='pue_pop'><p class='text'>"+
     "<u>PARQUE DEL ARTE</u> <br/>"+
     "Días: Martes<br/>"+
     "Horario:	19:00 - 21:00 hrs<br/>"+
