@@ -179,6 +179,15 @@
   margin: 8%;
 }
 
+.subtitle{
+  text-align: center;
+  font-family:'FuturaStd-CondensedOblique',Sans-Serif !important;
+  font-size: 15px;
+  line-height: 1 !important;
+  color: white;
+  margin: -20px 0 20px;
+}
+
 .text {
   font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
   font-size: 15px;
@@ -298,6 +307,15 @@
     width: 242px;
     height: 250px;
     padding: 1%;
+  }
+
+  .subtitle{
+    text-align: left;
+    font-family:'FuturaStd-CondensedOblique',Sans-Serif !important;
+    font-size: 10px;
+    line-height: 1 !important;
+    color: white;
+    margin: 5px 2px;
   }
 
   .text {
