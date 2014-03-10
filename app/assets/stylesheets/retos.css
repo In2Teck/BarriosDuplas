@@ -148,7 +148,7 @@
   width: 150px;
   background-size: 150px 178px;
   margin: 15px auto;
-  opacity: 0.4;
+  /*opacity: 0.4;*/
 }
 
 .wake_up_completed{
@@ -158,7 +158,7 @@
   width: 150px;
   background-size: 150px 178px;
   margin: 15px auto;
-  opacity: 0.4;
+  /*opacity: 0.4;*/
 }
 
 .menu_font{

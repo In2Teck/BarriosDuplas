@@ -6,6 +6,9 @@ function onReady() {
   // Habilita social run
   cambiaCursor($("#social_run"), true);
   $("#social_run").on("click", muestraSocialRun);
+  // Habilita wake up
+  cambiaCursor($("#wake_up"), true);
+  $("#wake_up").on("click", muestraWakeUp);
   cambiaCursor($("#city_truck"), true);
   $("#city_truck").on("click", muestraCityTruck);
 
@@ -70,6 +73,12 @@ function onReady() {
 function muestraSocialRun(){
   var img =  $(".social_run").length > 0 ? '/assets/reto1.png' : '/assets/reto1_completed.png';
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>VALE MÁS UNA CARRERA <br/> ENTRE AMIGAS QUE UN <br/> CAFÉ POR LA TARDE. <br/> CORRAN JUNTAS 6KM <br/> ENTRE 6 Y 8 PM.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
+  modalDialogue(html);
+}
+
+function muestraWakeUp(){
+  var img =  $(".wake_up").length > 0 ? '/assets/reto4.png' : '/assets/reto4_completed.png';
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>DESPERTAR TEMPRANO ES <br/> AVANZAR PRIMERO. <br/> ELIJAN UN DÍA Y CORRAN LAS <br/> DOS ANTES DE LAS 7 AM.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
 
