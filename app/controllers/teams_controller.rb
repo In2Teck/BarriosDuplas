@@ -67,6 +67,14 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
+    @team.challenges.destroy_all
+    Challenge.all.each do |challenge|
+      chal = params["challenge_#{challenge.id}"]
+      if chal 
+        Participation.create({:team_id => @team.id, :challenge_id => challenge.id})
+      end
+    end
+
     respond_to do |format|
       if @team.update_attributes(params[:team])
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }

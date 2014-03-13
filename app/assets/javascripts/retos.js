@@ -83,6 +83,7 @@ function muestraWakeUp(){
 }
 
 function muestraCityTruck(){
+  var img =  $(".city_truck").length > 0 ? '/assets/reto_truck.png' : '/assets/reto_truck_completed.png';
   var html_izq = "<div id='runs_container' style='height: 100%;'><div class='sub_head'>SUMA TUS KILÓMETROS DE UNA MANERA DISTINTA.<br/>SÚBETE AL NIKE CITY TRUCK.</div>"+
   "<div class='subtitle'>EL CAMIÓN PUEDE MOVERSE DE LUGAR SIN PREVIO AVISO</br>"+
   "YA QUE SU ESTANCIA DEPENDE DE CADA DELEGACIÓN.</div>"+
@@ -102,6 +103,6 @@ function muestraCityTruck(){
   "<p class='entre'>SÁBADO 1 DE ABRIL<br/>"+
   "CERRO DE LA ESTRELLA - DE 8:00AM A 2:00PM.</p>"+
   "</div></div>"; 
-  var html = "<div id='sub_izq' class='retos_der responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/reto_truck.png' class='modal_reto' /></div>"; 
+  var html = "<div id='sub_izq' class='retos_der responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='"+ img +"' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }

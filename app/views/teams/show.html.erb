@@ -20,6 +20,15 @@
   <%= @team.kilometers %>
 </p>
 
+<p>
+  <b>Retos:</b>
+  <ul>
+    <% Challenge.all.each do |challenge| %>
+      <li> <%= challenge.name %> <input type="checkbox" disabled <%= @team.challenges.index(challenge) ? "checked" : "" %>/></li>
+  <% end %>
+  </ul>
+</p>
+
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

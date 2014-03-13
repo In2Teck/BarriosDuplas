@@ -164,6 +164,7 @@ class DisplayController < ApplicationController
       @fast_track = Participation.where("team_id = ? and challenge_id = 2", @team.id).length > 0 ? "_completed" : ""
       @wake_up = Participation.where("team_id = ? and challenge_id = 3", @team.id).length > 0 ? "_completed" : ""
       @d10k = Participation.where("team_id = ? and challenge_id = 4", @team.id).length > 0 ? "_completed" : ""
+      @city_truck = Participation.where("team_id = ? and challenge_id = 6", @team.id).length > 0 ? "_completed" : ""
 
     end
   end
