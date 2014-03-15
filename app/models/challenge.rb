@@ -159,6 +159,27 @@ class Challenge < ActiveRecord::Base
     return nil
   end
 
+  def validate_km_helper_10 t_id, r1, r2, r1_metric, r2_metric, km, reto_id
+    r1.each do |run1|
+      if not run1[r1_metric]
+        return nil
+      end
+      run1_cst = run1[r1_metric].in_time_zone("Mexico City")
+      r2.each do |run2|
+        if not run2[r2_metric]
+          return nil
+        end
+        run2_cst = run2[r2_metric].in_time_zone("Mexico City")
+        #Las dos carreras del mismo dia, sumando KM 
+        if run1_cst.day == run2_cst.day and run1.kilometers > km and run2.kilometers > km
+          Challenge.log_challenge_runs t_id, [run1, run2], reto_id
+          return Participation.create({:team_id => t_id, :challenge_id => reto_id, :accomplished => true})
+        end
+      end
+    end
+    return nil
+  end
+
   def validate_4 t_id, u1, u2 
     #10K
     #Un compromiso entre amigas puede sumar 10 KM en un día. ¡Demuéstrenlo!
@@ -169,16 +190,16 @@ class Challenge < ActiveRecord::Base
     if (r1.length > 0 and r2.length > 0)
     
       #Primero validamos por fecha publicada
-      participation = self.validate_km_helper t_id, r1, r2, "published_date", "published_date", 10, 4
+      participation = self.validate_km_helper_10 t_id, r1, r2, "published_date", "published_date", 10, 4
       #ahora combinamos
       if not participation 
-        participation = self.validate_km_helper t_id, r1, r2, "published_date", "start_date", 10, 4
+        participation = self.validate_km_helper_10 t_id, r1, r2, "published_date", "start_date", 10, 4
       end
       if not participation 
-        participation = self.validate_km_helper t_id, r1, r2, "start_date", "published_date", 10, 4
+        participation = self.validate_km_helper_10 t_id, r1, r2, "start_date", "published_date", 10, 4
       end
       if not participation 
-        participation = self.validate_km_helper t_id, r1, r2, "start_date", "start_date", 10, 4
+        participation = self.validate_km_helper_10 t_id, r1, r2, "start_date", "start_date", 10, 4
       end
 
     end 
