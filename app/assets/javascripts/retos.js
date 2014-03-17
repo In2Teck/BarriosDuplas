@@ -11,6 +11,9 @@ function onReady() {
   $("#wake_up").on("click", muestraWakeUp);
   cambiaCursor($("#city_truck"), true);
   $("#city_truck").on("click", muestraCityTruck);
+  cambiaCursor($("#d10k"), true);
+  $("#d10k").on("click", muestraD10K);
+
 
   var pause = 50; 
   $(window).resize(function() {
@@ -79,6 +82,12 @@ function muestraSocialRun(){
 function muestraWakeUp(){
   var img =  $(".wake_up").length > 0 ? '/assets/reto4.png' : '/assets/reto4_completed.png';
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>DESPERTAR TEMPRANO ES <br/> AVANZAR PRIMERO. <br/> ELIJAN UN DÍA Y CORRAN LAS <br/> DOS ANTES DE LAS 7 AM.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
+  modalDialogue(html);
+}
+
+function muestraD10K(){
+  var img =  $(".d10k").length > 0 ? '/assets/reto5.png' : '/assets/reto5_completed.png';
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>¿CUÁNTOS ENTRENAMIENTOS <br/> DE 10K PUEDES HACER<br/> ESTA SEMANA?</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
 
