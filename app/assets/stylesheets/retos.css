@@ -283,7 +283,21 @@
     margin: 15px auto;
   }
 
+  .marathon_completed{
+    height: 130px;
+    width: 107px;
+    background-size: 107px 130px;
+    margin: 15px auto;
+  }
+
   .social_run{
+    height: 130px;
+    width: 75px;
+    background-size: 75px 130px;
+    margin: 20px 15px 15px;
+  }
+
+  .social_run_completed{
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
@@ -297,7 +311,21 @@
     margin: 20px 15px 15px;
   }
 
+  .city_truck_completed{
+    height: 130px;
+    width: 75px;
+    background-size: 75px 130px;
+    margin: 20px 15px 15px;
+  }
+
   .d10k{
+    height: 130px;
+    width: 90px;
+    background-size: 90px 130px;
+    margin: 10px auto;
+  }
+
+  .d10k_completed{
     height: 130px;
     width: 90px;
     background-size: 90px 130px;
@@ -311,7 +339,21 @@
     margin: 10px auto;
   }
 
+  .fast_track_completed{
+    height: 130px;
+    width: 161px;
+    background-size: 161px 131px;
+    margin: 10px auto;
+  }
+
   .wake_up{
+    height: 130px;
+    width: 110px;
+    background-size: 110px 130px;
+    margin: 10px auto;
+  }
+
+  .wake_up_completed{
     height: 130px;
     width: 110px;
     background-size: 110px 130px;
