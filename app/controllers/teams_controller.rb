@@ -7,7 +7,8 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.order("kilometers DESC").paginate(:per_page => 100, :page => params[:page])
+    @teams = Team.search(params[:search]).order("kilometers DESC").paginate(:per_page => 100, :page => params[:page])
+
 
     respond_to do |format|
       format.html # index.html.erb

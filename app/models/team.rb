@@ -42,4 +42,12 @@ class Team < ActiveRecord::Base
     Challenge.validate_all self
   end
 
+  def self.search(search)
+    if search
+      joins('LEFT OUTER JOIN users first_user ON first_user.id = teams.first_user_id LEFT OUTER JOIN users second_user ON second_user.id = teams.second_user_id').where('first_user.email = ? or second_user.email = ?', search, search)
+    else
+      scoped
+    end
+  end
+
 end
