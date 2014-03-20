@@ -14,7 +14,6 @@ function onReady() {
   cambiaCursor($("#d10k"), true);
   $("#d10k").on("click", muestraD10K);
 
-
   var pause = 50; 
   $(window).resize(function() {
       setTimeout(function() {

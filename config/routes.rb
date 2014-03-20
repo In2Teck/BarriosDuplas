@@ -1,4 +1,7 @@
 NosotrasCorremos::Application.routes.draw do
+  resources :additional_badges
+
+
   resources :runs_errors
 
 

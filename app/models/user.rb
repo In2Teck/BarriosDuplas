@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :facebook_id, :twitter_id, :first_name, :last_name, :roles, :access_token, :oauth_token, :oauth_token_secret, :facebook_hash, :twitter_hash, :last_twitt_id, :last_facebook_run, :hood_id, :kilometers, :age, :register_complete, :never_twitter
 
   has_and_belongs_to_many :roles
+  has_and_belongs_to_many :additional_badges
   has_many :runs
   has_many :invites
   has_one :first_user_team, class_name: "Team", foreign_key: "first_user_id"
@@ -216,7 +217,7 @@ class User < ActiveRecord::Base
     else
       return distance_exp[1].to_f
     end
-  end 
+  end
 
   def save_total_kilometers
     km = 0
@@ -233,7 +234,6 @@ class User < ActiveRecord::Base
     elsif self.second_user_team
       self.second_user_team.validate_and_update_kilometers(km.round(2))
     end
-
   end
 
   def self.runs_logger

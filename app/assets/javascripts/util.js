@@ -17,7 +17,15 @@ function init(){
 }
 
 function muestraMission(){
-  var html = "<div id='sub_izq' class='retos_der responsive_bck'><p class='mission_header mission_margin'>¡SU MOVIMIENTO<br/> TIENE RECOMPENSA!</p><br/><p class='mission_font'><br/>SUMEN LA MAYOR CANTIDAD DE KM<br/>Y SEAN PARTE DE LA PRIMERA MISIÓN<br/>DE #JUNTASCORREMOS.<br/>LAS PRIMERAS 200 DUPLAS EN EL<br/>RANKING SERÁN LAS GANADORAS.</p><br/><p class='mission_footer mission_margin_footer'>*EL CONTEO DE KMS SE CERRARÁ MIÉRCOLES 26.02.14 A LAS 11:59PM.<br/>LA MISIÓN SE LLEVARÁ A CABO EN LA CIUDAD DE MÉXICO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/mission.png' class='modal_reto' /></div>";
+  var html;
+  var mission_completed = $("#mission").data("mission-completed");
+
+  if (mission_completed){
+    html = "<div id='sub_izq' class='retos_der responsive_bck'><p class='mission_header mission_margin'><br/><br/><br/>TU MOVIMIENTO TUVO RECOMPENSA.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/mission_completed.png' class='modal_reto' /></div>";
+  } else {
+    html = "<div id='sub_izq' class='retos_der responsive_bck'><p class='mission_header mission_margin'>¡SU MOVIMIENTO<br/> TIENE RECOMPENSA!</p><br/><p class='mission_font'><br/>SUMEN LA MAYOR CANTIDAD DE KM<br/>Y SEAN PARTE DE LA PRIMERA MISIÓN<br/>DE #JUNTASCORREMOS.<br/>LAS PRIMERAS 200 DUPLAS EN EL<br/>RANKING SERÁN LAS GANADORAS.</p><br/><p class='mission_footer mission_margin_footer'>*EL CONTEO DE KMS SE CERRARÁ MIÉRCOLES 26.02.14 A LAS 11:59PM.<br/>LA MISIÓN SE LLEVARÁ A CABO EN LA CIUDAD DE MÉXICO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='/assets/mission.png' class='modal_reto' /></div>";
+  }
+
   modalDialogue(html);
 }
 
