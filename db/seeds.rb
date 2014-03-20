@@ -103,3 +103,5 @@ Challenge.create({:name=> "Fast Track", :description=>"Superen los entrenamiento
 Challenge.create({:name=>"Wake Up", :description=>"Despertar temprano es avanzar primero. Elijan un dia y corran las dos antes de las 7 AM.", :start_date => DateTime.new(2014, 3, 10, 6, 0, 1)})
 Challenge.create({:name=>"10K", :description=>"Un compromiso entre amigas puede sumar 10 KM en un dia. ¡Demuestrenlo!", :start_date => DateTime.new(2014, 3, 17, 6, 0, 1)})
 Challenge.create({:name=>"Marathon", :description=>"Corran en relevos hasta completar un maraton. ¿42 K en un dia? Juntas es mas sencillo.", :start_date => DateTime.new(2014, 2, 11, 6, 0, 1)})
+
+AdditionalBadge.create({:name=>"training_mission"})
