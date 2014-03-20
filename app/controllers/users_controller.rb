@@ -65,10 +65,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @user.additional_badges.destroy_all
+    dupla = nil
+    if @user.first_user_team
+      dupla = @user.first_user_team.second_user
+      dupla.additional_badges.destroy_all
+    elsif @user.second_user_team
+      dupla = @user.second_user_team.first_user
+      dupla.additional_badges.destroy_all
+    end
+
     AdditionalBadge.all.each do |ab|
       badge = params["ab_#{ab.id}"]
       if badge
         @user.additional_badges << ab 
+        if dupla
+          dupla.additional_badges << ab
+        end
       end
     end
 
