@@ -64,6 +64,14 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    @user.additional_badges.destroy_all
+    AdditionalBadge.all.each do |ab|
+      badge = params["ab_#{ab.id}"]
+      if badge
+        @user.additional_badges << ab 
+      end
+    end
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

@@ -34,5 +34,14 @@
   </ul>
 </p>
 
+<p>
+  <b>Badges Adicionales: </b>
+  <ul>
+    <% @user.additional_badges.each do |ab| %>
+      <li><%= ab.name %> <input type="checkbox" disabled name='ab_<%= ab.id %>' <%= @user.additional_badges.index(ab) ? "checked" : "" %>/> </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

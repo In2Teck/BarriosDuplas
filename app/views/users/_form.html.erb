@@ -31,6 +31,12 @@
     <%= f.label :kilometers %><br />
     <%= f.text_field :kilometers %>
   </div>
+   <p>Badges adicionales:</p>
+   <ul>
+  <% AdditionalBadge.all.each do |ab| %>
+    <li> <%= ab.name %> <input type="checkbox" name='ab_<%= ab.id %>' <%= @user.additional_badges.index(ab) ? "checked" : "" %>/></li>
+  <% end %>
+  </ul>
   <div class="actions">
     <%= f.submit %>
   </div>
