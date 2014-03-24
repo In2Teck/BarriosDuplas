@@ -89,7 +89,7 @@
 #runs_container {
   width: 472px;
   height: 488px;
-  padding: 8%;
+  padding: 25px 39px 39px;
 }
 
 #leyenda{
@@ -104,6 +104,23 @@
   text-align: center;
   user-select: none;
   cursor: default;
+}
+
+.btn-runclubs{
+  background-image: url('/assets/boton_runclub.png');
+  width: 183px;
+  height: 48px;
+  letter-spacing: 82px;
+  background-repeat: no-repeat;
+  padding: 4px;
+	display:inline-block;
+  background-size: 100%;
+  margin: 0px 0 -5px;
+}
+
+.btn-runclubs:hover{
+  text-decoration: none !important;
+  background-position: 0 -50px;  
 }
 
 @media screen and (max-width: 900px) {

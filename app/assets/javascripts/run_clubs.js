@@ -57,7 +57,7 @@ function onReady(){
 
           } else {
             simplemodalrc = { height: "472px", width: "488px", margin: 0 };  
-            runs_container = { width: "472px", height: "488px", padding: "8%" };
+            runs_container = { width: "472px", height: "488px", padding: "25px 39px 39px" };
             closeImg = {background:"url('/assets/boton_cerrar.png') no-repeat", width: "49px", height: "50px", "z-index": 3200, position: "absolute", "top": "0px", "right": "-32px", cursor: "pointer", "background-position": "0% 0%"};
             closeImg_hover = "0px -68px";
             closeImg_no_hover = "0px 0px";
@@ -111,7 +111,7 @@ function muestraGdl(){
     "Horario: 8:00 - 10:00 hrs<br/>"+
     "Punto de Reunión: Tienda Nike, Plaza Galerias<br/>"+
     "Rafael Sanzio, Camichines Vallarta, Zapopan, JAL.<br/><br/>"+
-   "</p></div>"; 
+    "</p><div style='text-align: center;'><a href='http://www.nrc.mx' target='_blank' class='btn-runclubs'></a></div></div>"; 
   modalRun(html);
 }
 
@@ -133,8 +133,11 @@ function muestraDf(){
     "Horario: 08:00 - 10:00 hrs<br/>"+
     "Punto de Reunión: Tienda Nike, Plaza Reforma 222,<br/>"+
     "Cuauhtémoc, 06600.<br/>"+
-   "</p></div>"; 
+    "</p><div style='text-align: center;'><a href='http://www.nrc.mx' target='_blank' class='btn-runclubs'></a></div></div>"; 
   modalRun(html);
+  if ($(window).width() <= 900) {
+    $(".df_pop").mCustomScrollbar();
+  }
 }
 
 function muestraMty(){
@@ -149,7 +152,7 @@ function muestraMty(){
     "Horario:	19:00 - 21:00 hrs<br/>"+
     "Punto de Reunión: Tienda Nike, Paseo San Pedro José<br/>"+
     "Vasconcelos, Del Valle, San Pedro Garza.<br/><br/>"+
-   "</p></div>"; 
+    "</p><div style='text-align: center;'><a href='http://www.nrc.mx' target='_blank' class='btn-runclubs'></a></div></div>"; 
   modalRun(html);
 }
 
@@ -167,6 +170,6 @@ function muestraPuebla(){
     "Punto de Reunión: Cumulo de Virgo S/N, viniendo<br/>"+
     "de calle 11 a la Av. Atlixcoyoatl Segunda sección<br/>"+
     "del parque Metropolitano.<br/><br/>"+
-   "</p></div>"; 
+    "</p><div style='text-align: center;'><a href='http://www.nrc.mx' target='_blank' class='btn-runclubs'></a></div></div>"; 
   modalRun(html);
 }
