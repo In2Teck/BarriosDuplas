@@ -92,25 +92,6 @@ function muestraD10K(){
 
 function muestraCityTruck(){
   var img =  $(".city_truck").length > 0 ? '/assets/reto_truck.png' : '/assets/reto_truck_completed.png';
-  var html_izq = "<div id='runs_container' style='height: 100%;'><div class='sub_head'>SUMA TUS KILÓMETROS DE UNA MANERA DISTINTA.<br/>SÚBETE AL NIKE CITY TRUCK.</div>"+
-  "<div class='subtitle'>EL CAMIÓN PUEDE MOVERSE DE LUGAR SIN PREVIO AVISO</br>"+
-  "YA QUE SU ESTANCIA DEPENDE DE CADA DELEGACIÓN.</div>"+
-  "<div class='text'>"+
-  "<p class='entre'>MARTES 18 DE MARZO<br/>"+
-  "SEC. 29 ROJO GÓMEZ Y ESCUELA ANDERSEN - DE 11:00AM A 6:00PM.</p>"+
-  "<p class='entre'>JUEVES 20 DE MARZO<br/>"+
-  "CCH SUR Y ANDADOR COPILCO - DE 11:00AM A 6:00PM.</p>"+
-  "<p class='entre'>VIERNES 28 DE MARZO<br/>"+
-  "UAM XOCHIMILCO Y ALAMEDA DEL SUR - DE 11:00AM A 6:00PM.</p>"+
-  "<p class='entre'>SÁBADO 23 DE MARZO<br/>"+
-  "PARQUE MÉXICO - DE 8:00AM A 2:00PM.</p>"+
-  "<p class='entre'>MARTES 25 DE MARZO<br/>"+
-  "ESIME CULHUACÁN Y PERICOAPA - DE 11:00AM A 6:00PM.</p>"+
-  "<p class='entre'>VIERNES 28 DE MARZO<br/>"+
-  "PARQUE MÉXICO - DE 11:00AM A 6:00PM.</p>"+
-  "<p class='entre'>SÁBADO 1 DE ABRIL<br/>"+
-  "CERRO DE LA ESTRELLA - DE 8:00AM A 2:00PM.</p>"+
-  "</div></div>"; 
-  var html = "<div id='sub_izq' class='retos_der responsive_bck'>" + html_izq + "</div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='"+ img +"' class='modal_reto' /></div>"; 
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'><br/><br/>ESTA ACTIVIDAD <br/>HA FINALIZADO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
