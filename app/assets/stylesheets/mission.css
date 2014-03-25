@@ -1,0 +1,103 @@
+#contenedor {
+  margin: 30px auto auto;
+  padding: 0;
+  height: 600px;
+  width: 800px;
+  text-align: center;
+  color: white;
+}
+
+.s2x3{
+  display: inline-block;
+  width: 400px;
+  height: 600px;
+  vertical-align: top;
+  background-size: 400px 600px;
+}
+
+#contenedor_izquierda {
+
+}
+
+#contenedor_derecha {
+  display: inline-block;
+}
+
+.contenedor_izq{
+  background:url("/assets/bg_mission_izq.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.contenedor_der{
+  background:url("/assets/bg_mission_der.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#pleca_bottom{
+  width: 800px;
+  height: 10px;
+  background-image: url('/assets/separador_bg.png');
+  background-size: 800px 10px;
+  background-repeat: no-repeat;
+  margin: 30px auto 15px;
+}
+
+.image_mission{
+  height: 220px;
+  width: 155px;
+  margin: 8% auto;
+}
+
+.subtitle{
+  font-family: 'FuturaStd-CondensedOblique';
+  font-size: 32px;
+  line-height: 1;
+}
+
+.minititle{
+  font-family: 'FuturaStd-CondensedBold';
+  font-size: 20px;
+  margin: 18px auto;
+}
+
+.content-text{
+  font-family: 'FuturaStd-MediumCondensed';
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.lista{
+  width: 70%;
+  margin: 20px auto auto;
+}
+
+@media screen and (max-width: 900px) {
+
+  #contenedor {
+    margin: 30px auto auto;
+    padding: 0;
+    height: 600px;
+    width: 300px;
+  } 
+
+  .s2x3{
+    display: inline-block;
+    width: 300px;
+    height: 600px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 300px 600px;
+  }
+
+  #pleca_bottom{
+    width: 300px;
+    height: 10px;
+    background-image: url('/assets/separador_bg.png');
+    background-size: 300px 10px;
+    background-repeat: no-repeat;
+    margin: 30px auto 15px;
+  }
+
+}

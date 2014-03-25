@@ -29,7 +29,7 @@
         <li><%= link_to "RANKING", :ranking, :class => "menubutton" %></li>
         <li><%= link_to "TÉRMINOS", :terminos, :class => "menubutton" %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "MISSION", "#", :class => "menubutton blue_gradient", :id => "mission", "data-mission-completed" => (not current_user.additional_badges.where('name = ? ', 'training_mission').empty?) %></li>
+          <li><%= link_to "MISSION", :mission, :class => "menubutton blue_gradient", :id => "mission" %></li>
         <% end %>
       </ul>
       <ul class="shares">

@@ -86,6 +86,8 @@ NosotrasCorremos::Application.routes.draw do
 
   match 'editar_registro' => 'display#editar_registro', :as => :editar_registro
 
+  match 'mission' => 'display#mission', :as => :mission
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

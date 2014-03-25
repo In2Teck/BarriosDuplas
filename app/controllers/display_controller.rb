@@ -60,6 +60,10 @@ class DisplayController < ApplicationController
 
   end
 
+  def mission
+
+  end
+
   def home
     @user = User.find(current_user.id)
     @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
