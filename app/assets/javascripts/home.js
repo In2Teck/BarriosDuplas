@@ -9,6 +9,7 @@ var show_twitter = true;
 
 function onReady() {
   facebook_id = $("#ruby-values").data("facebook-id");
+  $("#lista_carreras").on('click', muestraLista);
   checkStatus();
   var pause = 50; 
   $(window).resize(function() {
@@ -137,16 +138,16 @@ function cambiaLayout() {
   $("#perfil").removeClass("s2x2");
   $("#perfil").removeClass("perfil");
   $("#perfil").addClass("s4x2");
-  $("#perfil").html("<div class='equipo_div'><div id='equipo_datos'><div class='equipo_titulo'></div></div></div><div id='perfil_uno' class='perfil s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil_dos s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div>");
+  $("#perfil").html("<div class='equipo_div'><div id='lista_carreras' class='lista_carreras'>VE TUS CARRERAS</div><div id='equipo_datos'><div class='equipo_titulo'></div></div></div><div id='perfil_uno' class='perfil s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div><div id='perfil_dos' class='perfil_dos s2x2'><div class='menu_text menu_font'><div class='status'></div></div></div>");
   $(".perfil").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ uno.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
   resetCssProperty("perfil", "background-size", "101%, 100%");
   $("#perfil_uno .status").html(uno.first_name.toUpperCase() + " " + uno.last_name.toUpperCase() + "<p class='km_chico'>" + uno.kilometers + " KM <p class='barrio_chico'>" + (typeof uno.hood != 'undefined' ? uno.hood.name.toUpperCase() : ""  ) + "</p>");
   $(".perfil_dos").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ dos.facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
   resetCssProperty("perfil_dos", "background-size", "101%, 100%");
   $("#perfil_dos .status").html(dos.first_name.toUpperCase() + " " + dos.last_name.toUpperCase() + "<p class='km_chico'>" + dos.kilometers + " KM <p class='barrio_chico'>" + (typeof dos.hood != 'undefined' ? dos.hood.name.toUpperCase() : ""  ) + "</p>");
-  $("#equipo_datos .equipo_titulo").html("EQUIPO: <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
+  $("#equipo_datos .equipo_titulo").html("<p class='equipo_sub'>EQUIPO:</p> <p class='nombre_grande'>" + equipo.name.toUpperCase() + "</p><p class='km_grande'>" + equipo.kilometers + " KM</p>");
   $("#editar").css("display", "inline");
-  
+  $("#lista_carreras").on('click', muestraLista);
 }
 
 function habilitaSecciones(){
@@ -233,6 +234,27 @@ function checkBarrio() {
     cambiaCursor($("#barrio"), true);
     $("#barrio_text .status").html("ELIGE <br/> TU BARRIO");
     $("#barrio").on("click", capturaBarrio);
+  }
+}
+
+function muestraLista(){
+  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='tus_carreras_der responsive_bck'><p class='carreras_font margin_top_carreras'>*La plataforma tarda máximo dos horas en actualizarse.<br/> Si después de este tiempo tu carrera no aparece, vuelve a compartirla.</p><div id='carreras_lista'></div></div>"; 
+  modalDialogue(html, {closeClass: 'closeClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
+  $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
+  resetCssProperty("profile_izq", "background-size", "101%, 100%");
+  $("#status").html($("#home-values").data("user").first_name.toUpperCase() + " " + $("#home-values").data("user").last_name.toUpperCase() + "<p class='km_chico'>" + $("#home-values").data("user").kilometers + " KM</p>");
+  if($("#home-values").data("runs").length == 0 ){
+    $("#carreras_lista").html("<p class='menu_font_med margin_top_modal'>NO TIENES <br/>CARRERAS REGISTRADAS.</p>");
+  }else{
+    var html_carreras = "<ul class='ul_carreras'>";
+    var all = $("#home-values").data("runs");
+    for (var index = 0; index < all.length; index++) {
+      
+      html_carreras += "<li class='li_carreras'><p class='index_carreras'>"+ (index+1) +".</p> <img class='calendario_carreras' src='assets/tuscarreras_calendario.png'/><p class='fecha_carreras'>" + all[index].date + " </p><img class='kilometros_carreras' src='assets/tuscarreras_runner.png'/><p class='kilometros_carreras'>" + all[index].kilometers + "KM</p> </li>";
+    }
+    html_carreras += "</ul>";
+    $("#carreras_lista").html(html_carreras);
+    $("#carreras_lista").mCustomScrollbar();
   }
 }
 

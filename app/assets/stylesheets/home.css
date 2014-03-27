@@ -129,6 +129,23 @@
   line-height: 1;
 }
 
+.carreras_font{
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif;
+  font-size: 18px;
+  color: white;
+  margin: auto;
+  text-align: center;
+}
+
+.menu_font_med{
+  font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+  color: white;
+  font-smoothing: antialiased;
+  font-size: 26px;
+  text-align: center;
+  line-height: 1;
+}
+
 .menu_text {
   margin: 78% auto auto;
 }
@@ -214,6 +231,10 @@
 
 .margin_top_modal {
   margin: 15% auto 10%;
+}
+
+.margin_top_carreras {
+  margin: 8% auto 5%;
 }
 
 .margin_top_modal_retos {
@@ -495,7 +516,111 @@
   margin: 30px auto 15px;
 }
 
+.lista_carreras{
+  background-image: url('/assets/liston_tus_carreras.png');
+  width: 161px;
+  height: 37px;
+  margin: 20px auto auto -6px;
+  font-family: 'FuturaStd-CondensedOblique';
+  font-size: 18px;
+  color: white;
+  padding: 5px 12px;
+  cursor: pointer;
+  float: left;
+  position: absolute;
+}
+
+.equipo_sub{
+  width: auto;
+}
+
+.ul_carreras{
+  list-style-type: none;
+  color: white;
+  padding: auto;
+}
+
+.li_carreras{
+  height: 50px;
+}
+
+.li_carreras p{
+  display:inline-block;
+}
+
+.index_carreras{
+  font-family: 'FuturaStd-CondensedBold';
+  font-size: 18px;
+}
+
+.fecha_carreras{
+  font-family: 'FuturaStd-MediumCondensed';
+  font-size: 18px;
+}
+
+.kilometros_carreras{
+  font-family: 'FuturaStd-CondensedBold';
+  font-size: 22px;
+}
+
+.calendario_carreras{
+  margin: -8px 10px auto;
+  height: 33px;
+  width: 33px;
+}
+
+.kilometros_carreras{
+  margin: auto 2px auto 10px;
+  height: 38px;
+  width: 34px;
+}
+
+#carreras_lista{
+  height: 290px;
+}
+
 @media screen and (max-width: 900px) {
+
+  .carreras_font{
+    font-size: 10px;
+  }
+
+  #carreras_lista{
+    height: 120px;
+  }
+
+  .ul_carreras{
+    padding: 0;
+  }
+
+  .li_carreras{
+    height: 30px;
+  }
+
+  .index_carreras{
+    font-size: 11px;
+  }
+
+  .fecha_carreras{
+    font-size: 11px;
+  }
+
+  .kilometros_carreras{
+    font-size: 12px;
+  }
+
+  .calendario_carreras{
+    margin: -6px 2px auto;
+    height: 18px;
+    width: 18px;
+  }
+
+  .kilometros_carreras{
+    margin: auto 0 auto 2px;
+    height: 20px;
+    width: 18px;
+  }
+
   #contenedor {
     margin: 30px auto auto;
     padding: 0;
@@ -607,6 +732,15 @@
     color: white;
     font-smoothing: antialiased;
     font-size: 18px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .menu_font_med{
+    font-family: 'FuturaStd-CondensedBold', Sans-Serif;
+    color: white;
+    font-smoothing: antialiased;
+    font-size: 12px;
     text-align: center;
     line-height: 1;
   }

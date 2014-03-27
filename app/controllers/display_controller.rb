@@ -71,6 +71,15 @@ class DisplayController < ApplicationController
     @invited = nil
     @show_invites = false
     @show_twitter = @user.twitter_id ? true : false
+    @runs = []
+    @user.runs.order("created_at DESC").each do |run|
+      if run.start_date
+        date = l run.start_date.in_time_zone("Mexico City"), :format => :short, :locale => 'es'
+      else
+        date = l run.published_date.in_time_zone("Mexico City"), :format => :short, :locale => 'es'
+      end
+      @runs << {:kilometers => run.kilometers.round(2), :date => date}
+    end 
 
     if (@team)
       if (@team.first_user_id == current_user.id)

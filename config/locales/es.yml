@@ -1,0 +1,11 @@
+es:
+  date:
+    formats:
+      short: "%h %d, %H:%M"
+
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+
+  time:
+    formats:
+      abbr_month: "%b"
+      short: "%b %d, %H:%M"
