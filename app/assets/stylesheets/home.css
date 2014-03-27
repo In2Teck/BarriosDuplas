@@ -234,7 +234,7 @@
 }
 
 .margin_top_carreras {
-  margin: 8% auto 5%;
+  margin: 4% auto 5%;
 }
 
 .margin_top_modal_retos {
@@ -524,7 +524,7 @@
   font-family: 'FuturaStd-CondensedOblique';
   font-size: 18px;
   color: white;
-  padding: 5px 12px;
+  padding: 5px 4px;
   cursor: pointer;
   float: left;
   position: absolute;
@@ -586,11 +586,11 @@
   }
 
   #carreras_lista{
-    height: 120px;
+    height: 140px;
   }
 
   .ul_carreras{
-    padding: 0;
+    padding: 0 10px;
   }
 
   .li_carreras{

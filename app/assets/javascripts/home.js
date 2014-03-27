@@ -238,7 +238,7 @@ function checkBarrio() {
 }
 
 function muestraLista(){
-  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='tus_carreras_der responsive_bck'><p class='carreras_font margin_top_carreras'>*La plataforma tarda máximo dos horas en actualizarse.<br/> Si después de este tiempo tu carrera no aparece, vuelve a compartirla.</p><div id='carreras_lista'></div></div>"; 
+  var html = "<div id='sub_izq' class='profile_izq responsive_bck'><div class='menu_text menu_font'><div id='status' class='status'></div></div></div><div id='sub_der' class='tus_carreras_der responsive_bck'><p class='carreras_font margin_top_carreras'>*La plataforma tarda máximo dos horas en actualizarse.<br/> Si después de este tiempo tu carrera no aparece, vuelve <br/> a compartirla o escríbenos a nikecorredoresmx@nike.com</p><div id='carreras_lista'></div></div>"; 
   modalDialogue(html, {closeClass: 'closeClass', overlayClose: false, modal: false, opacity: 75, escClose: false});
   $(".profile_izq").css("background", "url('/assets/bg_gradient_perfil.png'), url('http://graph.facebook.com/"+ facebook_id +"/picture?redirect=1&type=square&width=300&height=300')");
   resetCssProperty("profile_izq", "background-size", "101%, 100%");
