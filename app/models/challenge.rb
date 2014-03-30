@@ -44,7 +44,7 @@ class Challenge < ActiveRecord::Base
         k2 += run.kilometers
       end
 
-      if k1+k2 > 100
+      if k1+k2 >= 90
         team[:etapa_1_km] = (k1+k2).round(2)
         return team
       else
