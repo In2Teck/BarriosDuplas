@@ -14,6 +14,47 @@ class Challenge < ActiveRecord::Base
 
   end
 
+  def self.validate_etapa_1
+    teams = []
+    Team.all.each do |team|
+      t = self.validate_etapa_1_helper team
+      teams << t if t
+    end
+    teams.sort_by! {|t| -t["etapa_1_km"]} 
+  end
+
+  def self.validate_etapa_1_helper team
+    u1 = team.first_user
+    u2 = team.second_user
+    f1 = DateTime.new(2014, 3, 25, 6, 0, 1)
+    f2 = DateTime.new(2014, 3, 29, 6, 23, 59)
+
+    if (u1 and u2)
+
+      r1 = u1.runs.where("(published_date >= ? or start_date >= ?) and (published_date <= ? or start_date <= ?)", f1, f1, f2, f2)
+      r2 = u2.runs.where("(published_date >= ? or start_date >= ?) and (published_date <= ? or start_date <= ?)", f1, f1, f2, f2)
+
+      k1 = 0
+      r1.each do |run|
+        k1 += run.kilometers
+      end
+
+      k2 = 0
+      r2.each do |run|
+        k2 += run.kilometers
+      end
+
+      if k1+k2 > 100
+        team[:etapa_1_km] = (k1+k2).round(2)
+        return team
+      else
+        return nil
+      end
+
+    end
+  end
+  
+
   def validate_1_helper t_id, r1, r2, r1_metric, r2_metric
     r1.each do |run1|
       if not run1[r1_metric]

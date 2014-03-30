@@ -12,6 +12,13 @@ class DisplayController < ApplicationController
     end
   end
 
+  def xls_etapas
+    @teams = Challenge.validate_etapa_1
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def xls_all_teams
     @teams = Team.includes(:first_user, :second_user).order("kilometers DESC")
     respond_to do |format|
