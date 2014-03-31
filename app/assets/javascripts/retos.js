@@ -13,6 +13,8 @@ function onReady() {
   $("#city_truck").on("click", muestraCityTruck);
   cambiaCursor($("#d10k"), true);
   $("#d10k").on("click", muestraD10K);
+  cambiaCursor($("#run_music"), true);
+  $("#run_music").on("click", muestraRunMusic);
 
   var pause = 50; 
   $(window).resize(function() {
@@ -75,6 +77,12 @@ function onReady() {
 function muestraSocialRun(){
   var img =  $(".social_run").length > 0 ? '/assets/reto1.png' : '/assets/reto1_completed.png';
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'>VALE MÁS UNA CARRERA <br/> ENTRE AMIGAS QUE UN <br/> CAFÉ POR LA TARDE. <br/> CORRAN JUNTAS 6KM <br/> ENTRE 6 Y 8 PM.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
+  modalDialogue(html);
+}
+
+function muestraRunMusic(){
+  var img =  $(".run_music").length > 0 ? '/assets/reto_music.png' : '/assets/reto_music_completed.png';
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_music'>TU MÚSICA TE HARÁ LLEGAR <br/> MÁS LEJOS.</p><p class='sub_head_music' >LAS PRIMERAS 5 DUPLAS QUE SUMEN 60 KM<br/>ENTRE EL LUNES 31 DE MARZO Y<br/>EL SÁBADO 5 DE ABRIL GANARÁN<br/>UNA CUENTA PREMIUM SPOTIFY<br/>VÁLIDA POR 3 MESES.<br/>NO OLVIDES COMPARTIR TUS CARRERAS<br/>DE NIKE+ A TUS REDES.<br/>INFORMAREMOS A LAS DUPLAS GANADORAS<br/>POR MAIL EL LUNES 7 DE ABRIL.<br/>RECUERDA REVISAR EN TU CORREO <br/>NO DESEADO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
 

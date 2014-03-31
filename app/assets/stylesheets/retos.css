@@ -79,7 +79,7 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px 35px 15px;
+  margin: 25px 15px 15px 50px;
   display: inline-block;
   vertical-align: top;
 }
@@ -91,10 +91,34 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px 35px 15px;
+  margin: 25px 15px 15px 50px;
   display: inline-block;
   vertical-align: top;
 }
+
+.run_music{
+  background-image: url('/assets/reto_music.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 148px;
+  background-size: 148px 178px;
+  margin: 25px 15px 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.run_music_completed{
+  background-image: url('/assets/reto_music_completed.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 148px;
+  background-size: 148px 178px;
+  margin: 25px 15px 15px;
+  display: inline-block;
+  vertical-align: top;
+}
+
 
 .marathon{
   background-image: url('/assets/reto2.png');
@@ -102,7 +126,9 @@
   height: 178px;
   width: 147px;
   background-size: 147px 178px;
-  margin: 20px auto;
+  margin: 20px 35px 15px;
+  display: inline-block;
+  vertical-align: top;
   opacity: 0.4;
 }
 
@@ -112,7 +138,9 @@
   height: 178px;
   width: 147px;
   background-size: 147px 178px;
-  margin: 20px auto;
+  margin: 20px 35px 15px;
+  display: inline-block;
+  vertical-align: top;
   opacity: 0.4;
 }
 
@@ -189,6 +217,10 @@
   margin: 30% auto auto;
 }
 
+.margin_top_modal_music {
+  margin: 10% auto auto;
+}
+
 .modal_reto{
   height: 85%;
   margin: 8%;
@@ -217,6 +249,16 @@
   line-height: 1 !important;
   color: white;
   margin: 0px 0px 20px;
+  display: block;
+  text-align: center;
+}
+
+.sub_head_music {
+  font-family:'FuturaStd-MediumCondensed',Sans-Serif !important;
+  font-size: 20px;
+  line-height: 1 !important;
+  color: white;
+  margin: 10% auto auto;
   display: block;
   text-align: center;
 }
@@ -308,14 +350,28 @@
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
-    margin: 20px 15px 15px;
+    margin: 20px 15px 15px 30px;
   }
 
   .city_truck_completed{
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
-    margin: 20px 15px 15px;
+    margin: 20px 15px 15px 30px;
+  }
+
+  .run_music{
+    height: 130px;
+    width: 108px;
+    background-size: 108px 130px;
+    margin: 20px 5px 15px;
+  }
+
+  .run_music_completed{
+    height: 130px;
+    width: 108px;
+    background-size: 108px 130px;
+    margin: 20px 5px 15px;
   }
 
   .d10k{
@@ -385,6 +441,11 @@
 
   .sub_head {
     display: none; 
+  }
+
+  .sub_head_music{
+    font-size: 12px;
+    margin: 5% auto auto;
   }
 
   .entre {
