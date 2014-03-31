@@ -70,6 +70,11 @@
   margin: 0;
 }
 
+.font-reduced{
+  font-size: 14px !important;
+  line-height: 1 !important;
+}
+
 .lista{
   width: 70%;
   margin: 20px auto auto;

@@ -27,6 +27,11 @@
     <%= f.label :kilometers %><br />
     <%= f.text_field :kilometers %>
   </div>
+ <br/>
+ <div class="field">
+    <%= f.label :mission %>
+    <%= f.check_box :mission %>
+  </div>
   <p>Retos:</p>
   <% Challenge.all.each do |challenge| %>
     <li> <%= challenge.name %> <input type="checkbox" name='challenge_<%= challenge.id %>' <%= @team.challenges.index(challenge) ? "checked" : "" %>/></li>

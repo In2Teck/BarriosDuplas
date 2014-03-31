@@ -68,7 +68,8 @@ class DisplayController < ApplicationController
   end
 
   def mission
-
+    @team = Team.where("first_user_id = ? or second_user_id = ?", current_user.id, current_user.id)[0]
+    @mission = @team.mission
   end
 
   def home

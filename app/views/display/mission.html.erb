@@ -7,52 +7,56 @@
 
 <div id="contenedor">
   <div id="contenedor_izquierda" class="contenedor_izq s2x3">
+    <% if @mission %>
     <div class='image_mission'> <%= image_tag "mission.png", :style => "width: 100%; height: 100%;"%> </div>
     <div>
       <p class="subtitle">CORRE COMO LA NATURALEZA <br> LO TENÍA PREVISTO</p>
-      <p class="minititle"> VIVE EL RETO </p>
-      <p class="content-text"><%= raw "Durante 5 días deberán correr&nbsp;</p><div class='content-text blue_inline_no_vertical'> como mínimo 100 km </div><p class='content-text'>en conjunto. Sólo 60 duplas pasarán a la siguiente fase." %></p>
+      <p class="minititle"> VIVE EL RETO #2</p>
+      <p class="content-text"><%= raw "Durante 3 días deberán correr&nbsp;</p><div class='content-text blue_inline_no_vertical'> <u>como mínimo 120 km </u></div><p class='content-text'>en conjunto. Sólo 15 duplas pasarán a la siguiente fase." %></p>
       <p class="content-text"><%= raw "El criterio de selección será el siguiente:" %></p>
       <ul class="content-text lista">
       <%= raw "
-        <li>Mujeres menores de 24 años: 20 duplas</li>
-        <li>Mujeres de 25 a 29 años: 20 duplas</li>
-        <li>Mujeres mayores de 30 años: 20 duplas</li>
+        <li>Mujeres menores de 24 años: 8 duplas</li>
+        <li>Mujeres de 25 a 29 años: 4 duplas</li>
+        <li>Mujeres mayores de 30 años: 3 duplas</li>
       " %>
       </ul>
     </div>
   </div
-  ><div id="contenedor_derecha" class="contenedor_der s2x3"
-  >
-    <div class="content-text">
+  ><%end%><div id="contenedor_derecha" class="contenedor_der s2x3"
+  ><%if @mission %>
+    <div class="content-text font-reduced">
       <br/>
-      <p class='content-text blue_inline'>Nota:</p><p class='content-text'>En caso de que algún miembro del equipo sea mayor al límite <br/>
+      <p class='content-text blue_inline font-reduced'>Nota:</p><p class='content-text font-reduced'>En caso de que algún miembro del equipo sea mayor al límite <br/>
       de edad de la categoría, la dupla deberá participar en la categoría <br/>
       siguiente. Ejemplo: Un miembro del equipo es mayor a 24 años<br/>
       y el otro menor a 24 años, participarán en la categoría de <br/>
       Mujeres de 25 a 29 años.<br/>
       </p>
-      <p class='content-text blue_inline'>Se seleccionarán las duplas que más kms acumulen en estos 5 días.<p/>
+      <p class='content-text blue_inline font-reduced'>Se seleccionarán las duplas que <u>más kms acumulen</u> en estos 3 días.<p/>
       <p class="minititle">REGLAS DEL JUEGO</p>
-      <p class='content-text'>1. Registrar sus carreras en Nike+ del&nbsp;</p><p class='content-text blue_inline'>martes 25 de marzo a las 00:01</p> <p class='content-text blue_inline'> al  sábado 29 de marzo a las 11:59 pm.<br/><p/>
-      <p class='content-text'>2. Deberán estar inscritas en&nbsp;</p><p class='content-text blue_inline'>juntascorremos.com <p/>
+      <p class='content-text font-reduced'>1. Registrar sus carreras en Nike+ del&nbsp;</p><p class='content-text blue_inline font-reduced'>martes 1 de abril a las 00:01</p> <p class='content-text blue_inline font-reduced'> al jueves 3 de abril a las 11:59 pm.<br/><p/>
+      <p class='content-text font-reduced'>2. Deberán estar inscritas en&nbsp;</p><p class='content-text blue_inline font-reduced'>juntascorremos.com <p/>
       para poder participar.<br/><br/>
       3. Recuerden que deben compartir sus carreras en Facebook <br/>
       o Twitter para que puedan ser contabilizados sus kilómetros.<br/>
       </p>
       <p class="minititle">CONSIDERACIONES</p>
-      <p class='content-text'>
-      1. En caso de ser seleccionadas para la siguiente fase se les enviará un email<div class='content-text blue_inline'>el lunes 31 de marzo&nbsp;</div>con el siguiente reto.<br/>
+      <p class='content-text font-reduced'>
+      1. En caso de ser seleccionadas para la siguiente fase se les enviará un email<div class='content-text blue_inline font-reduced'>el viernes 04 de abril a las 16:00hrs&nbsp;</div>con las indicaciones <br/>para asistir a la fase final del reto.<br/>
         Recuerden revisar la bandeja de mensajes no deseados o "Junk".<br/><br/>
         2. En caso de ser ganadoras deberán tener disponibilidad para <br/>
-        viajar el sábado <div class='content-text blue_inline'>5 de abril</div> y <div class='content-text blue_inline'>del miércoles 9 al viernes 11 de abril.</div><br/>
+        viajar el sábado <div class='content-text blue_inline font-reduced'>5 de abril</div> y <div class='content-text blue_inline font-reduced'>del miércoles 9 al viernes 11 de abril.</div><br/><br/>
         3. Nike esta facultado para rechazar su asistencia o participación <br/>
         en cualquier momento Y se reserva el derecho de admisión.<br/><br/>
+        4. Recuerden que el ranking actual de #juntascorremos no <br/>asegurará su lugar, deberán cumplir el reto para poder pasar<br/>
+        a la siguiente fase.<br/><br/>
       </p>
       <p>Si tienen alguna duda sobre la dinámica, comunicarse a<br/>
       nikecorredoresmx@nike.com
       </p>
     </div>
+    <%end%>
   </div>
 </div>
 
