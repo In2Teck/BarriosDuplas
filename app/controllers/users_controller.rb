@@ -66,10 +66,10 @@ class UsersController < ApplicationController
 
     @user.additional_badges.destroy_all
     dupla = nil
-    if @user.first_user_team
+    if @user.first_user_team and @user.first_user_team.second_user 
       dupla = @user.first_user_team.second_user
       dupla.additional_badges.destroy_all
-    elsif @user.second_user_team
+    elsif @user.second_user_team and @user.second_user_team.first_user
       dupla = @user.second_user_team.first_user
       dupla.additional_badges.destroy_all
     end
