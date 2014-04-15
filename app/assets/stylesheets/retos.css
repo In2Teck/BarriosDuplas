@@ -72,6 +72,23 @@
   vertical-align: top;
 }
 
+.natural_wonders{
+  background-image: url('/assets/natural_wonders.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 161px;
+  background-size: 161px 178px;
+  margin: 25px auto 5px;
+}
+
+.natural_wonders_completed{
+  background-image: url('/assets/natural_wonders_completed.png');
+  background-repeat: no-repeat;
+  height: 178px;
+  width: 161px;
+  background-size: 161px 178px;
+  margin: 25px auto 5px;
+}
 
 .city_truck{
   background-image: url('/assets/reto_truck.png');
@@ -79,7 +96,7 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px 15px 15px 50px;
+  margin: 15px 15px 15px 50px;
   display: inline-block;
   vertical-align: top;
 }
@@ -91,7 +108,7 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px 15px 15px 50px;
+  margin: 15px 15px 15px 50px;
   display: inline-block;
   vertical-align: top;
 }
@@ -102,7 +119,7 @@
   height: 178px;
   width: 148px;
   background-size: 148px 178px;
-  margin: 25px 35px 15px -20px;
+  margin: 25px auto;
   display: inline-block;
   vertical-align: top;
 }
@@ -114,7 +131,7 @@
   height: 178px;
   width: 148px;
   background-size: 148px 178px;
-  margin: 25px 35px 15px -20px;
+  margin: 25px auto;
   display: inline-block;
   vertical-align: top;
 }
@@ -126,7 +143,7 @@
   height: 178px;
   width: 147px;
   background-size: 147px 178px;
-  margin: 20px 35px 15px;
+  margin: 15px 35px;
   display: inline-block;
   vertical-align: top;
   opacity: 0.4;
@@ -138,7 +155,7 @@
   height: 178px;
   width: 147px;
   background-size: 147px 178px;
-  margin: 20px 35px 15px;
+  margin: 15px 35px;
   display: inline-block;
   vertical-align: top;
   opacity: 0.4;
@@ -150,7 +167,7 @@
   height: 178px;
   width: 123px;
   background-size: 123px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
   /*opacity: 0.4;*/
 }
 
@@ -160,7 +177,7 @@
   height: 178px;
   width: 123px;
   background-size: 123px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
   /*opacity: 0.4;*/
 }
 
@@ -170,8 +187,10 @@
   height: 178px;
   width: 220px;
   background-size: 220px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
   opacity: 0.4;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .fast_track_completed{
@@ -180,8 +199,10 @@
   height: 178px;
   width: 220px;
   background-size: 220px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
   opacity: 0.4;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .wake_up{
@@ -190,7 +211,9 @@
   height: 178px;
   width: 150px;
   background-size: 150px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
+  display: inline-block;
+  vertical-align: top;
   /*opacity: 0.4;*/
 }
 
@@ -200,7 +223,9 @@
   height: 178px;
   width: 150px;
   background-size: 150px 178px;
-  margin: 15px auto;
+  margin: 10px auto;
+  display: inline-block;
+  vertical-align: top;
   /*opacity: 0.4;*/
 }
 
@@ -322,14 +347,14 @@
     height: 130px;
     width: 107px;
     background-size: 107px 130px;
-    margin: 15px auto;
+    margin: 10px auto 5px;
   }
 
   .marathon_completed{
     height: 130px;
     width: 107px;
     background-size: 107px 130px;
-    margin: 15px auto;
+    margin: 10px auto 5px;
   }
 
   .social_run{
@@ -346,18 +371,32 @@
     margin: 20px 15px 15px;
   }
 
+  .natural_wonders{
+    height: 130px;
+    width: 118px;
+    background-size: 118px 130px;
+    margin: 20px auto 5px;
+  }
+
+  .natural_wonders_completed{
+    height: 130px;
+    width: 118px;
+    background-size: 118px 130px;
+    margin: 20px auto 5px;
+  }
+
   .city_truck{
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
-    margin: 20px 15px 15px 30px;
+    margin: 10px 15px 5px 30px;
   }
 
   .city_truck_completed{
     height: 130px;
     width: 75px;
     background-size: 75px 130px;
-    margin: 20px 15px 15px 30px;
+    margin: 10px 15px 5px 30px;
   }
 
   .run_music{
@@ -378,14 +417,14 @@
     height: 130px;
     width: 90px;
     background-size: 90px 130px;
-    margin: 10px auto;
+    margin: 5px auto;
   }
 
   .d10k_completed{
     height: 130px;
     width: 90px;
     background-size: 90px 130px;
-    margin: 10px auto;
+    margin: 5px auto;
   }
 
   .fast_track{
