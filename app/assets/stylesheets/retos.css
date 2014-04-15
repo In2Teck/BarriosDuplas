@@ -119,7 +119,7 @@
   height: 178px;
   width: 148px;
   background-size: 148px 178px;
-  margin: 25px auto;
+  margin: 25px 25px;
   display: inline-block;
   vertical-align: top;
 }
@@ -131,7 +131,7 @@
   height: 178px;
   width: 148px;
   background-size: 148px 178px;
-  margin: 25px auto;
+  margin: 25px 25px;
   display: inline-block;
   vertical-align: top;
 }
