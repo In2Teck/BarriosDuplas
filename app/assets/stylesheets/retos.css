@@ -56,7 +56,7 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px 35px 15px;
+  margin: 25px 25px 15px;
   display: inline-block;
   vertical-align: top;
 }
@@ -67,7 +67,7 @@
   height: 178px;
   width: 102px;
   background-size: 102px 178px;
-  margin: 25px auto 15px;
+  margin: 25px 25px 15px;
   display: inline-block;
   vertical-align: top;
 }
