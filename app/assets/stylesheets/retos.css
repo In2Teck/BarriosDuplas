@@ -124,6 +124,8 @@
   width: 161px;
   background-size: 161px 178px;
   margin: 25px auto 5px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .city_truck{
