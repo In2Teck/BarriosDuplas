@@ -188,6 +188,7 @@ class DisplayController < ApplicationController
       @city_truck = Participation.where("team_id = ? and challenge_id = 6", @team.id).length > 0 ? "_completed" : ""
       @run_music = current_user.additional_badges.where("name = ?", "Run Music").length > 0 ? "_completed" : ""
       @natural_wonders = current_user.additional_badges.where("name = ?", "Natural Wonders").length > 0 ? "_completed" : ""
+      @rewards_badge = current_user.additional_badges.where("name = ?", "Rewards Badge 1").length > 0 ? "_completed" : ""
       
     end
   end

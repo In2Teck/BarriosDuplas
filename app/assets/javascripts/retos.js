@@ -15,6 +15,8 @@ function onReady() {
   $("#d10k").on("click", muestraD10K);
   cambiaCursor($("#run_music"), true);
   $("#run_music").on("click", muestraRunMusic);
+  cambiaCursor($("#rewards_badge"), true);
+  $("#rewards_badge").on("click", muestraRewardsBadge);
 
   var pause = 50; 
   $(window).resize(function() {
@@ -101,5 +103,11 @@ function muestraD10K(){
 function muestraCityTruck(){
   var img =  $(".city_truck").length > 0 ? '/assets/reto_truck.png' : '/assets/reto_truck_completed.png';
   var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='menu_font margin_top_modal_retos'><br/><br/>ESTA ACTIVIDAD <br/>HA FINALIZADO.</p></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
+  modalDialogue(html);
+}
+
+function muestraRewardsBadge(){
+  var img =  $(".rewards_badge").length > 0 ? '/assets/rewards_badge.png' : '/assets/rewards_badge_completed.png';
+  var html = "<div id='sub_izq' class='retos_izq responsive_bck'><p class='sub_head_music' >RETO:<br/>\"CORRAN EN CONJUNTO COMO MÍNIMO 100KM EN LOS<br/>PRÓXIMOS 6 DÍAS, LAS 200 DUPLAS QUE REGISTREN MÁS<br/>KILÓMETROS EN ESTOS DÍAS SERÁN ACREEDORAS<br/>DE UN ARTÍCULO CONMEMORATIVO DE LA CAMPAÑA<br/>JUNTAS CORREMOS\".<br/><br/>DURACIÓN:<br/>MARTES 06 DE MAYO A LAS 00:01 AL DOMINGO<br/>11 DE MAYO A LAS 11:59PM. (6 DÍAS).<br/>SE ENVIARÁ UN MAIL A LAS GANADORAS DE ESTE RETO PARA<br/>QUE VAYAN A RECOGER SU BANDANA.</p><div class='bandana'><img src='/assets/rewards_bandana_icon.png' /></div></div><div id='sub_der' class='retos_der responsive_bck centered overflow_hidden'><img src='" +  img + "' class='modal_reto' /></div>"; 
   modalDialogue(html);
 }
