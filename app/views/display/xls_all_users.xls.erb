@@ -21,9 +21,9 @@
         <Cell><Data ss:Type="String"><%= user.first_name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= user.last_name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= user.kilometers %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= user.kilometers %></Data></Cell>
         <Cell><Data ss:Type="String"><%= user.hood.name if user.hood %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= user.age %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= user.age %></Data></Cell>
       </Row>
     <% end %>
     </Table>
