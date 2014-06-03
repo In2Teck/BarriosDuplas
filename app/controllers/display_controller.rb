@@ -7,6 +7,9 @@ class DisplayController < ApplicationController
   
   def xls_all_users
     @users = User.includes(:hood).order("kilometers DESC")
+    @team = nil
+    @dupla = nil
+   
     respond_to do |format|
       format.xls
     end
