@@ -12,10 +12,12 @@
         <Cell><Data ss:Type="String">First User FBID</Data></Cell>
         <Cell><Data ss:Type="String">First User email</Data></Cell>
         <Cell><Data ss:Type="String">First User age</Data></Cell>
+        <Cell><Data ss:Type="String">First User kilometers</Data></Cell>
         <Cell><Data ss:Type="String">Second User</Data></Cell>
         <Cell><Data ss:Type="String">Second User FBID</Data></Cell>
         <Cell><Data ss:Type="String">Second User email</Data></Cell>
         <Cell><Data ss:Type="String">Second User age</Data></Cell>
+        <Cell><Data ss:Type="String">Second User kilometers</Data></Cell>
         <Cell><Data ss:Type="String">Kilometers</Data></Cell>
       </Row>
     <% @teams.each do |team| %>
@@ -25,10 +27,12 @@
         <Cell><Data ss:Type="String"><%= team.first_user.facebook_id if team.first_user %></Data></Cell>
         <Cell><Data ss:Type="String"><%= team.first_user.email if team.first_user %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= team.first_user.age if team.first_user %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= team.first_user.kilometers if team.first_user %></Data></Cell>
         <Cell><Data ss:Type="String"><%= team.second_user.first_name + " " + team.second_user.last_name if team.second_user %></Data></Cell>
         <Cell><Data ss:Type="String"><%= team.second_user.facebook_id if team.second_user %></Data></Cell>
         <Cell><Data ss:Type="String"><%= team.second_user.email if team.second_user %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= team.second_user.age if team.second_user %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= team.second_user.kilometers if team.second_user %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= team.kilometers %></Data></Cell>
       </Row>
     <% end %>
